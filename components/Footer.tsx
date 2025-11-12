@@ -28,9 +28,6 @@ export default function Footer() {
               Condiciones de Contratación
             </a>
           </div>
-          <p className="text-xs mt-3 text-gray-300 font-body">
-            Magda Zawadzka | Madrid, España | Cumplimiento LOPD-GDD y RGPD (UE) 2016/679
-          </p>
         </div>
       </div>
     </footer>
