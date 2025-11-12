@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background-light font-body text-text-dark;
+}
+
+h2, h3, h4 {
+  @apply font-heading;
+}
+
+.section-padding {
+  @apply py-20;
+}
+
+.card-shadow {
+  @apply shadow-lg;
+  box-shadow: 0 10px 30px rgba(5, 150, 105, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(5, 150, 105, 0.12);
+}
+
+.btn-primary {
+  @apply bg-primary-brand text-white transition-colors duration-300;
+}
+
+.btn-primary:hover {
+  background-color: #047857;
+}
+
+.btn-secondary {
+  @apply bg-secondary-brand text-text-dark transition-colors duration-300;
+}
+
+.btn-secondary:hover {
+  background-color: #D99A2D;
+}
+
+.step-icon {
+  @apply text-secondary-brand;
+}
+
+.service-icon-box {
+  @apply inline-flex p-4 rounded-full mb-4 bg-gray-200 text-primary-brand;
+}
+
+.floating-cta-container {
+  @apply my-12;
+}
