@@ -7,10 +7,8 @@ export default function CookieConsent() {
   const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
-    // Check if user has already made a choice
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
-      // Small delay to avoid flash on page load
       setTimeout(() => setShowBanner(true), 500);
     }
   }, []);
@@ -18,7 +16,6 @@ export default function CookieConsent() {
   const handleAcceptAll = () => {
     localStorage.setItem('cookieConsent', 'all');
     setShowBanner(false);
-    // Here you would enable analytics/marketing cookies
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('consent', 'update', {
         analytics_storage: 'granted',
@@ -30,7 +27,6 @@ export default function CookieConsent() {
   const handleRejectAll = () => {
     localStorage.setItem('cookieConsent', 'necessary');
     setShowBanner(false);
-    // Only necessary cookies are allowed by default
   };
 
   const handleAcceptNecessary = () => {
@@ -42,10 +38,7 @@ export default function CookieConsent() {
 
   return (
     <>
-      {/* Overlay */}
       <div className="fixed inset-0 bg-black bg-opacity-50 z-40" />
-
-      {/* Cookie Banner */}
       <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-2xl border border-gray-200">
           <div className="p-6 md:p-8">
@@ -102,7 +95,6 @@ export default function CookieConsent() {
               </div>
             </div>
 
-            {/* Buttons */}
             <div className="flex flex-col md:flex-row gap-3 mt-6">
               <button
                 onClick={handleAcceptAll}

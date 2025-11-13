@@ -9,7 +9,7 @@ export default function Footer() {
           Diseño web con enfoque humano para tu negocio.
         </p>
 
-        {/* Legal Links */}
+        {/* Legal Links Section */}
         <div className="mt-6 pt-4 border-t border-gray-300 border-opacity-30">
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-body">
             <a href="/aviso-legal" className="hover:text-white transition-colors">
@@ -28,9 +28,6 @@ export default function Footer() {
               Condiciones de Contratación
             </a>
           </div>
-          <p className="text-xs mt-3 text-gray-300 font-body">
-            Magda Zawadzka | Madrid, España | Cumplimiento LOPD-GDD y RGPD (UE) 2016/679
-          </p>
         </div>
       </div>
     </footer>
