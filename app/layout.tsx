@@ -3,6 +3,7 @@ import { Abril_Fatface, Poppins, Nunito } from "next/font/google";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
 const abrilFatface = Abril_Fatface({
@@ -45,6 +46,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

@@ -1,0 +1,68 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#e0f2fe',
+          100: '#b9e5fe',
+          200: '#7dd3fc',
+          300: '#3eb1f0',
+          400: '#0ea5e9',
+          500: '#0891d4',
+          600: '#0c7bb3',
+          700: '#075985',
+          800: '#0c4a6e',
+          900: '#082f49',
+        },
+        stone: {
+          50: '#fafaf9',
+          100: '#f5f5f4',
+          200: '#e7e5e4',
+          300: '#d6d3d1',
+          400: '#a8a29e',
+          500: '#78716c',
+          600: '#57534e',
+          700: '#44403c',
+          800: '#292524',
+          900: '#1c1917',
+        },
+        cork: {
+          50: '#fef5ee',
+          100: '#fde8d7',
+          200: '#fbcdae',
+          300: '#f8a978',
+          400: '#f58549',
+          500: '#f16524',
+          600: '#e24d1a',
+          700: '#bb3918',
+          800: '#952f1b',
+          900: '#792919',
+        },
+        dark: {
+          DEFAULT: '#44403c',
+          50: '#fafaf9',
+          100: '#f5f5f4',
+          200: '#e7e5e4',
+          300: '#d6d3d1',
+          400: '#a8a29e',
+          500: '#78716c',
+          600: '#57534e',
+          700: '#44403c',
+          800: '#292524',
+          900: '#1c1917',
+        },
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['var(--font-space-grotesk)', 'Space Grotesk', 'system-ui', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}
