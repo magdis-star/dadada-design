@@ -425,8 +425,256 @@ sudo chown -R 501:20 "/Users/magdalenazawadzka/.npm"
 - **Status:** Active development, deployed to GitHub
 - **Version:** Next.js 15.1.3, React 19.0.0
 
+### Session 3: Portfolio Update & Vercel Deployment Issues (November 13, 2025)
+
+#### 1. Added Bernardo Website to Portfolio
+- **File:** `components/Projects.tsx`
+- **Changes:**
+  - Added Bernardo as the first project in the portfolio
+  - Project details:
+    - **Title:** Bernardo - Consultoría Digital & Estrategia
+    - **Description:** Personal branding website for a Linguistics PhD offering digital strategy consulting
+    - **Design:** Navy & Gold color scheme with innovative, bold brand voice
+    - **Link:** https://bernardo-website-7swaal4qm-magdas-projects-91e7b011.vercel.app
+    - **Image:** `/images/projects/bernardo-website.jpg`
+  - Added professional photo to `public/images/projects/` directory
+
+#### 2. Vercel Build Errors Encountered
+**Problem:**
+Website deployed but build was failing with CSS errors:
+```
+Syntax error: The `bg-background-light` class does not exist.
+If `bg-background-light` is a custom class, make sure it is defined within a `@layer` directive.
+```
+
+**Root Cause:**
+- Old `tailwind.config.js` file with wrong colors (blue/orange) was conflicting with correct `tailwind.config.ts` (green/gold)
+- Old `postcss.config.js` file also present
+- Custom Tailwind classes in `globals.css` weren't recognized during production builds
+- This caused:
+  - Wrong colors showing on the website
+  - Wrong fonts being applied
+  - Logo colors incorrect
+  - Build failures on Vercel
+
+#### 3. Solution Implemented
+**Files Modified:**
+
+**a) Removed conflicting config files:**
+```bash
+rm tailwind.config.js      # Old file with wrong colors
+rm postcss.config.js       # Old duplicate file
+```
+
+**b) Updated `app/globals.css`:**
+Changed from using `@apply` with custom classes to using CSS variables:
+```css
+/* Before (didn't work in production build) */
+body {
+  @apply bg-background-light font-body text-text-dark;
+}
+
+/* After (works in production) */
+:root {
+  --color-primary: #059669;
+  --color-secondary: #F0B53D;
+  --color-accent: #6EE7B7;
+  --color-bg-light: #F7E5D4;
+  --color-text-dark: #2D3748;
+}
+
+body {
+  background-color: var(--color-bg-light);
+  font-family: var(--font-nunito), sans-serif;
+  color: var(--color-text-dark);
+}
+```
+
+**c) Kept correct config file:**
+- `tailwind.config.ts` - Contains correct green/gold colors and Poppins/Nunito fonts
+- `postcss.config.mjs` - Modern ESM format
+
+#### 4. Current Deployment Status
+
+**Production URL:** https://dadada-design-703rr8f0u-magdas-projects-91e7b011.vercel.app
+
+**Deployment Method:** Vercel
+- Auto-deploy enabled from GitHub main branch
+- Manual deploy command: `npx vercel --prod --yes`
+
+**Build Status:** ✅ Successfully building and deploying
+
+**Git Repository:** https://github.com/magdis-star/dadada-design
+
+#### 5. Important Commits Made Today
+
+1. **52ac809** - "Add Bernardo website to portfolio"
+   - Added Bernardo project to Projects.tsx
+   - Added project image
+
+2. **0fc2145** - "Fix: Replace custom Tailwind classes with direct CSS values"
+   - First attempt to fix build errors
+
+3. **c61787b** - "Fix: Replace font custom classes with CSS variables"
+   - Fixed font variable issues
+
+4. **ab646d1** - "Fix: Replace all custom brand color classes with hex values"
+   - Fixed color class issues
+
+5. **f5428a7** - "Use CSS variables for colors to fix build"
+   - Implemented CSS variables solution
+
+6. **4c719a5** - "Fix: Remove old conflicting config files causing wrong colors and fonts"
+   - **Final solution** - removed duplicate config files
+
+#### 6. Lessons Learned
+
+**Problem: Duplicate Config Files**
+- Always check for multiple config files with different extensions (.js vs .ts)
+- Older .js files take precedence over newer .ts files
+- This can cause:
+  - Wrong colors/fonts to be applied
+  - Build failures
+  - Inconsistent behavior between dev and production
+
+**Solution: Keep Only One Config**
+- Use TypeScript config files (.ts)
+- Remove any .js versions
+- Use `git ls-files` to check for duplicate configs
+
+**Best Practices:**
+1. **CSS Variables for Custom Values:**
+   - Use CSS variables in `globals.css` for colors that need to work with `@apply`
+   - This ensures they work in both dev and production builds
+
+2. **Clean Build Before Deploy:**
+   ```bash
+   rm -rf .next
+   npm run build
+   ```
+
+3. **Test Production Build Locally:**
+   ```bash
+   npm run build
+   npm start
+   ```
+
+#### 7. Current Working Setup
+
+**Tailwind Configuration (`tailwind.config.ts`):**
+```typescript
+colors: {
+  'primary-brand': '#059669',
+  'secondary-brand': '#F0B53D',
+  'accent-green': '#6EE7B7',
+  'background-light': '#F7E5D4',
+  'text-dark': '#2D3748',
+},
+fontFamily: {
+  heading: ['var(--font-poppins)', 'sans-serif'],
+  body: ['var(--font-nunito)', 'sans-serif'],
+  abril: ['var(--font-abril)', 'cursive'],
+}
+```
+
+**CSS Variables (`app/globals.css`):**
+```css
+:root {
+  --color-primary: #059669;
+  --color-secondary: #F0B53D;
+  --color-accent: #6EE7B7;
+  --color-bg-light: #F7E5D4;
+  --color-text-dark: #2D3748;
+}
+```
+
+**Logo Configuration (`components/Header.tsx`):**
+```tsx
+<span className="text-primary-brand">da</span>
+<span className="text-secondary-brand">da</span>
+<span className="text-primary-brand">da</span>
+<span className="text-text-dark ml-2">design</span>
+```
+This creates the green-gold-green logo pattern.
+
+#### 8. Portfolio Projects
+
+Current projects shown on homepage:
+
+1. **Bernardo - Consultoría Digital & Estrategia** ⭐ NEW
+   - Live: https://bernardo-website-7swaal4qm-magdas-projects-91e7b011.vercel.app
+   - Navy & Gold design
+   - Personal branding for PhD Linguist
+
+2. **Gonzalo Morales - Galería de Arte**
+   - Live: https://gonzalomorales.net
+   - Art gallery with +90 works
+   - E-commerce enabled
+
+3. **"Growth Mind" - Servicios B2B**
+   - Mock project
+   - +30% form submission increase
+
+4. **"El Fogón" - Restaurante**
+   - Mock project
+   - +60% online reservations increase
+
+#### 9. Troubleshooting Guide
+
+**Issue: Vercel build fails with "class does not exist" error**
+
+**Solution:**
+1. Check for duplicate config files:
+   ```bash
+   ls -la | grep -E "(tailwind|postcss)"
+   ```
+2. Remove old .js config files if .ts/.mjs versions exist
+3. Clear build cache:
+   ```bash
+   rm -rf .next
+   npm run build
+   ```
+
+**Issue: Colors/fonts wrong on local dev server**
+
+**Solution:**
+1. Kill dev server
+2. Clear cache and restart:
+   ```bash
+   rm -rf .next
+   npm cache clean --force
+   npm run dev
+   ```
+
+**Issue: Different behavior between dev and production**
+
+**Solution:**
+1. Test production build locally:
+   ```bash
+   npm run build
+   npm start
+   ```
+2. Check browser console for errors
+3. Verify all config files are consistent
+
+#### 10. Deployment Checklist
+
+Before deploying to Vercel:
+
+- [ ] Test production build locally: `npm run build`
+- [ ] Check for TypeScript errors
+- [ ] Verify no duplicate config files
+- [ ] Clear .next directory
+- [ ] Test on localhost:3000
+- [ ] Commit and push to GitHub
+- [ ] Deploy with `npx vercel --prod --yes`
+- [ ] Test live URL
+- [ ] Verify colors, fonts, and logo are correct
+- [ ] Check all portfolio images load
+- [ ] Test navigation links
+
 ---
 
-**Last Updated:** November 12, 2025
+**Last Updated:** November 13, 2025
 **Updated By:** Claude Code Assistant
-**Current Status:** Cookie consent and GDPR compliance features deployed to GitHub ✅
+**Current Status:** Portfolio updated with Bernardo project, Vercel deployment fixed and working ✅
