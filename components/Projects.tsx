@@ -80,6 +80,14 @@ export default function Projects() {
                   )}
                   {index === 0 && (
                     <a
+                      href="/casos/bernardo-consultoria-digital"
+                      className="inline-flex items-center text-secondary-brand font-semibold hover:text-primary-brand transition text-sm font-body"
+                    >
+                      Ver caso de estudio →
+                    </a>
+                  )}
+                  {index === 1 && (
+                    <a
                       href="/casos/gonzalo-morales-galeria-arte"
                       className="inline-flex items-center text-secondary-brand font-semibold hover:text-primary-brand transition text-sm font-body"
                     >
