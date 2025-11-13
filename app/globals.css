@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #059669;
+  --color-secondary: #F0B53D;
+  --color-accent: #6EE7B7;
+  --color-bg-light: #F7E5D4;
+  --color-text-dark: #2D3748;
+}
+
 body {
-  background-color: #F7E5D4;
+  background-color: var(--color-bg-light);
   font-family: var(--font-nunito), sans-serif;
-  color: #2D3748;
+  color: var(--color-text-dark);
 }
 
 h2, h3, h4 {
@@ -28,9 +36,8 @@ h2, h3, h4 {
 }
 
 .btn-primary {
-  background-color: #059669;
-  color: white;
-  @apply transition-colors duration-300;
+  background-color: var(--color-primary);
+  @apply text-white transition-colors duration-300;
 }
 
 .btn-primary:hover {
@@ -38,8 +45,8 @@ h2, h3, h4 {
 }
 
 .btn-secondary {
-  background-color: #F0B53D;
-  color: #2D3748;
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
   @apply transition-colors duration-300;
 }
 
@@ -48,12 +55,12 @@ h2, h3, h4 {
 }
 
 .step-icon {
-  color: #F0B53D;
+  color: var(--color-secondary);
 }
 
 .service-icon-box {
   @apply inline-flex p-4 rounded-full mb-4 bg-gray-200;
-  color: #059669;
+  color: var(--color-primary);
 }
 
 .floating-cta-container {
