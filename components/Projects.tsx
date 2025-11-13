@@ -3,6 +3,14 @@ import Image from "next/image";
 export default function Projects() {
   const projects = [
     {
+      title: 'Bernardo - Consultoría Digital & Estrategia',
+      description:
+        "Objetivo: Crear una marca personal profesional para un PhD en Lingüística que ofrece consultoría digital. Resultado: Diseño moderno navy & gold con voz innovadora y audaz que posiciona su expertise único en el mercado.",
+      image: "/images/projects/bernardo-website.jpg",
+      alt: "Bernardo - Diseño Web Personal Branding",
+      link: "https://bernardo-website-7swaal4qm-magdas-projects-91e7b011.vercel.app",
+    },
+    {
       title: 'Gonzalo Morales - Galería de Arte',
       description:
         "Objetivo: Crear un museo digital y tienda online para preservar el legado del artista costarricense. Resultado: Galería bilingüe con +90 obras, sistema e-commerce y diseño elegante que honra su arte.",
