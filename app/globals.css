@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 body {
-  @apply bg-background-light font-body text-text-dark;
+  background-color: #F7E5D4;
+  @apply font-body;
+  color: #2D3748;
 }
 
 h2, h3, h4 {
