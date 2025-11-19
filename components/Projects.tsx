@@ -26,22 +26,6 @@ export default function Projects() {
       alt: "Galería de Arte Gonzalo Morales - Diseño Web",
       link: "https://gonzalomorales.net",
     },
-    {
-      title: '"Growth Mind" - Servicios B2B',
-      description:
-        "Objetivo: Generación de leads de alta calidad. Resultado: Nueva estructura UX enfocada en la confianza, subiendo el envío de formularios en un +30%.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      alt: "Diseño Web para Consultora de Servicios",
-      link: null,
-    },
-    {
-      title: '"El Fogón" - Restaurante',
-      description:
-        "Objetivo: Mostrar menú y permitir reservas online. Resultado: Web móvil optimizada, reduciendo llamadas y aumentando reservas online en un +60%.",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
-      alt: "Diseño de Página Web para Restaurante",
-      link: null,
-    },
   ];
 
   return (
