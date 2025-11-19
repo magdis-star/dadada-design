@@ -3,6 +3,14 @@ import Image from "next/image";
 export default function Projects() {
   const projects = [
     {
+      title: 'Elemental Kids Club - Libros Educativos Infantiles',
+      description:
+        "Objetivo: Crear una landing page para vender libros de actividades educativas con sistema de bonus por email. Resultado: Landing page optimizada con integración Wild Mail para lead generation, formulario de bonus y páginas de confirmación GDPR-compliant.",
+      image: "/images/projects/elemental-kids-club.jpg",
+      alt: "Elemental Kids Club - Landing Page Educativa",
+      link: "https://elementalkidsclub.com",
+    },
+    {
       title: 'Bernardo - Consultoría Digital & Estrategia',
       description:
         "Objetivo: Crear una marca personal profesional para un PhD en Lingüística que ofrece consultoría digital. Resultado: Diseño moderno navy & gold con voz innovadora y audaz que posiciona su expertise único en el mercado.",
@@ -78,7 +86,7 @@ export default function Projects() {
                       Ver sitio web →
                     </a>
                   )}
-                  {index === 0 && (
+                  {index === 1 && (
                     <a
                       href="/casos/bernardo-consultoria-digital"
                       className="inline-flex items-center text-secondary-brand font-semibold hover:text-primary-brand transition text-sm font-body"
@@ -86,7 +94,7 @@ export default function Projects() {
                       Ver caso de estudio →
                     </a>
                   )}
-                  {index === 1 && (
+                  {index === 2 && (
                     <a
                       href="/casos/gonzalo-morales-galeria-arte"
                       className="inline-flex items-center text-secondary-brand font-semibold hover:text-primary-brand transition text-sm font-body"
