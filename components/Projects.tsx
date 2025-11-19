@@ -70,6 +70,14 @@ export default function Projects() {
                       Ver sitio web →
                     </a>
                   )}
+                  {index === 0 && (
+                    <a
+                      href="/casos/elemental-kids-club-landing-educativa"
+                      className="inline-flex items-center text-secondary-brand font-semibold hover:text-primary-brand transition text-sm font-body"
+                    >
+                      Ver caso de estudio →
+                    </a>
+                  )}
                   {index === 1 && (
                     <a
                       href="/casos/bernardo-consultoria-digital"

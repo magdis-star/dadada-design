@@ -43,6 +43,136 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "elemental-kids-club-landing-educativa",
+    title: "Elemental Kids Club - Landing Page Educativa",
+    client: "Elemental Kids Club",
+    industry: "Educación Infantil",
+    year: "2024",
+    url: "https://elementalkidsclub.com",
+    thumbnail: "/images/projects/elemental-kids-club.jpg",
+    excerpt: "Landing page optimizada para vender libros de actividades educativas infantiles con sistema de lead generation mediante bonus descargable.",
+
+    challenge: {
+      title: "El Desafío",
+      description: "Elemental Kids Club, un proyecto editorial de libros de actividades para niños, necesitaba una landing page efectiva para vender en Amazon y captar leads cualificados. El reto era crear una experiencia que convirtiera visitas en compradores mientras construía una base de datos de clientes potenciales mediante un bonus descargable.",
+      goals: [
+        "Crear una landing page clara y persuasiva enfocada en conversión",
+        "Implementar sistema de lead generation con bonus descargable",
+        "Integrar Wild Mail para email marketing con doble opt-in",
+        "Asegurar cumplimiento GDPR con cookies y políticas de privacidad",
+        "Facilitar edición de contenido sin conocimientos técnicos (WordPress Customizer)"
+      ]
+    },
+
+    process: {
+      title: "Proceso de Design Thinking",
+      steps: [
+        {
+          phase: "1. Empatizar - Entender al Usuario",
+          description: "Analicé las necesidades de padres que buscan alternativas educativas sin pantallas y los objetivos comerciales del cliente.",
+          actions: [
+            "Investigación del público objetivo: padres de niños 5-8 años preocupados por tiempo excesivo en pantallas",
+            "Análisis de competencia: landing pages de productos educativos en Amazon",
+            "Identificación de pain points: dificultad para encontrar actividades educativas + entretenidas",
+            "Estudio del buyer journey: descubrimiento → evaluación → compra → fidelización con bonus"
+          ]
+        },
+        {
+          phase: "2. Definir - Clarificar el Problema",
+          description: "Definí dos objetivos principales: venta directa en Amazon + construcción de lista de email para marketing recurrente.",
+          actions: [
+            "Objetivo primario: Conversión a Amazon (botón COMPRAR visible)",
+            "Objetivo secundario: Captura de leads con bonus descargable",
+            "Mensaje clave: 'Aprendizaje divertido lejos de las pantallas'",
+            "Propuesta de valor: Actividades que estimulan creatividad + lógica",
+            "Estrategia: Wild Mail con doble opt-in para leads cualificados"
+          ]
+        },
+        {
+          phase: "3. Idear y Prototipar - Diseñar la Solución",
+          description: "Diseñé una landing page con colores infantiles vibrantes (amarillo, rosa, azul) y un funnel de bonus para lead generation.",
+          actions: [
+            "Paleta de colores energética: Amarillo #FAD02E, Rosa #F43F5E, Azul #3B82F6",
+            "Tipografía lúdica: Bangers para títulos, Inter para texto legible",
+            "Estructura: Hero + Beneficios + Qué incluye + Testimoniales + FAQ + Bonus",
+            "Formulario bonus destacado: nombre + email para descarga",
+            "Wild Mail: páginas de confirmación + thank you personalizadas",
+            "Design system con Tailwind CSS para consistencia visual"
+          ]
+        },
+        {
+          phase: "4. Implementar - Desarrollo Técnico",
+          description: "Desarrollo dual: HTML estático (Vercel) + WordPress theme (cliente final) con integración Wild Mail y compliance GDPR.",
+          actions: [
+            "HTML estático con Tailwind CSS CDN para deploy rápido en Vercel",
+            "WordPress theme personalizado con Customizer: 3 testimoniales, 7 FAQs, URLs editables",
+            "Integración Wild Mail: formulario → email confirmación → página confirmación → email bonus",
+            "GDPR compliance: banner de cookies + política de privacidad + política de cookies",
+            "Páginas WordPress templates: confirmación, thank you, privacidad",
+            "Favicon y logo optimizados",
+            "Deploy en elementalkidsclub.com"
+          ]
+        },
+        {
+          phase: "5. Iterar - Mejoras Post-Launch",
+          description: "Ajustes basados en feedback del cliente: eliminación de elementos visuales innecesarios, optimización de formulario.",
+          actions: [
+            "Eliminación de divisores decorativos para diseño más limpio",
+            "Corrección de logo duplicado en páginas de confirmación",
+            "Optimización de hero: sin burbuja amarilla para mayor claridad",
+            "Ajuste de tamaño botón COMPRAR para mayor visibilidad",
+            "Adición de campo nombre en formulario bonus (personalización)",
+            "Testing de flujo completo Wild Mail: form → confirmation → thank you → bonus email"
+          ]
+        }
+      ]
+    },
+
+    solution: {
+      title: "La Solución",
+      description: "Desarrollé una landing page dual (HTML estático + WordPress) con diseño infantil vibrante, sistema de lead generation Wild Mail, compliance GDPR completo y WordPress Customizer para edición fácil del cliente.",
+      features: [
+        "Landing page optimizada para conversión con diseño infantil profesional",
+        "Sistema de bonus descargable con Wild Mail (double opt-in)",
+        "Formulario captura leads: nombre + email",
+        "Páginas de confirmación y thank you personalizadas",
+        "WordPress Customizer: 3 testimoniales, 7 FAQs, URLs Amazon/Wild Mail editables",
+        "GDPR compliant: banner cookies, política de privacidad, consentimiento",
+        "Integración Amazon con botón COMPRAR destacado",
+        "Deploy dual: Vercel (testing rápido) + WordPress (cliente final)",
+        "Guía completa en español para cliente (COMO-EDITAR-TU-SITIO-WEB.md)",
+        "Responsive design optimizado móvil/tablet/desktop"
+      ]
+    },
+
+    results: {
+      title: "Resultados",
+      description: "Landing page profesional lista para captar leads y vender en Amazon, con sistema de email marketing automatizado y control total para el cliente sin conocimientos técnicos.",
+      metrics: [
+        {
+          label: "2 Funnels",
+          value: "Conversión Dual",
+          description: "Venta Amazon + Lead generation con bonus descargable"
+        },
+        {
+          label: "100%",
+          value: "Autonomía Cliente",
+          description: "WordPress Customizer permite editar testimoniales, FAQs y URLs sin código"
+        },
+        {
+          label: "GDPR",
+          value: "Compliance Total",
+          description: "Banner cookies, políticas de privacidad, consentimiento doble opt-in"
+        }
+      ],
+      testimonial: {
+        quote: "Magda entendió perfectamente que necesitaba dos cosas: vender libros en Amazon Y construir mi lista de email. La integración con Wild Mail funciona perfectamente, y lo mejor es que puedo editar testimoniales y FAQs yo misma sin llamarla cada vez. El diseño es exactamente lo que imaginé: alegre, profesional, y enfocado en conversión.",
+        author: "Equipo Elemental Kids Club",
+        role: "Cliente"
+      }
+    }
+  },
+  {
     slug: "bernardo-consultoria-digital",
     title: "Bernardo - Consultoría Digital & Estrategia",
     client: "Bernardo",
