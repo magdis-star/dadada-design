@@ -11,12 +11,12 @@ export default function Projects() {
       link: "https://elementalkidsclub.com",
     },
     {
-      title: 'Bernardo - Consultoría Digital & Estrategia',
+      title: 'Tie the Celtic Knot - WordPress para Celebrante',
       description:
-        "Objetivo: Crear una marca personal profesional para un PhD en Lingüística que ofrece consultoría digital. Resultado: Diseño moderno navy & gold con voz innovadora y audaz que posiciona su expertise único en el mercado.",
-      image: "/images/projects/bernardo-website.jpg",
-      alt: "Bernardo - Diseño Web Personal Branding",
-      link: "https://bernardo-website-7swaal4qm-magdas-projects-91e7b011.vercel.app",
+        "Objetivo: Sitio web existente no aparecía en Google ni convertía visitas en clientes. Resultado: Rediseño completo con SEO, WordPress con control de contenido y estrategia de conversión. Ahora aparece en búsquedas locales.",
+      image: "/images/projects/celtic-knot-website.jpg",
+      alt: "Tie the Celtic Knot - WordPress Theme para Celebrante de Bodas",
+      link: "https://tiethecelticknot.ca",
     },
     {
       title: 'Gonzalo Morales - Galería de Arte',
@@ -35,13 +35,13 @@ export default function Projects() {
           Casos de Éxito Recientes
         </h2>
         <p className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto font-body">
-          Cada proyecto es único. Nuestro objetivo es siempre el mismo: diseñar
-          una web que entregue resultados.
+          Cada proyecto es único, pero todos comparten algo: <strong>resultados reales</strong>.
+          Desde autores que venden más libros hasta celebrantes que aparecen en Google.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="rounded-xl overflow-hidden card-shadow">
+            <div key={index} className="rounded-xl overflow-hidden card-shadow flex flex-col h-full">
               <div className="relative w-full h-48">
                 <Image
                   src={project.image}
@@ -51,15 +51,15 @@ export default function Projects() {
                   unoptimized
                 />
               </div>
-              <div className="p-6 bg-background-light">
+              <div className="p-6 bg-background-light flex-grow flex flex-col">
                 <h3 className="text-xl font-semibold text-text-dark mb-2 font-heading">
                   {project.title}
                 </h3>
-                <p className="text-gray-700 text-sm font-body mb-4">
+                <p className="text-gray-700 text-sm font-body mb-4 flex-grow">
                   <strong>{project.description.split("Resultado:")[0]}</strong>
                   Resultado:{project.description.split("Resultado:")[1]}
                 </p>
-                <div className="flex gap-4 flex-wrap">
+                <div className="flex gap-4 flex-wrap mt-auto">
                   {project.link && (
                     <a
                       href={project.link}
@@ -80,7 +80,7 @@ export default function Projects() {
                   )}
                   {index === 1 && (
                     <a
-                      href="/casos/bernardo-consultoria-digital"
+                      href="/casos/tie-celtic-knot-wordpress-celebrant"
                       className="inline-flex items-center text-secondary-brand font-semibold hover:text-primary-brand transition text-sm font-body"
                     >
                       Ver caso de estudio →

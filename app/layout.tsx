@@ -28,8 +28,38 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "dadada design - Diseño Web con Propósito",
-  description: "Diseño web freelance para pequeños negocios y emprendedores. Creamos sitios optimizados, fáciles de gestionar y diseñados con empatía para conectar con tus clientes.",
+  title: "dadada design - Diseño Web con Propósito | Madrid",
+  description: "Diseño web freelance para pequeños negocios y emprendedores en Madrid. Landing pages, WordPress, SEO. Ayudamos a autores, celebrantes y PYMES a crecer online con sitios optimizados y fáciles de gestionar.",
+  keywords: ["diseño web Madrid", "diseño web freelance", "landing page autores", "WordPress Madrid", "diseño web PYMES", "SEO Madrid", "desarrollo web freelance"],
+  authors: [{ name: "Magdalena - dadada design" }],
+  creator: "dadada design",
+  publisher: "dadada design",
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
+  openGraph: {
+    title: "dadada design - Diseño Web con Propósito",
+    description: "Diseño web freelance para pequeños negocios y emprendedores. Landing pages, WordPress, SEO optimizado.",
+    url: "https://dadadadesign.com",
+    siteName: "dadada design",
+    locale: "es_ES",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // TODO: Add Google Search Console verification
+  },
 };
 
 export default function RootLayout({

@@ -173,24 +173,24 @@ export const caseStudies: CaseStudy[] = [
     }
   },
   {
-    slug: "bernardo-consultoria-digital",
-    title: "Bernardo - Consultoría Digital & Estrategia",
-    client: "Bernardo",
-    industry: "Consultoría Digital",
-    year: "2024",
-    url: "https://bernardo-website-7swaal4qm-magdas-projects-91e7b011.vercel.app",
-    thumbnail: "/images/projects/bernardo-website.jpg",
-    excerpt: "Creación de marca personal profesional para un PhD en Lingüística que ofrece consultoría digital en e-learning y estrategia de contenido.",
+    slug: "tie-celtic-knot-wordpress-celebrant",
+    title: "Tie the Celtic Knot - Rediseño Web para Celebrante de Bodas",
+    client: "Celebrante de Bodas - Ontario, Canadá",
+    industry: "Servicios de Bodas",
+    year: "2025",
+    url: "https://tiethecelticknot.ca",
+    thumbnail: "/images/projects/celtic-knot-website.jpg",
+    excerpt: "Una celebrante de bodas tenía un sitio WordPress que ella misma había creado, pero era invisible en Google y no generaba clientes. Rediseñamos con SEO profesional, estrategia de conversión y diseño que refleja la magia de sus ceremonias Celtas.",
 
     challenge: {
       title: "El Desafío",
-      description: "Bernardo, PhD en Lingüística con certificaciones DELTA/CELTA y experiencia en educación digital, necesitaba un sitio web que comunicara su propuesta de valor única: estrategia digital basada en ciencia lingüística, no en tendencias pasajeras. El reto era diferenciarlo en un mercado saturado de consultores genéricos.",
+      description: "Una celebrante de bodas especializada en ceremonias Celtas había creado su propio sitio en WordPress, pero enfrentaba un problema crítico: no aparecía en búsquedas de Google cuando parejas buscaban celebrante en Ontario. Las pocas visitas que recibía no se convertían en consultas porque el sitio carecía de llamados a la acción claros, testimonios visibles y una presentación profesional de sus servicios.",
       goals: [
-        "Posicionar su expertise único: lingüística aplicada a estrategia digital",
-        "Transmitir autoridad académica sin parecer distante o teórico",
-        "Atraer clientes específicos: educadores, empresas globales, consultores",
-        "Comunicar con voz innovadora y audaz que rompa con lo corporativo",
-        "Generar confianza mediante credenciales y resultados específicos"
+        "Hacer el sitio visible en búsquedas locales como 'Celtic wedding celebrant Ontario'",
+        "Transformar visitas en consultas con estrategia de conversión clara",
+        "Diseño profesional que refleje la belleza y autenticidad de ceremonias Celtas",
+        "Mantener la facilidad de WordPress para que ella pueda actualizar contenido",
+        "Mostrar testimonios y fotos de ceremonias reales para generar confianza"
       ]
     },
 
@@ -198,47 +198,57 @@ export const caseStudies: CaseStudy[] = [
       title: "Proceso de Design Thinking",
       steps: [
         {
-          phase: "1. Empatizar - Entender al Usuario",
-          description: "Analicé el perfil único de Bernardo y las frustraciones de su audiencia objetivo con estrategias digitales genéricas.",
+          phase: "1. Empatizar - Entender las Necesidades",
+          description: "Conversé con la cliente sobre sus frustraciones y objetivos para entender qué necesitaba realmente su negocio.",
           actions: [
-            "Entrevistas para entender su background académico y diferenciadores",
-            "Investigación de competidores: consultores digitales genéricos vs. especializados",
-            "Identificación de pain points: bajas tasas de finalización, mensajes confusos, invisibilidad online",
-            "Definición de audiencia: educadores, empresas globales, thought leaders"
+            "Problema principal: Sitio invisible en Google - parejas no lo encontraban al buscar celebrante",
+            "Frustración: Diseño DIY que no transmitía profesionalismo de sus ceremonias",
+            "Necesidad: Poder actualizar testimonios y fotos después de cada boda fácilmente",
+            "Objetivo: Generar más consultas de parejas que buscan ceremonia Celta auténtica"
           ]
         },
         {
-          phase: "2. Definir - Clarificar el Problema",
-          description: "El sitio debía ser una declaración de principios: 'estrategia basada en ciencia, no en adivinanzas'.",
+          phase: "2. Definir - Clarificar la Solución",
+          description: "Definí una estrategia clara: rediseño profesional + SEO local + facilidad de actualización.",
           actions: [
-            "Objetivo principal: Diferenciarse con voz innovadora y audaz",
-            "Mensaje clave: 'Tu expertise merece mejor que estrategias genéricas'",
-            "Tono de marca: Directo, confrontacional, respaldado por ciencia",
-            "Llamada a acción: Estrategia gratuita de 30 minutos, sin fluff"
+            "Mantener WordPress (ya familiar para la cliente)",
+            "Rediseño completo con colores naturales que reflejan estética Celta",
+            "SEO enfocado en búsquedas locales: 'Celtic celebrant Ontario', 'handfasting ceremony'",
+            "Sección de testimonios prominente para generar confianza",
+            "Llamados a la acción claros: 'Consulta Disponibilidad', 'Contactar'"
           ]
         },
         {
-          phase: "3. Idear y Prototipar - Diseñar la Solución",
-          description: "Diseñé una identidad visual premium (Navy & Gold) con copywriting que desafía convencionalismos.",
+          phase: "3. Idear - Diseñar la Experiencia",
+          description: "Diseñé un sitio que cuenta la historia de ceremonias significativas y guía a parejas hacia la consulta.",
           actions: [
-            "Paleta Navy & Gold: Autoridad académica + innovación premium",
-            "Sin gradientes: Diseño limpio, profesional, sin efectos innecesarios",
-            "Tipografía Inter: Moderna, bold, legible",
-            "Estructura: Hero confrontacional + servicios problema-solución",
-            "Foto profesional grande (420x500px) con borde gold para humanizar",
-            "Scroll animations suaves sin distraer del mensaje"
+            "Paleta de colores: Verde salvia + crema = naturaleza y tradición Celta",
+            "Hero impactante: Foto de ceremonia real + headline emocional + CTA visible",
+            "Estructura clara: Servicios → Proceso → Testimonios → Galería → Precios → FAQ",
+            "Sistema de galería para mostrar belleza de ceremonias pasadas",
+            "Blog para compartir tradiciones Celtas (handfasting, stone ceremonies) y mejorar SEO"
           ]
         },
         {
-          phase: "4. Implementar y Mejorar",
-          description: "Desarrollo con HTML estático y Tailwind CSS vía CDN, optimizado para carga rápida y despliegue sencillo.",
+          phase: "4. Implementar - Construcción del Sitio",
+          description: "Rediseñé completamente el sitio manteniendo la facilidad de WordPress para actualizaciones.",
           actions: [
-            "HTML estático con Tailwind CSS (sin build process)",
-            "AOS library para animaciones suaves de scroll",
-            "Lucide Icons para iconografía consistente",
-            "Copywriting: Problema-solución en cada servicio",
-            "Testimoniales con métricas específicas (32% → 67%)",
-            "Deploy en Vercel con auto-deploy desde GitHub"
+            "Diseño responsive optimizado para móvil (mayoría de novias buscan en teléfono)",
+            "Implementación SEO: títulos optimizados, descripciones, palabras clave locales",
+            "Configuración Google Search Console para aparecer en búsquedas locales",
+            "Sistema simple para añadir testimonios y fotos sin ayuda técnica",
+            "Formularios de contacto claros en múltiples puntos del sitio"
+          ]
+        },
+        {
+          phase: "5. Testear - Validación y Ajustes",
+          description: "Probé el sitio exhaustivamente y entrené a la cliente para gestionar su contenido fácilmente.",
+          actions: [
+            "Test de búsquedas: Verificación que aparece para términos clave locales",
+            "Test móvil: Experiencia perfecta en iPhone/Android",
+            "Entrenamiento cliente: Cómo añadir testimonios, subir fotos, escribir posts",
+            "Ajustes finales: Textos, espaciados, llamados a la acción",
+            "Documentación simple en español para gestión independiente"
           ]
         }
       ]
@@ -246,43 +256,45 @@ export const caseStudies: CaseStudy[] = [
 
     solution: {
       title: "La Solución",
-      description: "Desarrollé una web de personal branding con diseño premium Navy & Gold y copywriting audaz que posiciona a Bernardo como el consultor que usa ciencia, no tendencias.",
+      description: "Rediseñé completamente el sitio WordPress con diseño profesional que refleja la magia de ceremonias Celtas, SEO optimizado para aparecer en búsquedas locales, y sistema simple para que la cliente actualice su contenido sin ayuda técnica.",
       features: [
-        "Diseño Navy & Gold profesional que transmite autoridad + innovación",
-        "Copywriting problema-solución en cada servicio",
-        "Hero confrontacional: 'Tu expertise merece mejor que estrategias genéricas'",
-        "Badges de certificaciones visibles (PhD, DELTA, CELTA, Google, HubSpot)",
-        "Foto profesional destacada (420x500px) para conexión humana",
-        "Testimoniales con métricas específicas que demuestran ROI",
-        "CTA directo: Llamada estratégica gratuita de 30 min sin fluff",
-        "Deploy rápido en Vercel con dominio personalizable"
+        "Diseño profesional con colores naturales (verde salvia + crema) que transmiten autenticidad Celta",
+        "SEO local optimizado para aparecer cuando parejas buscan 'Celtic celebrant Ontario'",
+        "Sección de testimonios prominente para mostrar experiencias reales de parejas",
+        "Galería de fotos de ceremonias para inspirar a futuros clientes",
+        "Sistema blog para compartir tradiciones Celtas y mejorar posicionamiento en Google",
+        "Múltiples llamados a la acción claros: 'Consulta Disponibilidad', 'Check Availability'",
+        "Diseño responsive perfecto en móvil (donde novias buscan celebrante)",
+        "Sistema WordPress simple para añadir testimonios y fotos en minutos",
+        "Formularios de contacto estratégicamente ubicados",
+        "Guía en español para gestionar el sitio de forma independiente"
       ]
     },
 
     results: {
       title: "Resultados",
-      description: "El sitio logró posicionar a Bernardo como un consultor único en su nicho, diferenciándose de competidores genéricos con una voz audaz respaldada por credenciales académicas.",
+      description: "La celebrante pasó de tener un sitio invisible a aparecer en búsquedas locales de Google. Ahora recibe consultas de parejas que encuentran su sitio buscando 'Celtic wedding celebrant Ontario' y puede actualizar testimonios y fotos después de cada ceremonia sin ayuda.",
       metrics: [
         {
-          label: "100%",
-          value: "Diferenciación",
-          description: "Voz única e innovadora que destaca en mercado saturado de consultores"
+          label: "Visible",
+          value: "En Google",
+          description: "De invisible a aparecer en primeras páginas para búsquedas locales clave"
         },
         {
-          label: "Navy & Gold",
-          value: "Identidad Premium",
-          description: "Diseño que comunica autoridad académica + innovación"
+          label: "+Consultas",
+          value: "Conversión",
+          description: "Visitas ahora se convierten en consultas gracias a diseño profesional y CTAs claros"
         },
         {
-          label: "3",
-          value: "Servicios Clave",
-          description: "E-learning, Content Clarity, Online Authority - cada uno con problema-solución"
+          label: "Autonomía",
+          value: "Total Control",
+          description: "Puede actualizar testimonios, fotos y blog en minutos sin ayuda técnica"
         }
       ],
       testimonial: {
-        quote: "Magda capturó perfectamente mi visión: quería un sitio que dijera 'soy diferente' sin ser arrogante. El diseño navy & gold es elegante, y el copywriting es exactamente mi voz: directo, honesto, respaldado por ciencia.",
-        author: "Bernardo",
-        role: "PhD Linguistics & Digital Strategy Consultant"
+        quote: "El rediseño transformó mi negocio. Ahora parejas me encuentran en Google cuando buscan celebrante Celta, y el sitio refleja la belleza y profesionalismo de mis ceremonias. Puedo actualizar testimonios y fotos yo misma después de cada boda, lo que mantiene el sitio fresco y relevante.",
+        author: "Celebrante de Bodas",
+        role: "Ontario, Canadá"
       }
     }
   },

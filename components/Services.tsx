@@ -20,17 +20,17 @@ export default function Services() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M9.75 17L9 20l-4 1m6-11V3m0 8h.01M19 10H5a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2v-6a2 2 0 00-2-2z"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 ></path>
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Diseño Web Optimizado para PYMES
+              Landing Pages que Convierten
             </h3>
             <p className="text-gray-700 font-body">
-              Páginas corporativas, portfolios, blogs y landing pages de conversión.
-              Garantizamos velocidad de carga, adaptabilidad móvil (responsive) y
-              optimización SEO básica para que Google te encuentre.
+              Páginas únicas optimizadas para vender tu libro, producto o servicio.
+              Perfectas para autores de Amazon KDP, emprendedores y negocios que
+              necesitan capturar leads y generar ventas rápidamente.
             </p>
           </div>
 
@@ -47,17 +47,17 @@ export default function Services() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
                 ></path>
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Tiendas Online (E-commerce) con Éxito
+              Sitios Web Profesionales con WordPress
             </h3>
             <p className="text-gray-700 font-body">
-              Implementamos soluciones robustas como WooCommerce para que vendas
-              sin límites. Fácil de manejar, seguro y enfocado en maximizar tu
-              tasa de conversión.
+              Sitios multipágina completos con WordPress. Perfectos para celebrantes,
+              coaches, consultores y autores que necesitan blog, galería, testimonios
+              y control total sobre su contenido. Diseñados para aparecer en Google.
             </p>
           </div>
 
@@ -79,12 +79,12 @@ export default function Services() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Renovación de Marca y Asesoría UX
+              Estrategia Digital Completa
             </h3>
             <p className="text-gray-700 font-body">
-              Si tu web actual no funciona, la revisamos. Mejoramos la experiencia
-              de usuario (UX), renovamos tu imagen de marca y te damos una
-              estrategia digital clara.
+              Presencia digital profesional de principio a fin: sitio web, e-commerce,
+              email marketing, gráficos para redes sociales y SEO avanzado. Para
+              emprendedores que buscan resultados serios y crecimiento sostenible.
             </p>
           </div>
         </div>

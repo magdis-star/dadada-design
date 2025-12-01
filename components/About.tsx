@@ -6,14 +6,13 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Photo Column */}
-          <div className="relative">
+          <div className="relative max-w-sm mx-auto lg:mx-0">
             <div className="relative w-full h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-              {/* Replace this image URL with your actual photo */}
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop"
+                src="/images/magdalena-photo-2.jpg"
                 alt="Magdalena - Diseñadora web freelance en Madrid"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 unoptimized
               />
             </div>

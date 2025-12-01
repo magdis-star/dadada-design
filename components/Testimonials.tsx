@@ -1,31 +1,20 @@
+import { caseStudies } from "@/lib/data/caseStudies";
+
 export default function Testimonials() {
-  const testimonials = [
-    {
-      quote:
-        "Necesitábamos una tienda online y nos guiaron paso a paso. Es fácil de usar y las ventas han subido. ¡Recomendados 100%!",
-      author: "Laura V.",
-      role: "Dueña de Artesanías",
-    },
-    {
-      quote:
-        "Antes, mi web no generaba llamadas. Con el nuevo diseño, la calidad de los leads es increíble. ¡Por fin me encuentran en Google!",
-      author: "Javier R.",
-      role: "Consultor Financiero",
-    },
-    {
-      quote:
-        "Trabajar con Magdalena fue muy sencillo. Entendió mi visión y me dio exactamente lo que mi negocio necesitaba para crecer.",
-      author: "Sofía M.",
-      role: "Diseñadora Gráfica Freelance",
-    },
-  ];
+  // Pull testimonials from actual case studies
+  const testimonials = caseStudies
+    .filter((caseStudy) => caseStudy.results.testimonial)
+    .map((caseStudy) => caseStudy.results.testimonial!);
 
   return (
     <section id="testimonios" className="bg-background-light section-padding">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-primary-brand mb-12 font-heading">
+        <h2 className="text-3xl font-bold text-center text-primary-brand mb-4 font-heading">
           Lo que Dicen Nuestros Clientes
         </h2>
+        <p className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto font-body">
+          Testimonios reales de clientes que confiaron en dadada design para transformar su presencia digital.
+        </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (

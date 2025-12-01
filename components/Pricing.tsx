@@ -1,55 +1,57 @@
 export default function Pricing() {
   const packages = [
     {
-      name: "Básico",
-      subtitle: "Ideal para empezar",
-      description: "Perfecto para negocios que necesitan presencia online profesional",
+      name: "Landing Page",
+      subtitle: "desde €400",
+      description: "Perfecta para autores de Amazon KDP y emprendedores",
       features: [
-        "Diseño responsive (móvil y escritorio)",
-        "Hasta 5 páginas (Inicio, Servicios, Sobre Nosotros, etc.)",
-        "Formulario de contacto",
-        "Optimización SEO básica",
-        "Integración con Google Maps",
-        "1 mes de soporte post-lanzamiento",
-        "WordPress fácil de actualizar",
+        "Diseño profesional desde cero",
+        "Secciones: Hero, Sobre el libro, Características, Testimonios, FAQ",
+        "Integración con Amazon",
+        "Formulario captura de emails + lead magnet",
+        "100% responsive (móvil/tablet/desktop)",
+        "SEO básico",
+        "Hosting 6 meses incluido",
+        "1 ronda de revisiones",
       ],
       highlight: false,
       cta: "Solicitar Cotización",
       badge: null,
     },
     {
-      name: "Profesional",
-      subtitle: "El más popular",
-      description: "Para negocios que quieren destacar y captar más clientes",
+      name: "Sitio Web Completo",
+      subtitle: "desde €650",
+      description: "Sitio multipágina con WordPress y control total",
       features: [
-        "Todo lo del paquete Básico",
-        "Hasta 10 páginas",
-        "Blog integrado",
-        "Galería de imágenes/portfolio",
-        "Optimización SEO avanzada",
-        "Integración con redes sociales",
-        "Formularios personalizados",
-        "2 meses de soporte",
+        "Diseño profesional personalizado",
+        "WordPress para actualizar tu contenido fácilmente",
+        "Blog, galería, testimonios",
+        "SEO optimizado para aparecer en Google",
+        "Múltiples páginas (Inicio, Servicios, Sobre ti, Contacto, etc.)",
+        "Formularios de contacto",
+        "100% responsive",
+        "Hosting 1 año incluido",
+        "2 rondas de revisiones",
         "Capacitación de uso",
       ],
       highlight: true,
       cta: "¡Quiero este paquete!",
-      badge: "Más Elegido",
+      badge: "Más Popular",
     },
     {
-      name: "E-commerce",
-      subtitle: "Vende online",
-      description: "Tienda online completa con WooCommerce para vender sin límites",
+      name: "Presencia Digital Profesional",
+      subtitle: "desde €900",
+      description: "Estrategia digital completa para resultados serios",
       features: [
-        "Todo lo del paquete Profesional",
-        "Tienda online WooCommerce",
-        "Hasta 50 productos incluidos",
-        "Pasarela de pagos (Stripe, PayPal)",
-        "Gestión de inventario",
-        "Cupones y descuentos",
-        "Envíos personalizados",
+        "Todo lo del Sitio Web Completo",
+        "E-commerce / Tienda online (opcional)",
+        "Email marketing setup completo",
+        "10 gráficos profesionales para redes sociales",
+        "Estrategia SEO avanzada",
+        "Google Analytics + Search Console",
+        "Integración con plataformas de pago",
         "3 meses de soporte",
-        "Capacitación completa",
+        "Consultoría de marketing digital",
       ],
       highlight: false,
       cta: "Solicitar Cotización",
@@ -65,7 +67,7 @@ export default function Pricing() {
             Paquetes Diseñados para tu Negocio
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto font-body">
-            Soluciones flexibles y transparentes. <strong>Sin sorpresas, sin letra pequeña.</strong> Cada proyecto incluye tu dominio, hosting de calidad y todo configurado listo para funcionar.
+            Precios transparentes y claros. <strong>Sin sorpresas, sin letra pequeña.</strong> Todos los paquetes incluyen hosting, diseño responsive y SEO optimizado.
           </p>
         </div>
 
@@ -132,7 +134,7 @@ export default function Pricing() {
                   {pkg.cta}
                 </a>
                 <p className="text-xs text-gray-500 mt-3 font-body">
-                  Precio personalizado según tus necesidades
+                  Precio final según alcance específico del proyecto
                 </p>
               </div>
             </div>
