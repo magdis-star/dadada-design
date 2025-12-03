@@ -31,7 +31,7 @@ export default function BlogPage() {
                 className="py-12 hover:bg-gray-50 transition-colors duration-200"
               >
                 <Link href={`/blog/${post.slug}`} className="block group">
-                  <div className="flex items-center gap-3 text-sm text-gray-600 mb-3" style={{ fontFamily: 'sohne, "Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+                  <div className="flex items-center gap-3 text-sm text-gray-600 mb-3 font-body">
                     <span className="text-xs font-normal">
                       {new Date(post.date).toLocaleDateString("es-ES", {
                         month: "short",
@@ -43,9 +43,8 @@ export default function BlogPage() {
                   </div>
 
                   <h2
-                    className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors leading-tight"
+                    className="text-2xl font-extrabold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors leading-tight font-body"
                     style={{
-                      fontFamily: 'sohne, "Helvetica Neue", Helvetica, Arial, sans-serif',
                       letterSpacing: '-0.019em'
                     }}
                   >
@@ -53,9 +52,8 @@ export default function BlogPage() {
                   </h2>
 
                   <p
-                    className="text-gray-600 mb-4 leading-relaxed"
+                    className="text-gray-600 mb-4 leading-relaxed font-body"
                     style={{
-                      fontFamily: 'source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif',
                       fontSize: '16px',
                       lineHeight: '1.5'
                     }}
@@ -65,8 +63,7 @@ export default function BlogPage() {
 
                   <div className="flex items-center justify-between">
                     <span
-                      className="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full"
-                      style={{ fontFamily: 'sohne, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                      className="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full font-body"
                     >
                       {post.category}
                     </span>

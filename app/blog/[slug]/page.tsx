@@ -108,16 +108,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="max-w-[680px] mx-auto px-6 py-16">
           <style dangerouslySetInnerHTML={{ __html: `
             .medium-content {
-              font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 21px;
               line-height: 1.58;
               letter-spacing: -0.003em;
               color: #242424;
             }
             .medium-content h1 {
-              font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 40px;
-              font-weight: 700;
+              font-weight: 800;
               line-height: 1.2;
               letter-spacing: -0.022em;
               color: #242424;
@@ -125,9 +125,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               margin-top: 1.5em;
             }
             .medium-content h2 {
-              font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 32px;
-              font-weight: 700;
+              font-weight: 800;
               line-height: 1.25;
               letter-spacing: -0.019em;
               color: #242424;
@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               margin-bottom: 0.46em;
             }
             .medium-content h3 {
-              font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 26px;
               font-weight: 700;
               line-height: 1.3;
