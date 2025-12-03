@@ -11,6 +11,290 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "landing-page-libro-amazon-autores",
+    title: "Por qué tu libro en Amazon necesita una landing page (y no solo redes sociales)",
+    excerpt: "Has invertido meses escribiendo tu libro. Lo publicaste en Amazon KDP. Publicas constantemente en redes sociales... pero las ventas no llegan. Descubre por qué necesitas una landing page propia.",
+    date: "2025-12-03",
+    author: "Magdalena",
+    category: "Marketing para Autores",
+    readTime: "12 min",
+    content: `
+# Por qué tu libro en Amazon necesita una landing page (y no solo redes sociales)
+
+Has invertido meses (quizás años) escribiendo tu libro. Lo has autopublicado en Amazon KDP. Has creado cuentas en Instagram, Facebook, TikTok. Publicas constantemente sobre tu libro. Tus seguidores te dan likes, algunos comentan...
+
+**Pero las ventas no llegan como esperabas.**
+
+¿Te suena familiar?
+
+No estás solo. Este es uno de los errores más comunes que cometen los autores autopublicados: **depender exclusivamente de las redes sociales para promocionar su libro.**
+
+Y aunque las redes sociales son importantes, hay un problema fundamental con esta estrategia:
+
+**No controlas nada.**
+
+## El problema con depender solo de redes sociales
+
+Imagina esto:
+
+Mañana, Instagram cambia su algoritmo (otra vez). De repente, solo el 2% de tus seguidores ven tus publicaciones. O peor: tu cuenta es bloqueada por error y tardas semanas en recuperarla.
+
+¿Qué pasa con tu estrategia de ventas? Se desmorona.
+
+**Estás construyendo tu casa en terreno alquilado.**
+
+Las redes sociales son plataformas "prestadas". Tú no las controlas. Las reglas cambian constantemente. El alcance orgánico cada vez es menor. Y lo más importante:
+
+**Cuando alguien ve tu post sobre tu libro en Instagram, le estás enviando directamente a Amazon... sin pasar por ningún lugar que TÚ controles.**
+
+Pierdes la oportunidad de:
+- Capturar su email
+- Contarle más sobre tu libro
+- Mostrarle reseñas y testimonios
+- Ofrecerle un capítulo de muestra
+- Conectar con ellos directamente
+- Construir una relación antes de la venta
+
+## La solución: Tu "casa base" digital
+
+Los autores más exitosos lo saben: **necesitas una landing page propia para tu libro.**
+
+Una landing page es una página web sencilla, enfocada 100% en tu libro, que actúa como tu "casa base" digital. Es **tuya**. La controlas. Nadie puede quitártela.
+
+### ¿Qué hace diferente a una landing page?
+
+A diferencia de las redes sociales, una landing page:
+
+**1. Te da control total**
+- Tú decides qué se muestra y cómo
+- Nadie cambia las reglas de la noche a la mañana
+- Es TU espacio, no de Zuckerberg
+
+**2. Captura emails (tu activo más valioso)**
+- Ofreces un capítulo gratis a cambio de email
+- Construyes una lista de lectores interesados
+- Puedes contactarles cuando lances tu próximo libro
+- No dependes de algoritmos para llegar a ellos
+
+**3. Cuenta tu historia completa**
+- No estás limitado a 2200 caracteres
+- Puedes incluir testimonios, reseñas, extractos
+- Muestras la portada, el interior, bonuses
+- Creas una experiencia que CONVIERTE
+
+**4. Funciona 24/7 como tu vendedor personal**
+- Mientras duermes, tu landing page sigue vendiendo
+- Está optimizada para conversión
+- Cada elemento está diseñado para llevar al lector a comprar
+
+**5. Te da credibilidad profesional**
+- Pareces un autor serio (porque lo eres)
+- Los lectores confían más en autores con presencia web profesional
+- Te diferencias del 95% de autores que solo tienen redes sociales
+
+## Cómo funciona en la práctica
+
+Imagina este escenario:
+
+**ANTES (sin landing page):**
+1. Publicas en Instagram sobre tu libro
+2. Link en bio lleva directo a Amazon
+3. El lector ve el precio y se va
+4. Pierdes ese contacto para siempre
+5. No sabes quién fue, no puedes contactarle
+
+**DESPUÉS (con landing page):**
+1. Publicas en Instagram sobre tu libro
+2. Link lleva a TU landing page
+3. El lector ve:
+   - Una descripción convincente
+   - Reseñas de 5 estrellas
+   - Un extracto que le engancha
+   - Una oferta: "Lee el primer capítulo gratis"
+4. Deja su email para descargar el capítulo
+5. En el email automático, le recuerdas el link de compra
+6. **AUNQUE NO COMPRE HOY**, tienes su email
+7. Cuando lances tu próximo libro, le escribes
+8. Tienes un lector potencial para TODA tu carrera
+
+**¿Ves la diferencia?**
+
+En el primer caso, haces una venta o nada.
+
+En el segundo, construyes una relación, capturas el contacto, y creas un lector fiel que puede comprar todos tus futuros libros.
+
+## Ejemplos de landing pages efectivas para autores
+
+Las landing pages de autor más exitosas incluyen:
+
+**Sección Hero:**
+- Portada del libro grande y atractiva
+- Título y subtítulo claro
+- Gancho emocional: "Si te ha gustado X, amarás Y"
+- CTA principal: "Descargar capítulo 1 gratis"
+
+**Sobre el libro:**
+- Sinopsis que engancha
+- ¿Para quién es este libro?
+- ¿Qué van a sentir/aprender/experimentar?
+
+**Prueba social:**
+- Reseñas de Amazon (las de 5 estrellas)
+- Testimonios de lectores beta
+- Número de ventas o descargas
+
+**Sobre ti (el autor):**
+- Foto profesional
+- Tu historia (breve)
+- Por qué escribiste este libro
+- Conecta emocionalmente
+
+**Oferta irresistible:**
+- Capítulo 1 gratis por email
+- Wallpapers, marcapáginas, contenido extra
+- Descuento por tiempo limitado
+
+**CTA claro:**
+- Botones de compra visibles (Amazon, Casa del Libro, etc.)
+- "Consigue tu copia ahora"
+- Formulario de email destacado
+
+## "Pero yo no sé crear páginas web..."
+
+Este es el pensamiento que frena a la mayoría de autores.
+
+Buenas noticias: **no necesitas saber código ni ser diseñador.**
+
+Hay tres opciones:
+
+**Opción 1: Hazlo tú mismo con plantillas**
+- Herramientas como Carrd, Wix, Wordpress
+- Pros: Barato o gratis
+- Contras: Lleva tiempo, no está optimizada para conversión, puede verse genérica
+
+**Opción 2: Contratar a un diseñador web genérico**
+- Encarga a un profesional
+- Pros: Resultado profesional
+- Contras: Puede costar €800-2000+, proceso largo
+
+**Opción 3: Landing page específica para autores**
+- Diseño enfocado en conversión para libros
+- Optimizada para capturar emails
+- Lista en 1-2 semanas
+- Precio accesible para autores (€350-400)
+
+Lo importante es **tener algo**. Una landing page sencilla pero profesional es infinitamente mejor que no tener nada.
+
+## Tu estrategia completa: Redes sociales + Landing page
+
+No estoy diciendo que abandones las redes sociales. Sino que las uses **correctamente**:
+
+**Las redes sociales son tu ALTAVOZ**
+- Creas contenido valioso
+- Construyes comunidad
+- Generas interés
+- Diriges tráfico
+
+**Tu landing page es tu CASA**
+- Capturas emails
+- Conviertes interés en ventas
+- Construyes tu lista de lectores
+- Controlas la experiencia
+
+**Amazon es tu TIENDA**
+- Donde finalmente compran
+- Maneja los pagos y envíos
+- Proporciona reseñas y ranking
+
+**Tu lista de email es tu ACTIVO**
+- Es tuya para siempre
+- Puedes contactarles cuando quieras
+- No depende de algoritmos
+- Aumenta con cada libro
+
+## Primeros pasos: Qué hacer ahora
+
+Si estás convencido de que necesitas una landing page, aquí tus próximos pasos:
+
+**1. Define tu objetivo principal:**
+- ¿Capturar emails?
+- ¿Vender directamente?
+- ¿Ambos?
+
+**2. Prepara tu contenido:**
+- Sinopsis convincente
+- 3-5 reseñas de 5 estrellas
+- Fotos de portada en alta calidad
+- Tu bio de autor
+- Primer capítulo en PDF (para oferta)
+
+**3. Decide tu oferta principal:**
+- ¿Capítulo gratis?
+- ¿Descuento limitado?
+- ¿Contenido extra?
+
+**4. Elige tu camino:**
+- ¿Lo harás tú con plantilla?
+- ¿Contratarás a un profesional?
+- ¿Buscarás un servicio especializado en autores?
+
+**5. Configura tu sistema de email:**
+- Mailchimp (gratuito hasta 500 contactos)
+- MailerLite (gratuito hasta 1000 contactos)
+- ConvertKit (especializado en creadores)
+
+**6. Conecta todo:**
+- Redes sociales → Landing page
+- Landing page → Amazon
+- Formulario → Sistema de email
+- Email → Mensaje de bienvenida con link de compra
+
+## Conclusión: Tu libro merece más que un post en Instagram
+
+Has trabajado demasiado en tu libro como para dejarlo todo en manos de algoritmos impredecibles.
+
+**Tu libro merece:**
+- Un espacio propio que cuente su historia completa
+- Una página que esté optimizada para convertir lectores curiosos en compradores
+- Un sistema que capture contactos para tu futuro
+- Una "casa base" digital que TÚ controlas
+
+Las redes sociales son importantes. Pero son solo una parte de tu estrategia.
+
+**Los autores que venden más no son necesariamente los que tienen más seguidores. Son los que tienen mejor estrategia.**
+
+Y esa estrategia incluye, siempre, una landing page propia.
+
+---
+
+## ¿Necesitas ayuda creando tu landing page?
+
+En **dadada design**, ayudo a autores como tú a crear landing pages que convierten lectores en compradores.
+
+Landing pages optimizadas para:
+- Capturar emails de lectores interesados
+- Mostrar tu libro de forma profesional
+- Convertir visitas en ventas
+- Construir tu lista para futuros lanzamientos
+
+**Paquete Landing Page para Autores: €400**
+
+Incluye:
+- Diseño profesional y responsive (se ve perfecto en móvil)
+- Optimizada para conversión
+- Formulario de captura de emails
+- Enlaces a Amazon y otras tiendas
+- SEO básico incluido
+- Lista en 2 semanas
+
+[Contáctame para hablar de tu proyecto](#contacto)
+
+---
+
+**¿Tienes dudas sobre tu landing page?** Escríbeme y conversemos sin compromiso sobre cómo podemos hacer que tu libro llegue a más lectores.
+    `
+  },
+  {
     slug: "por-que-tu-negocio-necesita-web",
     title: "¿Por Qué Tu Pequeño Negocio Necesita una Web Profesional en 2025?",
     excerpt: "En un mundo cada vez más digital, tener presencia online ya no es opcional. Descubre cómo una web profesional puede transformar tu negocio y atraer más clientes.",
