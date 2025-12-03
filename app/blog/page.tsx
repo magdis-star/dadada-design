@@ -22,47 +22,56 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <section className="section-padding bg-background-light">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
+      <section className="section-padding bg-white">
+        <div className="max-w-[728px] mx-auto px-6">
+          <div className="divide-y divide-gray-200">
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300"
+                className="py-12 hover:bg-gray-50 transition-colors duration-200"
               >
-                <div className="p-8">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 font-body">
-                    <span className="bg-secondary-brand text-text-dark px-3 py-1 rounded-full font-semibold">
-                      {post.category}
-                    </span>
-                    <time dateTime={post.date}>
+                <Link href={`/blog/${post.slug}`} className="block group">
+                  <div className="flex items-center gap-3 text-sm text-gray-600 mb-3" style={{ fontFamily: 'sohne, "Helvetica Neue", Helvetica, Arial, sans-serif' }}>
+                    <span className="text-xs font-normal">
                       {new Date(post.date).toLocaleDateString("es-ES", {
-                        year: "numeric",
-                        month: "long",
+                        month: "short",
                         day: "numeric",
                       })}
-                    </time>
+                    </span>
                     <span>·</span>
-                    <span>{post.readTime} de lectura</span>
+                    <span className="text-xs font-normal">{post.readTime} de lectura</span>
                   </div>
 
-                  <Link href={`/blog/${post.slug}`}>
-                    <h2 className="text-2xl lg:text-3xl font-bold text-primary-brand mb-4 hover:text-secondary-brand transition font-heading">
-                      {post.title}
-                    </h2>
-                  </Link>
+                  <h2
+                    className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors leading-tight"
+                    style={{
+                      fontFamily: 'sohne, "Helvetica Neue", Helvetica, Arial, sans-serif',
+                      letterSpacing: '-0.019em'
+                    }}
+                  >
+                    {post.title}
+                  </h2>
 
-                  <p className="text-gray-700 text-lg mb-6 font-body">
+                  <p
+                    className="text-gray-600 mb-4 leading-relaxed"
+                    style={{
+                      fontFamily: 'source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif',
+                      fontSize: '16px',
+                      lineHeight: '1.5'
+                    }}
+                  >
                     {post.excerpt}
                   </p>
 
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center text-primary-brand font-semibold hover:text-secondary-brand transition font-body"
-                  >
-                    Leer más →
-                  </Link>
-                </div>
+                  <div className="flex items-center justify-between">
+                    <span
+                      className="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full"
+                      style={{ fontFamily: 'sohne, "Helvetica Neue", Helvetica, Arial, sans-serif' }}
+                    >
+                      {post.category}
+                    </span>
+                  </div>
+                </Link>
               </article>
             ))}
           </div>
