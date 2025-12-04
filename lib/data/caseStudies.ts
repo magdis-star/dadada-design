@@ -411,6 +411,151 @@ export const caseStudies: CaseStudy[] = [
         role: "Cliente"
       }
     }
+  },
+  {
+    slug: "bernardo-teaching-assistant-landing-ia",
+    title: "Bernardo's Teaching Assistant - Landing Page para App de IA Educativa",
+    client: "Bernardo - Investigación PhD",
+    industry: "EdTech - Tecnología Educativa",
+    year: "2024",
+    url: "https://bernardos-teaching-assistant.vercel.app/en",
+    thumbnail: "/images/projects/bernardo-teaching-assistant.jpg",
+    excerpt: "Landing page bilingüe (inglés/español) para reclutar participantes senior (55+) en un estudio PhD sobre aprendizaje de inglés con IA conversacional. Diseño moderno con bento grid y enfoque en accesibilidad.",
+
+    challenge: {
+      title: "El Desafío",
+      description: "Un investigador PhD necesitaba reclutar participantes de 55+ años en Madrid para un estudio piloto de una app de conversación en inglés con IA. El reto era crear una landing page que inspirara confianza en seniors, explicara claramente los beneficios de la IA para aprendizaje de idiomas, y facilitara el registro sin intimidar tecnológicamente al público objetivo.",
+      goals: [
+        "Diseño accesible y amigable para adultos mayores (55+) con poco dominio tecnológico",
+        "Explicar de forma clara y no intimidante qué es una app de conversación con IA",
+        "Comunicar los beneficios: aprender sin presión, a tu ritmo, sin juzgamiento",
+        "Soporte bilingüe completo (inglés/español) para alcance internacional",
+        "Generar confianza académica: es un estudio PhD serio, no publicidad comercial",
+        "Formulario de registro simple pero que capture información necesaria para el estudio"
+      ]
+    },
+
+    process: {
+      title: "Proceso de Design Thinking",
+      steps: [
+        {
+          phase: "1. Empatizar - Entender al Usuario Senior",
+          description: "Investigué las barreras que enfrentan adultos mayores al aprender tecnología y idiomas para diseñar una experiencia que eliminara esos miedos.",
+          actions: [
+            "Pain points identificados: miedo a no seguir el ritmo, vergüenza de cometer errores, interfaces complejas",
+            "Necesidades: textos grandes y legibles, navegación simple, mensajes tranquilizadores",
+            "Investigación de usuarios 55+: prefieren claridad visual sobre diseños 'modernos' complicados",
+            "Análisis de competencia en EdTech: muchas apps intimidan a seniors con diseño juvenil"
+          ]
+        },
+        {
+          phase: "2. Definir - Clarificar el Mensaje",
+          description: "Definí tres mensajes clave que resonarían con adultos mayores: sin presión, a tu ritmo, y con propósito educativo genuino.",
+          actions: [
+            "Mensaje principal: 'Practica inglés sin presión, a tu propio ritmo'",
+            "Diferenciador: No es una app comercial, es un proyecto de investigación PhD",
+            "Beneficio emocional: La IA no juzga, espera, se adapta a ti",
+            "Propuesta de valor: Acceso gratuito + contribuyes a investigación educativa",
+            "Estrategia de confianza: Transparencia sobre el estudio, qué esperar, cuánto tiempo"
+          ]
+        },
+        {
+          phase: "3. Idear - Diseñar con Accesibilidad",
+          description: "Diseñé una landing moderna pero accesible, usando el emerald green como color de marca que transmite calma y naturaleza, no tecnología agresiva.",
+          actions: [
+            "Paleta emerald: Verde #10B981 para calma y crecimiento (vs azul corporativo frío)",
+            "Tipografía Inter: Altamente legible, tamaños generosos (base 16-18px)",
+            "Diseño bento grid: Layout moderno pero organizado y claro",
+            "Iconografía SVG consistente: íconos simples en emerald-500 con white fill",
+            "Secciones claras: Cómo funciona → Por qué funciona → Quién buscamos → Qué obtienes",
+            "Hero image: Pareja senior usando tablet = identificación inmediata",
+            "Navegación fija: Logo grande, cambio de idioma visible"
+          ]
+        },
+        {
+          phase: "4. Implementar - Desarrollo en Next.js 16",
+          description: "Desarrollo con Next.js 16, React 19, TypeScript y Tailwind CSS 3. Bilingüe desde el core con rutas /en y /es.",
+          actions: [
+            "Next.js 16 con App Router y generación estática para velocidad",
+            "Sistema de routing bilingüe con params dinámicos: [lang]/",
+            "Gestión de contenido centralizada en lib/content.ts para fácil traducción",
+            "Componentes accesibles: ARIA labels, navegación por teclado, focus indicators",
+            "Optimización de imágenes con Next/Image: hero image comprimida 97% (15MB → 428KB)",
+            "Favicon personalizado: brain icon en SVG con variantes PNG",
+            "Form validation: campos requeridos con mensajes claros en ambos idiomas",
+            "Deploy en Vercel con auto-deploy desde GitHub"
+          ]
+        },
+        {
+          phase: "5. Iterar - Mejoras Basadas en Feedback del Cliente",
+          description: "Iteración continua con el cliente para ajustar diseño, colores, imágenes y experiencia hasta lograr el look perfecto.",
+          actions: [
+            "Iteración 1: Cambio de tema sage green → emerald green (más vibrante y moderno)",
+            "Iteración 2: Hero text más a la izquierda para mejor visibilidad de pareja en imagen",
+            "Iteración 3: Overlay de hero más ligero (black/50-70 → black/30-50) para imagen más inviting",
+            "Iteración 4: Números en 'Cómo Funciona' con emerald-500 background permanente (no solo hover)",
+            "Iteración 5: Bordes más fuertes (border → border-2) para mejor definición visual",
+            "Iteración 6: Reemplazo de emojis por íconos SVG consistentes (Heroicons set)",
+            "Iteración 7: Fondos emerald-50 en secciones 3 y 5 para ritmo visual",
+            "Iteración 8: Logo más grande en nav (h-12 → h-16) para mayor presencia",
+            "Iteración 9: Fix z-index navegación (z-10 → z-50) para evitar overlap con hero text",
+            "Iteración 10: Cambio de imagen hero por foto preferida del cliente (imageBerni1.jpg)"
+          ]
+        }
+      ]
+    },
+
+    solution: {
+      title: "La Solución",
+      description: "Landing page bilingüe moderna con diseño bento grid, accesibilidad WCAG AA, sistema de contenido bilingüe, y experiencia optimizada para adultos mayores. Deploy automatizado en Vercel con optimización de performance.",
+      features: [
+        "Diseño moderno con bento grid layout (asimétrico, visualmente interesante)",
+        "Accesibilidad WCAG AA: textos grandes (base 16-18px), alto contraste, focus indicators",
+        "Bilingüe completo (inglés/español) con routing dedicado /en y /es",
+        "Hero optimizado: imagen ligera (428KB), overlay ajustable, texto left-aligned",
+        "Sección 'Cómo Funciona': números emerald con hover scale, bordes fuertes",
+        "Bento grid 'Por Qué Funciona': cards de tamaños variados, gradient backgrounds",
+        "Sección dark 'Qué Obtienes': contraste visual, íconos SVG consistentes",
+        "Formulario con validación: campos nombre, email, teléfono, edad (55+), ubicación",
+        "Sistema de íconos SVG unified: Heroicons con emerald-500 backgrounds",
+        "Navegación fija con logo grande y language switcher visible",
+        "Favicon personalizado: brain icon en SVG + PNG variants",
+        "Deploy Vercel con auto-deploy desde GitHub main branch",
+        "Performance optimizada: imágenes comprimidas, static generation, Tailwind purge"
+      ]
+    },
+
+    results: {
+      title: "Resultados",
+      description: "Landing page profesional que transmite confianza académica, elimina barreras tecnológicas para seniors, y facilita el registro en el estudio piloto. Lista para producción con deploy automatizado.",
+      metrics: [
+        {
+          label: "2",
+          value: "Idiomas",
+          description: "Alcance internacional con versiones completas en inglés y español"
+        },
+        {
+          label: "WCAG AA",
+          value: "Accesibilidad",
+          description: "Diseño senior-friendly con textos grandes, alto contraste y navegación simple"
+        },
+        {
+          label: "97%",
+          value: "Optimización",
+          description: "Hero image comprimida de 15MB → 428KB sin pérdida visual de calidad"
+        },
+        {
+          label: "10",
+          value: "Iteraciones",
+          description: "Proceso colaborativo con cliente hasta lograr diseño perfecto"
+        }
+      ],
+      testimonial: {
+        quote: "Magda transformó mi visión en una landing page hermosa y funcional. El proceso iterativo fue perfecto - cada cambio mejoraba el diseño hasta que quedó exactamente como lo imaginaba. El sitio es moderno pero accesible para mi público objetivo de adultos mayores, y el sistema bilingüe funciona impecable. Estoy listo para reclutar participantes.",
+        author: "Bernardo",
+        role: "Investigador PhD"
+      }
+    }
   }
 ];
 
