@@ -60,6 +60,9 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code', // TODO: Add Google Search Console verification
   },
+  other: {
+    'p:domain_verify': '51f51572d11f530e34e15117ae5417ed',
+  },
 };
 
 export default function RootLayout({
@@ -71,9 +74,6 @@ export default function RootLayout({
 
   return (
     <html lang="es" className={`${abrilFatface.variable} ${poppins.variable} ${nunito.variable}`}>
-      <head>
-        <meta name="p:domain_verify" content="51f51572d11f530e34e15117ae5417ed" />
-      </head>
       <body>
         {gaId && <GoogleAnalytics gaId={gaId} />}
         <Header />

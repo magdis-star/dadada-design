@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro 2: [Título] - Elemental Kids Club</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#FAD02E',
+                        'brand-pink': '#F43F5E',
+                        'brand-blue': '#3B82F6',
+                    },
+                    fontFamily: {
+                        'heading': ['Bangers', 'cursive'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-heading {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="font-heading text-2xl sm:text-3xl text-brand-pink">
+                        ELEMENTAL KIDS CLUB
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-brand-pink font-body font-semibold">Inicio</a>
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-brand-pink font-body font-semibold flex items-center">
+                            Nuestros Libros
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="libro-1.html" class="block px-4 py-3 text-gray-700 hover:bg-brand-yellow hover:text-gray-900 rounded-t-lg">Libro 1: Naturaleza y Experimentos</a>
+                            <a href="libro-2.html" class="block px-4 py-3 text-gray-700 hover:bg-brand-yellow hover:text-gray-900 font-semibold">Libro 2: [Nuevo Libro]</a>
+                            <a href="index.html#libros" class="block px-4 py-3 text-gray-700 hover:bg-brand-yellow hover:text-gray-900 rounded-b-lg">Ver Todos →</a>
+                        </div>
+                    </div>
+                    <a href="index.html#contacto" class="text-gray-700 hover:text-brand-pink font-body font-semibold">Contacto</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-brand-pink">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-brand-pink font-body font-semibold">Inicio</a>
+                <a href="libro-1.html" class="block py-2 pl-4 text-gray-700 hover:text-brand-pink font-body">Libro 1: Naturaleza</a>
+                <a href="libro-2.html" class="block py-2 pl-4 text-gray-700 hover:text-brand-pink font-body font-semibold">Libro 2: [Nuevo]</a>
+                <a href="index.html#libros" class="block py-2 pl-4 text-gray-700 hover:text-brand-pink font-body">Ver Todos</a>
+                <a href="index.html#contacto" class="block py-2 text-gray-700 hover:text-brand-pink font-body font-semibold">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Placeholder Content -->
+    <section class="min-h-screen bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600 text-white py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+            <div class="mb-8">
+                <a href="index.html" class="inline-flex items-center text-white/80 hover:text-white mb-6 font-body">
+                    ← Volver a Todos los Libros
+                </a>
+            </div>
+
+            <div class="text-9xl mb-8">📚</div>
+
+            <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl mb-6">
+                Libro 2:<br>
+                [Título del Nuevo Libro]
+            </h1>
+
+            <div class="bg-white/10 backdrop-blur-md rounded-3xl p-12 max-w-2xl mx-auto mb-8">
+                <p class="text-2xl font-body leading-relaxed mb-8">
+                    Esta página está lista para recibir el contenido del segundo libro.
+                </p>
+
+                <div class="bg-brand-yellow/20 rounded-2xl p-6 mb-6">
+                    <h3 class="font-heading text-3xl text-brand-yellow mb-4">Contenido Necesario:</h3>
+                    <ul class="text-left space-y-2 font-body text-lg">
+                        <li>✓ Título y subtítulo del libro</li>
+                        <li>✓ Imagen de portada (alta resolución)</li>
+                        <li>✓ Descripción del libro (2-3 oraciones)</li>
+                        <li>✓ Edad recomendada y temas</li>
+                        <li>✓ 4-6 beneficios principales</li>
+                        <li>✓ Lista de actividades incluidas</li>
+                        <li>✓ 2-3 imágenes de páginas de muestra</li>
+                        <li>✓ 3 testimonios de padres</li>
+                        <li>✓ 5-7 preguntas frecuentes</li>
+                        <li>✓ URL de Amazon para compra</li>
+                        <li>✓ URLs de Wild Mail (formulario, confirmación, gracias)</li>
+                    </ul>
+                </div>
+
+                <p class="text-lg font-body mb-8">
+                    Una vez que tengamos este contenido, duplicaremos la estructura del Libro 1 y personalizaremos todo para el Libro 2.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="libro-1.html" class="inline-block bg-white text-purple-600 font-heading text-2xl px-8 py-4 rounded-full hover:bg-gray-100 transition shadow-lg">
+                        Ver Estructura del Libro 1
+                    </a>
+                    <a href="index.html" class="inline-block bg-white/10 backdrop-blur-sm text-white font-heading text-2xl px-8 py-4 rounded-full hover:bg-white/20 transition border-2 border-white">
+                        Volver al Inicio
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-xl mx-auto">
+                <p class="text-sm font-body">
+                    <strong>Nota para desarrollo:</strong> Esta página usará exactamente la misma estructura que libro-1.html, pero con el contenido personalizado del Libro 2 que proporcione el cliente.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-heading text-2xl text-brand-yellow mb-4">Elemental Kids Club</h3>
+                    <p class="text-gray-400 font-body">
+                        Libros de actividades educativas para niños de 5 a 8 años. Aprendizaje divertido lejos de las pantallas.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-body font-semibold text-lg mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#libros" class="text-gray-400 hover:text-brand-yellow font-body">Nuestros Libros</a></li>
+                        <li><a href="index.html#sobre-nosotros" class="text-gray-400 hover:text-brand-yellow font-body">Sobre Nosotros</a></li>
+                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-brand-yellow font-body">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-body font-semibold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-brand-yellow font-body">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-yellow font-body">Política de Cookies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-yellow font-body">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 font-body">&copy; 2024 Elemental Kids Club. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro 1: Naturaleza y Experimentos - Elemental Kids Club</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#FAD02E',
+                        'brand-pink': '#F43F5E',
+                        'brand-blue': '#3B82F6',
+                    },
+                    fontFamily: {
+                        'heading': ['Bangers', 'cursive'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-heading {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="font-heading text-2xl sm:text-3xl text-brand-pink">
+                        ELEMENTAL KIDS CLUB
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-brand-pink font-body font-semibold">Inicio</a>
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-brand-pink font-body font-semibold flex items-center">
+                            Nuestros Libros
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="libro-1.html" class="block px-4 py-3 text-gray-700 hover:bg-brand-yellow hover:text-gray-900 rounded-t-lg font-semibold">Libro 1: Naturaleza y Experimentos</a>
+                            <a href="libro-2.html" class="block px-4 py-3 text-gray-700 hover:bg-brand-yellow hover:text-gray-900">Libro 2: [Nuevo Libro]</a>
+                            <a href="index.html#libros" class="block px-4 py-3 text-gray-700 hover:bg-brand-yellow hover:text-gray-900 rounded-b-lg">Ver Todos →</a>
+                        </div>
+                    </div>
+                    <a href="index.html#contacto" class="text-gray-700 hover:text-brand-pink font-body font-semibold">Contacto</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-brand-pink">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-brand-pink font-body font-semibold">Inicio</a>
+                <a href="libro-1.html" class="block py-2 pl-4 text-gray-700 hover:text-brand-pink font-body font-semibold">Libro 1: Naturaleza</a>
+                <a href="libro-2.html" class="block py-2 pl-4 text-gray-700 hover:text-brand-pink font-body">Libro 2: [Nuevo]</a>
+                <a href="index.html#libros" class="block py-2 pl-4 text-gray-700 hover:text-brand-pink font-body">Ver Todos</a>
+                <a href="index.html#contacto" class="block py-2 text-gray-700 hover:text-brand-pink font-body font-semibold">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Book Hero Section -->
+    <section class="bg-gradient-to-br from-green-400 via-green-500 to-green-600 text-white py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <a href="index.html" class="inline-flex items-center text-white/80 hover:text-white mb-6 font-body">
+                ← Volver a Todos los Libros
+            </a>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Book Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-brand-yellow text-gray-900 font-bold px-4 py-2 rounded-full font-body text-sm">
+                            5-8 años
+                        </span>
+                        <span class="bg-white/20 backdrop-blur-sm text-white font-bold px-4 py-2 rounded-full font-body text-sm">
+                            Naturaleza • Ciencia
+                        </span>
+                    </div>
+
+                    <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl mb-4">
+                        Libro 1:<br>
+                        Naturaleza y Experimentos
+                    </h1>
+
+                    <p class="text-xl text-white/90 mb-8 font-body leading-relaxed">
+                        Descubre el mundo natural con actividades sobre plantas, animales, experimentos simples y exploración del entorno. ¡60 páginas de diversión educativa!
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://amazon.com" target="_blank" class="inline-flex items-center justify-center bg-brand-yellow text-gray-900 font-heading text-2xl px-8 py-4 rounded-full hover:bg-yellow-400 transition shadow-lg">
+                            COMPRAR EN AMAZON →
+                        </a>
+                        <a href="#muestra-gratis" class="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white font-heading text-2xl px-8 py-4 rounded-full hover:bg-white/20 transition border-2 border-white">
+                            Ver Muestra Gratis
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Book Cover -->
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 flex items-center justify-center min-h-[400px]">
+                    <div class="text-center">
+                        <div class="text-9xl mb-4">📚</div>
+                        <p class="font-heading text-3xl text-white">LIBRO 1</p>
+                        <p class="font-body text-white/80 mt-2">[Imagen de portada aquí]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section: "¿Por Qué Este Libro?" -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl sm:text-5xl text-brand-blue mb-4">
+                    ¿Por Qué Este Libro?
+                </h2>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto mb-6"></div>
+                <p class="text-xl text-gray-700 font-body max-w-3xl mx-auto">
+                    Diseñado para estimular la curiosidad natural de los niños mientras aprenden sobre el mundo que les rodea
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Benefit 1 -->
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center text-3xl mb-4">
+                        🌱
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-blue mb-3">
+                        Conecta con la Naturaleza
+                    </h3>
+                    <p class="text-gray-700 font-body leading-relaxed">
+                        Actividades que enseñan a los niños sobre plantas, animales y ecosistemas de forma divertida y visual.
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center text-3xl mb-4">
+                        🔬
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-blue mb-3">
+                        Experimentos Simples
+                    </h3>
+                    <p class="text-gray-700 font-body leading-relaxed">
+                        Introduce conceptos científicos básicos con experimentos seguros que pueden hacer en casa con supervisión.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-brand-yellow rounded-full flex items-center justify-center text-3xl mb-4">
+                        🧩
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-blue mb-3">
+                        Desarrolla Lógica
+                    </h3>
+                    <p class="text-gray-700 font-body leading-relaxed">
+                        Laberintos, puzzles y juegos de observación que fortalecen el pensamiento lógico y la concentración.
+                    </p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-gradient-to-br from-pink-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-brand-pink rounded-full flex items-center justify-center text-3xl mb-4">
+                        🎨
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-blue mb-3">
+                        Estimula Creatividad
+                    </h3>
+                    <p class="text-gray-700 font-body leading-relaxed">
+                        Páginas para colorear, dibujar y crear que permiten a los niños expresarse artísticamente.
+                    </p>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center text-3xl mb-4">
+                        📵
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-blue mb-3">
+                        Sin Pantallas
+                    </h3>
+                    <p class="text-gray-700 font-body leading-relaxed">
+                        Tiempo de calidad lejos de dispositivos electrónicos, perfecto para viajes o tardes en familia.
+                    </p>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+                    <div class="w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center text-3xl mb-4">
+                        ✓
+                    </div>
+                    <h3 class="font-heading text-2xl text-brand-blue mb-3">
+                        Apropiado para la Edad
+                    </h3>
+                    <p class="text-gray-700 font-body leading-relaxed">
+                        Actividades diseñadas específicamente para niños de 5-8 años, con el nivel de dificultad perfecto.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Inside Section -->
+    <section class="py-16 sm:py-24 bg-gradient-to-br from-brand-yellow/10 to-brand-blue/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl sm:text-5xl text-brand-pink mb-4">
+                    ¿Qué Incluye el Libro?
+                </h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto mb-6"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-12">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="font-heading text-3xl text-brand-blue mb-6">60 Páginas de Actividades</h3>
+                        <p class="text-lg text-gray-700 font-body mb-8 leading-relaxed">
+                            Cada página está diseñada para mantener a los niños entretenidos mientras aprenden sobre el mundo natural. Variedad de actividades para que no se aburran.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                                    ✓
+                                </div>
+                                <div>
+                                    <h4 class="font-body font-bold text-gray-900 mb-1">Laberintos Temáticos</h4>
+                                    <p class="text-gray-600 font-body">Ayuda a los animalitos a llegar a su destino</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                                    ✓
+                                </div>
+                                <div>
+                                    <h4 class="font-body font-bold text-gray-900 mb-1">Experimentos Científicos</h4>
+                                    <p class="text-gray-600 font-body">Guías ilustradas para experimentos seguros en casa</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                                    ✓
+                                </div>
+                                <div>
+                                    <h4 class="font-body font-bold text-gray-900 mb-1">Colorear y Descubrir</h4>
+                                    <p class="text-gray-600 font-body">Aprende mientras coloreas plantas y animales</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                                    ✓
+                                </div>
+                                <div>
+                                    <h4 class="font-body font-bold text-gray-900 mb-1">Juegos de Observación</h4>
+                                    <p class="text-gray-600 font-body">Encuentra las diferencias y detalles escondidos</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                                    ✓
+                                </div>
+                                <div>
+                                    <h4 class="font-body font-bold text-gray-900 mb-1">Puzzles y Lógica</h4>
+                                    <p class="text-gray-600 font-body">Resuelve acertijos relacionados con la naturaleza</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                                    ✓
+                                </div>
+                                <div>
+                                    <h4 class="font-body font-bold text-gray-900 mb-1">Datos Curiosos</h4>
+                                    <p class="text-gray-600 font-body">Aprende hechos fascinantes sobre animales y plantas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sample Pages Preview -->
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-2xl p-8 text-center min-h-[200px] flex items-center justify-center">
+                            <div>
+                                <div class="text-6xl mb-2">📄</div>
+                                <p class="font-body text-gray-700 font-semibold">Vista previa de página 1</p>
+                                <p class="font-body text-gray-600 text-sm">[Imagen de muestra]</p>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl p-8 text-center min-h-[200px] flex items-center justify-center">
+                            <div>
+                                <div class="text-6xl mb-2">📄</div>
+                                <p class="font-body text-gray-700 font-semibold">Vista previa de página 2</p>
+                                <p class="font-body text-gray-600 text-sm">[Imagen de muestra]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl sm:text-5xl text-brand-blue mb-4">
+                    Lo Que Dicen los Padres
+                </h2>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Testimonial 1 -->
+                <div class="bg-gradient-to-br from-brand-yellow/10 to-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 font-body mb-6 italic leading-relaxed">
+                        "A mi hijo le encantan los laberintos y experimentos. Lo mantenía entretenido durante todo el viaje en coche. ¡Compraré el siguiente libro!"
+                    </p>
+                    <p class="text-gray-900 font-body font-bold">María G.</p>
+                    <p class="text-gray-600 font-body text-sm">Madre de 2 niños</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gradient-to-br from-brand-blue/10 to-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 font-body mb-6 italic leading-relaxed">
+                        "Perfecto para mi hija de 6 años. Las actividades son educativas pero divertidas. Por fin algo que no es una tablet."
+                    </p>
+                    <p class="text-gray-900 font-body font-bold">Carlos R.</p>
+                    <p class="text-gray-600 font-body text-sm">Padre</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gradient-to-br from-brand-pink/10 to-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-4xl mb-4">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 font-body mb-6 italic leading-relaxed">
+                        "La calidad es excelente y las actividades son variadas. Mi hijo no se aburre y yo sé que está aprendiendo mientras juega."
+                    </p>
+                    <p class="text-gray-900 font-body font-bold">Laura S.</p>
+                    <p class="text-gray-600 font-body text-sm">Madre de 1</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 sm:py-24 bg-gradient-to-br from-brand-blue/5 to-brand-pink/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl sm:text-5xl text-brand-pink mb-4">
+                    Preguntas Frecuentes
+                </h2>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto mb-6"></div>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-button w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-body font-bold text-lg text-gray-900">¿Para qué edades es apropiado este libro?</span>
+                        <svg class="w-6 h-6 text-brand-pink transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-700 font-body leading-relaxed">
+                            Este libro está diseñado específicamente para niños de 5 a 8 años. Las actividades están adaptadas al nivel de desarrollo de esta edad, ofreciendo el desafío perfecto sin ser frustrantes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-button w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-body font-bold text-lg text-gray-900">¿Cuántas páginas tiene?</span>
+                        <svg class="w-6 h-6 text-brand-pink transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-700 font-body leading-relaxed">
+                            El libro contiene 60 páginas llenas de actividades variadas: laberintos, experimentos, páginas para colorear, puzzles y más. Suficiente contenido para semanas de diversión educativa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-button w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-body font-bold text-lg text-gray-900">¿Necesito materiales especiales para las actividades?</span>
+                        <svg class="w-6 h-6 text-brand-pink transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-700 font-body leading-relaxed">
+                            No. Solo necesitas lápices de colores, crayones o marcadores. Los experimentos sugieren materiales comunes que ya tienes en casa (agua, papel, etc.). Todo está diseñado para ser simple y accesible.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-button w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-body font-bold text-lg text-gray-900">¿Es adecuado para niños que no saben leer todavía?</span>
+                        <svg class="w-6 h-6 text-brand-pink transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-700 font-body leading-relaxed">
+                            Sí. Muchas actividades son visuales y pueden completarse sin leer. Para las que incluyen texto, un adulto puede leer las instrucciones al niño. Es una gran oportunidad para pasar tiempo de calidad juntos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-button w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
+                        <span class="font-body font-bold text-lg text-gray-900">¿Puedo descargar una muestra antes de comprar?</span>
+                        <svg class="w-6 h-6 text-brand-pink transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6">
+                        <p class="text-gray-700 font-body leading-relaxed">
+                            ¡Claro! Desplázate hacia abajo para descargar 5 páginas de muestra gratis. Así puedes ver la calidad y tipo de actividades antes de decidirte.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet: Free Sample Download -->
+    <section id="muestra-gratis" class="py-16 sm:py-24 bg-brand-pink text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <div class="text-6xl mb-4">🎁</div>
+                <h2 class="font-heading text-4xl sm:text-5xl mb-4">
+                    ¡Descarga 5 Páginas de Muestra GRATIS!
+                </h2>
+                <p class="text-xl font-body leading-relaxed">
+                    Prueba el libro antes de comprar. Recibe 5 actividades completas del Libro 1 directo en tu email.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 max-w-md mx-auto shadow-2xl">
+                <form class="space-y-4">
+                    <div class="text-left">
+                        <label class="block text-gray-700 font-body font-semibold mb-2">Tu Nombre</label>
+                        <input type="text" placeholder="María García" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-brand-pink focus:outline-none font-body text-gray-900">
+                    </div>
+                    <div class="text-left">
+                        <label class="block text-gray-700 font-body font-semibold mb-2">Tu Email</label>
+                        <input type="email" placeholder="maria@ejemplo.com" class="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-brand-pink focus:outline-none font-body text-gray-900">
+                    </div>
+                    <button type="submit" class="w-full bg-brand-yellow text-gray-900 font-heading text-2xl py-4 rounded-full hover:bg-yellow-400 transition shadow-lg">
+                        Quiero mi Muestra Gratis 🎉
+                    </button>
+                    <p class="text-xs text-gray-600 font-body text-center">
+                        Al descargar, recibirás las páginas de muestra y novedades sobre nuevos libros. Puedes darte de baja en cualquier momento. 100% privacidad garantizada.
+                    </p>
+                </form>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-white/80 font-body text-sm mb-2">O si ya estás convencido:</p>
+                <a href="https://amazon.com" target="_blank" class="inline-block bg-white text-brand-pink font-heading text-xl px-6 py-3 rounded-full hover:bg-gray-100 transition shadow-lg">
+                    COMPRAR AHORA EN AMAZON →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 bg-gradient-to-br from-brand-yellow to-brand-blue text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading text-4xl sm:text-5xl mb-6">
+                ¿Listo para Explorar la Naturaleza?
+            </h2>
+            <p class="text-xl font-body mb-8 leading-relaxed">
+                60 páginas de diversión educativa esperan a tu pequeño explorador
+            </p>
+            <a href="https://amazon.com" target="_blank" class="inline-block bg-white text-brand-pink font-heading text-3xl px-12 py-5 rounded-full hover:bg-gray-100 transition shadow-2xl">
+                COMPRAR EN AMAZON →
+            </a>
+            <p class="mt-6 text-white/90 font-body">
+                Disponible en formato físico • Envío rápido con Amazon Prime
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-heading text-2xl text-brand-yellow mb-4">Elemental Kids Club</h3>
+                    <p class="text-gray-400 font-body">
+                        Libros de actividades educativas para niños de 5 a 8 años. Aprendizaje divertido lejos de las pantallas.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-body font-semibold text-lg mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#libros" class="text-gray-400 hover:text-brand-yellow font-body">Nuestros Libros</a></li>
+                        <li><a href="index.html#sobre-nosotros" class="text-gray-400 hover:text-brand-yellow font-body">Sobre Nosotros</a></li>
+                        <li><a href="index.html#contacto" class="text-gray-400 hover:text-brand-yellow font-body">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-body font-semibold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-brand-yellow font-body">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-yellow font-body">Política de Cookies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-yellow font-body">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 font-body">&copy; 2024 Elemental Kids Club. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ accordion
+        const faqButtons = document.querySelectorAll('.faq-button');
+
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+
+</body>
+</html>
