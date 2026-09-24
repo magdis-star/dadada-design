@@ -20,13 +20,10 @@ export default function Header() {
 
         <nav className="hidden md:flex space-x-6 text-base font-semibold">
           <a href="/#nosotros" className="hover:text-secondary-brand transition duration-150">
-            Nosotros
+            Sobre mí
           </a>
           <a href="/#servicios" className="hover:text-secondary-brand transition duration-150">
             Servicios
-          </a>
-          <a href="/#precios" className="hover:text-secondary-brand transition duration-150">
-            Precios
           </a>
           <a href="/#proyectos" className="hover:text-secondary-brand transition duration-150">
             Proyectos
@@ -70,7 +67,7 @@ export default function Header() {
             className="block px-4 py-2 text-primary-brand hover:bg-background-light"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Nosotros
+            Sobre mí
           </a>
           <a
             href="/#servicios"
@@ -78,13 +75,6 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(false)}
           >
             Servicios
-          </a>
-          <a
-            href="/#precios"
-            className="block px-4 py-2 text-primary-brand hover:bg-background-light"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Precios
           </a>
           <a
             href="/#proyectos"

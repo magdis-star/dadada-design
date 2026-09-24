@@ -28,9 +28,9 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "dadada design - Diseño Web con Propósito | Madrid",
-  description: "Diseño web freelance para pequeños negocios y emprendedores en Madrid. Landing pages, WordPress, SEO. Ayudamos a autores, celebrantes y PYMES a crecer online con sitios optimizados y fáciles de gestionar.",
-  keywords: ["diseño web Madrid", "diseño web freelance", "landing page autores", "WordPress Madrid", "diseño web PYMES", "SEO Madrid", "desarrollo web freelance"],
+  title: "dadada design · Productos digitales y webs que funcionan | Madrid",
+  description: "Diseñadora web freelance en Madrid. Diseño y construyo webs y herramientas interactivas —calculadoras, simuladores, configuradores— para negocios y creadoras que necesitan algo que funcione, no sólo una web bonita.",
+  keywords: ["diseño web Madrid", "diseñadora web freelance Madrid", "producto digital", "herramientas interactivas", "calculadoras y simuladores web", "diseño UX Madrid", "desarrollo web freelance", "design thinking"],
   authors: [{ name: "Magdalena - dadada design" }],
   creator: "dadada design",
   publisher: "dadada design",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: "dadada design - Diseño Web con Propósito",
-    description: "Diseño web freelance para pequeños negocios y emprendedores. Landing pages, WordPress, SEO optimizado.",
+    title: "dadada design · Productos digitales y webs que funcionan",
+    description: "Diseño y construyo webs y herramientas interactivas para negocios y creadoras. Madrid.",
     url: "https://dadadadesign.com",
     siteName: "dadada design",
     locale: "es_ES",

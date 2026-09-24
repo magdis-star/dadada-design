@@ -23,15 +23,16 @@ export default function About() {
           {/* Content Column */}
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-brand mb-6 font-heading">
-              Hola, Soy Magdalena
+              Hola, soy Magdalena
             </h2>
             <p className="text-xl text-secondary-brand font-semibold mb-6 font-heading">
               Diseñadora web freelance en Madrid
             </p>
             <div className="space-y-4 text-gray-700 font-body text-lg">
               <p>
-                Ayudo a pequeños negocios y emprendedores a crear webs <strong>claras,
-                modernas y centradas en las personas</strong>.
+                Diseño y construyo <strong>webs y herramientas digitales</strong> para
+                negocios y creadoras: desde la primera entrevista hasta el código que
+                lo sostiene.
               </p>
               <p>
                 Creo que el buen diseño no solo se ve, <strong>se siente</strong> — y
@@ -53,9 +54,9 @@ export default function About() {
                 la alegría, la autenticidad y ese espíritu creativo que quiero llevar a cada proyecto.
               </p>
               <p className="text-primary-brand font-semibold">
-                Hoy aplico ese enfoque en cada web que creo: escucho, analizo y diseño
-                soluciones digitales que realmente ayudan a las personas y aportan valor
-                a los negocios.
+                Hoy aplico ese enfoque en cada proyecto: escucho, analizo y diseño
+                soluciones digitales que de verdad ayudan a las personas y aportan
+                valor a los negocios.
               </p>
             </div>
 
