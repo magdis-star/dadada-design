@@ -3,7 +3,7 @@ export default function Process() {
     <section id="proceso" className="section-padding">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center text-primary-brand mb-4 font-heading">
-          Entender primero, diseñar después
+          Así trabajo
         </h2>
         <p className="text-center text-lg text-gray-600 mb-10 max-w-4xl mx-auto font-body">
           Trabajo con <strong>Design Thinking</strong>: antes de diseñar nada,
