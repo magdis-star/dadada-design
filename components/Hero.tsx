@@ -3,15 +3,17 @@ export default function Hero() {
     <section className="relative bg-primary-brand section-padding text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 font-abril">
-          Diseño y construyo productos digitales{" "}
+          Soy Magdalena y hago webs para gente que vende{" "}
           <span className="bg-secondary-brand text-text-dark px-3 py-1 rounded-lg inline-block transform rotate-[-2deg]">
-            que la gente usa de verdad
+            lo que hace ella misma
           </span>
         </h1>
         <p className="mt-4 text-xl text-gray-100 max-w-3xl mx-auto font-body">
-          Soy Magdalena, diseñadora web en Madrid. Investigo, diseño y programo:
-          webs y herramientas para negocios y creadoras que necesitan algo que{" "}
-          <strong>funcione</strong>, no sólo una web bonita.
+          Mentoras, escritoras, celebrantes, el obrador de la esquina. Proyectos
+          grandes y pequeños, en Madrid y fuera. Si hoy lo llevas todo por{" "}
+          <strong>WhatsApp e Instagram</strong>, una web te ahorra repetir veinte
+          veces lo mismo, lo deja todo junto en un sitio y se parece a ti, no a un
+          perfil igual al de todos.
         </p>
         <a
           href="#contacto"

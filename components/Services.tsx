@@ -25,12 +25,13 @@ export default function Services() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Webs que explican bien lo que haces
+              Tu espacio propio en internet
             </h3>
             <p className="text-gray-700 font-body">
-              Para negocios que ya tienen clientes y una web que no está a la altura.
-              Clara, rápida en el móvil, fácil de encontrar en Google y que puedas
-              editar tú sin llamar a nadie.
+              Un sitio que es de tu negocio: lo ordenas como quieras, invitas a quien
+              quieras y nadie te puede echar de ahí, que es lo que pasa en las redes.
+              Que se entienda a la primera, que se encuentre en Google y que lo puedas
+              cambiar tú sin llamar a nadie.
             </p>
           </div>
 
@@ -55,9 +56,9 @@ export default function Services() {
               Herramientas que tu gente usa
             </h3>
             <p className="text-gray-700 font-body">
-              Calculadoras, simuladores, configuradores, sistemas de reserva. La pieza
-              que hace que alguien se quede en tu web, vuelva a ella y se la mande a
-              otra persona. Suele vender más que cualquier texto.
+              Calculadoras, simuladores, configuradores, reservas. La pieza que hace
+              que alguien se quede, vuelva y se la mande a otra persona — y que a ti te
+              ahorra contestar el mismo WhatsApp veinte veces.
             </p>
           </div>
 
@@ -74,17 +75,17 @@ export default function Services() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  d="M16.023 9.348h4.992V4.356m0 4.992l-3.181-3.183a8.25 8.25 0 00-13.803 3.7M2.985 14.652v4.992m0-4.992h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7"
                 ></path>
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              De la idea al producto
+              Sigo ahí después de publicar
             </h3>
             <p className="text-gray-700 font-body">
-              Cuando lo que hace falta no es una web: entrevistas con quien lo va a
-              usar, las pantallas diseñadas una por una y el código que las sostiene.
-              Empezando por lo más pequeño que se puede poner a prueba.
+              El día del lanzamiento no se acaba nada. Cambios pequeños, textos nuevos,
+              las fotos de temporada, copias de seguridad y estar pendiente de que no se
+              rompa. Una cuota mensual, y la dejas cuando quieras.
             </p>
           </div>
         </div>
