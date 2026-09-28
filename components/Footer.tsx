@@ -1,33 +1,38 @@
+import Logo from "@/components/Logo";
+
+const legales = [
+  { href: "/aviso-legal", texto: "Aviso legal" },
+  { href: "/politica-privacidad", texto: "Privacidad" },
+  { href: "/politica-cookies", texto: "Cookies" },
+  { href: "/condiciones-contratacion", texto: "Condiciones de contratación" },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-primary-brand py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-200">
-        <p className="text-sm font-body">
-          &copy; 2026 dadada design &middot; Madrid
-        </p>
-        <p className="text-xs mt-2 font-body">
-          Diseño y construyo productos digitales, con las personas delante.
-        </p>
+    <footer className="border-t border-linea">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 sm:px-6 md:flex-row md:items-end md:justify-between lg:px-8">
+        <div>
+          <Logo className="text-3xl" />
+          <p className="mt-6 text-sm text-gris">Madrid · y fuera</p>
+        </div>
 
-        {/* Legal Links Section */}
-        <div className="mt-6 pt-4 border-t border-gray-300 border-opacity-30">
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-body">
-            <a href="/aviso-legal" className="hover:text-white transition-colors">
-              Aviso Legal
-            </a>
-            <span className="text-gray-400">|</span>
-            <a href="/politica-privacidad" className="hover:text-white transition-colors">
-              Política de Privacidad
-            </a>
-            <span className="text-gray-400">|</span>
-            <a href="/politica-cookies" className="hover:text-white transition-colors">
-              Política de Cookies
-            </a>
-            <span className="text-gray-400">|</span>
-            <a href="/condiciones-contratacion" className="hover:text-white transition-colors">
-              Condiciones de Contratación
-            </a>
-          </div>
+        <div className="flex flex-col gap-4 text-sm md:items-end">
+          <a
+            href="https://www.instagram.com/dadada_design/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="enlace"
+          >
+            Instagram
+          </a>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-gris">
+            {legales.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-tinta">
+                {l.texto}
+              </a>
+            ))}
+          </nav>
+          <p className="text-xs text-gris">© {new Date().getFullYear()} dadada design</p>
         </div>
       </div>
     </footer>

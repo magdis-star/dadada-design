@@ -3,66 +3,83 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #059669;
-  --color-secondary: #F0B53D;
-  --color-accent: #6EE7B7;
-  --color-bg-light: #F7E5D4;
-  --color-text-dark: #2D3748;
+  --papel: #F6F2EA;
+  --tinta: #1C1B19;
+  --lima: #DCF24B;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-bg-light);
-  font-family: var(--font-nunito), sans-serif;
-  color: var(--color-text-dark);
+  background-color: var(--papel);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color: var(--tinta);
+  -webkit-font-smoothing: antialiased;
 }
 
-h2, h3, h4 {
-  font-family: var(--font-poppins), sans-serif;
+::selection {
+  background: var(--lima);
+  color: var(--tinta);
 }
 
 .section-padding {
   @apply py-20;
 }
 
+/* Etiqueta pequeña en mayúsculas: «DA / 01», los temas de un proyecto */
+.etiqueta {
+  @apply text-xs uppercase text-gris;
+  letter-spacing: 0.14em;
+}
+
+/* Enlace subrayado, como en la maqueta */
+.enlace {
+  @apply inline-flex items-center gap-1 border-b border-tinta pb-0.5 text-sm font-medium transition-colors hover:border-transparent;
+}
+
+.boton-lima {
+  @apply inline-flex items-center gap-2 rounded-full bg-lima px-6 py-3 text-sm font-semibold text-tinta transition-transform hover:-translate-y-0.5;
+}
+
+/* Hueco que tiene que rellenar Magdalena: se ve a propósito */
+.hueco {
+  @apply flex items-center justify-center border border-dashed border-gris/50 bg-blanco p-4 text-center text-sm text-gris;
+}
+
+/* Restos de la paleta antigua en el blog y los casos */
 .card-shadow {
-  @apply shadow-lg;
-  box-shadow: 0 10px 30px rgba(5, 150, 105, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  @apply rounded-md border border-linea;
+  transition: transform 0.3s ease;
 }
 
 .card-shadow:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(5, 150, 105, 0.12);
+  transform: translateY(-3px);
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  @apply text-white transition-colors duration-300;
-}
-
-.btn-primary:hover {
-  background-color: #047857;
+  @apply bg-tinta text-papel transition-colors duration-300 hover:bg-black;
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-text-dark);
-  @apply transition-colors duration-300;
-}
-
-.btn-secondary:hover {
-  background-color: #D99A2D;
+  @apply bg-lima text-tinta transition-colors duration-300;
 }
 
 .step-icon {
-  color: var(--color-secondary);
+  color: var(--tinta);
 }
 
 .service-icon-box {
-  @apply inline-flex p-4 rounded-full mb-4 bg-gray-200;
-  color: var(--color-primary);
+  @apply mb-4 inline-flex rounded-full bg-lima p-4 text-tinta;
 }
 
 .floating-cta-container {
   @apply my-12;
+}
+
+/* La lima no se lee como color de texto sobre papel: en texto, un verde oliva */
+.text-secondary-brand,
+.hover\:text-secondary-brand:hover {
+  color: #5A6606;
 }

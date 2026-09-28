@@ -2,102 +2,68 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Logo from "@/components/Logo";
+
+const enlaces = [
+  { href: "/#trabajos", texto: "Trabajos" },
+  { href: "/#como-trabajo", texto: "Cómo trabajo" },
+  { href: "/#sobre-mi", texto: "Sobre mí" },
+  { href: "/blog", texto: "Blog" },
+];
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuAbierto, setMenuAbierto] = useState(false);
 
   return (
-    <header className="bg-white sticky top-0 z-10 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center group">
-          <span className="font-extrabold font-heading text-2xl lg:text-3xl transition-all">
-            <span className="text-primary-brand group-hover:scale-110 inline-block transition-transform">da</span>
-            <span className="text-secondary-brand group-hover:scale-110 inline-block transition-transform" style={{ animationDelay: '0.1s' }}>da</span>
-            <span className="text-primary-brand group-hover:scale-110 inline-block transition-transform" style={{ animationDelay: '0.2s' }}>da</span>
-            <span className="text-text-dark ml-2">design</span>
-          </span>
+    <header className="sticky top-0 z-20 bg-papel/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+        <Link href="/" aria-label="dadada design, inicio">
+          <Logo className="text-3xl" />
         </Link>
 
-        <nav className="hidden md:flex space-x-6 text-base font-semibold">
-          <a href="/#nosotros" className="hover:text-secondary-brand transition duration-150">
-            Sobre mí
-          </a>
-          <a href="/#servicios" className="hover:text-secondary-brand transition duration-150">
-            Servicios
-          </a>
-          <a href="/#proyectos" className="hover:text-secondary-brand transition duration-150">
-            Proyectos
-          </a>
-          <a href="/blog" className="hover:text-secondary-brand transition duration-150">
-            Blog
-          </a>
-          <a href="/#contacto" className="hover:text-secondary-brand transition duration-150">
-            Contacto
+        <nav className="hidden items-center gap-8 text-sm md:flex">
+          {enlaces.map((e) => (
+            <a key={e.href} href={e.href} className="transition-colors hover:text-gris">
+              {e.texto}
+            </a>
+          ))}
+          <a href="/#contacto" className="boton-lima !px-5 !py-2">
+            Hablemos <span aria-hidden="true">→</span>
           </a>
         </nav>
 
-        <div className="md:hidden">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-primary-brand focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
-          </button>
-        </div>
+        <button
+          onClick={() => setMenuAbierto(!menuAbierto)}
+          className="md:hidden"
+          aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuAbierto}
+        >
+          <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            {menuAbierto ? (
+              <path strokeLinecap="round" strokeWidth="1.5" d="M6 6l12 12M18 6L6 18" />
+            ) : (
+              <path strokeLinecap="round" strokeWidth="1.5" d="M4 8h16M4 16h16" />
+            )}
+          </svg>
+        </button>
       </div>
 
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg py-2">
-          <a
-            href="/#nosotros"
-            className="block px-4 py-2 text-primary-brand hover:bg-background-light"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Sobre mí
+      {menuAbierto && (
+        <nav className="border-t border-linea bg-papel px-4 pb-6 pt-2 md:hidden">
+          {enlaces.map((e) => (
+            <a
+              key={e.href}
+              href={e.href}
+              className="block border-b border-linea py-3 font-serif text-2xl"
+              onClick={() => setMenuAbierto(false)}
+            >
+              {e.texto}
+            </a>
+          ))}
+          <a href="/#contacto" className="boton-lima mt-6" onClick={() => setMenuAbierto(false)}>
+            Hablemos <span aria-hidden="true">→</span>
           </a>
-          <a
-            href="/#servicios"
-            className="block px-4 py-2 text-primary-brand hover:bg-background-light"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Servicios
-          </a>
-          <a
-            href="/#proyectos"
-            className="block px-4 py-2 text-primary-brand hover:bg-background-light"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Proyectos
-          </a>
-          <a
-            href="/blog"
-            className="block px-4 py-2 text-primary-brand hover:bg-background-light"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Blog
-          </a>
-          <a
-            href="/#contacto"
-            className="block px-4 py-2 text-primary-brand hover:bg-background-light"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Contacto
-          </a>
-        </div>
+        </nav>
       )}
     </header>
   );

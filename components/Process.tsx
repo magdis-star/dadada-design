@@ -1,71 +1,56 @@
+const pasos = [
+  { nombre: "Escucho", texto: "¿Qué tiene que pasar para que esto haya valido la pena?" },
+  { nombre: "Diseño", texto: "Pantallas que puedes ver y tocar antes de escribir código." },
+  { nombre: "Construyo", texto: "Rápido en el móvil y editable por ti." },
+  { nombre: "Lanzo", texto: "Te enseño a manejarlo y sigo ahí." },
+];
+
+// Círculo algo torcido, como hecho a mano: cada paso lo gira un poco distinto
+function Circulo({ giro }: { giro: number }) {
+  return (
+    <svg
+      className="absolute inset-0 h-full w-full"
+      viewBox="0 0 120 120"
+      style={{ transform: `rotate(${giro}deg)` }}
+      aria-hidden="true"
+    >
+      <path
+        d="M62 6 C 92 7, 115 30, 113 60 C 112 92, 88 114, 58 113 C 27 112, 6 88, 7 58 C 8 30, 30 8, 66 9"
+        fill="none"
+        stroke="#1C1B19"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export default function Process() {
   return (
-    <section id="proceso" className="section-padding">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-primary-brand mb-4 font-heading">
-          Así trabajo
-        </h2>
-        <p className="text-center text-lg text-gray-600 mb-10 max-w-4xl mx-auto font-body">
-          Trabajo con <strong>Design Thinking</strong>: antes de diseñar nada,
-          entiendo a quién lo va a usar. Por eso lo que sale no es sólo una web
-          bonita, sino algo que resuelve un problema real y se puede medir.
-        </p>
-
-        <div className="floating-cta-container text-center">
-          <a
-            href="#contacto"
-            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-full text-white bg-primary-brand hover:bg-opacity-90 shadow-lg transition duration-300"
-          >
-            Media hora para ver si encajamos
-          </a>
+    <section id="como-trabajo" className="border-y border-linea bg-blanco">
+      <div className="mx-auto grid max-w-6xl gap-16 px-4 py-24 sm:px-6 lg:grid-cols-[1fr_1.4fr] lg:px-8">
+        <div>
+          <p className="etiqueta">da / 01</p>
+          <h2 className="mt-4 font-serif text-4xl leading-[1.08] sm:text-5xl">
+            Antes de diseñar nada, entiendo a quién lo va a usar.
+          </h2>
+          <p className="mt-6 max-w-sm leading-relaxed text-tinta/80">
+            Por eso lo que sale no es sólo una web bonita, sino algo que resuelve
+            un problema real.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-white p-6 rounded-xl card-shadow text-center border-t-4 border-accent-green">
-            <span className="text-5xl step-icon mb-4 block font-heading">1</span>
-            <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Escucho y entiendo
-            </h3>
-            <p className="text-gray-600 text-sm font-body">
-              Nos sentamos a fondo con tu negocio y con tus clientes. ¿Qué tiene
-              que pasar para que esto haya valido la pena?
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl card-shadow text-center border-t-4 border-accent-green">
-            <span className="text-5xl step-icon mb-4 block font-heading">2</span>
-            <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Diseño la solución
-            </h3>
-            <p className="text-gray-600 text-sm font-body">
-              Convierto esas ideas en un plan y en pantallas que puedes ver y
-              tocar, antes de que se escriba una línea de código.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl card-shadow text-center border-t-4 border-accent-green">
-            <span className="text-5xl step-icon mb-4 block font-heading">3</span>
-            <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Lo construyo
-            </h3>
-            <p className="text-gray-600 text-sm font-body">
-              Con la tecnología que le convenga a tu proyecto, no la que me
-              convenga a mí. Rápido en el móvil, encontrable en Google y editable
-              por ti.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl card-shadow text-center border-t-4 border-accent-green">
-            <span className="text-5xl step-icon mb-4 block font-heading">4</span>
-            <h3 className="text-xl font-semibold text-primary-brand mb-3 font-heading">
-              Lo lanzo y te acompaño
-            </h3>
-            <p className="text-gray-600 text-sm font-body">
-              Lo pongo en marcha y te enseño a manejarlo. Después sigo ahí para
-              lo que vaya surgiendo.
-            </p>
-          </div>
-        </div>
+        <ol className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-4">
+          {pasos.map((paso, i) => (
+            <li key={paso.nombre} className="flex flex-col items-center text-center">
+              <div className="relative grid h-28 w-28 place-items-center">
+                <Circulo giro={i * 37} />
+                <span className="text-xs font-semibold uppercase tracking-[0.14em]">{paso.nombre}</span>
+              </div>
+              <p className="mt-4 max-w-[11rem] text-sm leading-snug text-gris">{paso.texto}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

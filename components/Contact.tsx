@@ -24,74 +24,60 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        setFormMessage("¡Mensaje enviado! Nos pondremos en contacto contigo muy pronto. ¡Gracias!");
+        setFormMessage("Recibido. Te contesto en cuanto lo lea.");
         setIsVisible(true);
         form.reset();
-
-        // Hide message after 5 seconds
-        setTimeout(() => {
-          setIsVisible(false);
-        }, 5000);
       } else {
-        setFormMessage("Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.");
+        setFormMessage("No se ha podido enviar. Prueba otra vez en un momento.");
         setIsVisible(true);
       }
     } catch (error) {
-      setFormMessage("Error al enviar el formulario. Por favor, intenta de nuevo.");
+      setFormMessage("No se ha podido enviar. Prueba otra vez en un momento.");
       setIsVisible(true);
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const campo =
+    "w-full border-0 border-b border-tinta/30 bg-transparent px-0 py-3 placeholder:text-gris focus:border-tinta focus:outline-none focus:ring-0";
+
   return (
-    <section id="contacto" className="section-padding bg-secondary-brand">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center bg-white p-12 rounded-xl text-text-dark shadow-xl">
-          <h2 className="text-3xl font-bold mb-3 font-heading">
-            ¿Listo para darle un impulso digital a tu negocio?
-          </h2>
-          <p className="text-lg mb-8 text-gray-700 font-body">
-            Cuéntanos tu idea. Una charla sin compromiso puede ser el primer paso
-            hacia tu éxito online.
-          </p>
-          <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Tu Nombre"
-              className="w-full p-3 rounded-lg border border-gray-300 text-text-dark"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo Electrónico de Contacto"
-              className="w-full p-3 rounded-lg border border-gray-300 text-text-dark"
-              required
-            />
-            <textarea
-              name="message"
-              rows={4}
-              placeholder="Cuéntanos sobre tu negocio y qué necesitas..."
-              className="w-full p-3 rounded-lg border border-gray-300 text-text-dark"
-              required
-            ></textarea>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-3 btn-primary rounded-full font-bold shadow-lg transform hover:scale-105 font-heading disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-            >
-              {isSubmitting ? "Enviando..." : "Enviar Propuesta de Proyecto"}
-            </button>
-            {isVisible && (
-              <p className="mt-3 text-sm text-center font-medium text-primary-brand font-body">
-                {formMessage}
-              </p>
-            )}
-          </form>
-        </div>
+    <section id="contacto" className="mx-auto grid max-w-6xl gap-14 px-4 py-24 sm:px-6 md:grid-cols-2 lg:px-8">
+      <div>
+        <h2 className="font-serif text-5xl leading-[1.02] sm:text-6xl">
+          ¿Hablamos?
+        </h2>
+        <p className="mt-6 max-w-sm leading-relaxed text-tinta/80">
+          Cuéntame qué haces y cómo lo llevas hoy. Proyectos grandes y pequeños,
+          en Madrid y fuera.
+        </p>
       </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <label className="block">
+          <span className="sr-only">Tu nombre</span>
+          <input type="text" name="name" placeholder="Tu nombre" className={campo} required />
+        </label>
+        <label className="block">
+          <span className="sr-only">Tu email</span>
+          <input type="email" name="email" placeholder="Tu email" className={campo} required />
+        </label>
+        <label className="block">
+          <span className="sr-only">Tu mensaje</span>
+          <textarea
+            name="message"
+            rows={4}
+            placeholder="¿Qué haces, y qué te gustaría que hiciera tu web?"
+            className={`${campo} resize-none`}
+            required
+          ></textarea>
+        </label>
+        <button type="submit" disabled={isSubmitting} className="boton-lima disabled:opacity-50">
+          {isSubmitting ? "Enviando…" : "Enviar"} <span aria-hidden="true">→</span>
+        </button>
+        {isVisible && <p className="text-sm" role="status">{formMessage}</p>}
+      </form>
     </section>
   );
 }
