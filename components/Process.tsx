@@ -45,7 +45,7 @@ export default function Process() {
               </div>
               {i < pasos.length - 1 && (
                 <svg
-                  className="absolute right-0 top-[50px] hidden h-3 w-6 translate-x-1/2 sm:block"
+                  className="absolute -right-3 top-[50px] hidden h-3 w-6 translate-x-1/2 sm:block"
                   viewBox="0 0 24 12"
                   aria-hidden="true"
                 >
