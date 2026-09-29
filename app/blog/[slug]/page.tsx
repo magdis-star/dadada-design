@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${post.title} | Blog - dadada design`,
+    title: `${post.title} · Notas · dadada design`,
     description: post.excerpt,
   };
 }
@@ -70,52 +70,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <article className="bg-white">
-        <header className="bg-primary-brand text-white py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-gray-100 hover:text-white mb-6 font-body"
-            >
-              ← Volver al blog
-            </Link>
+      <article>
+        <header className="mx-auto max-w-[680px] px-6 pt-12">
+          <Link href="/blog" className="text-sm text-gris hover:text-tinta">
+            ← Notas
+          </Link>
 
-            <div className="flex items-center gap-4 text-sm text-gray-200 mb-6 font-body">
-              <span className="bg-secondary-brand text-text-dark px-3 py-1 rounded-full font-semibold">
-                {post.category}
-              </span>
-              <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString("es-ES", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              <span>·</span>
-              <span>{post.readTime} de lectura</span>
-            </div>
-
-            <h1 className="text-3xl lg:text-5xl font-bold mb-4 font-heading">
-              {post.title}
-            </h1>
-
-            <p className="text-xl text-gray-100 font-body">
-              Por {post.author}
-            </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-gris">
+            <span className="rounded-full bg-lima px-3 py-1 text-xs font-semibold text-tinta">{post.category}</span>
+            <time dateTime={post.date}>
+              {new Date(post.date).toLocaleDateString("es-ES", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            <span>·</span>
+            <span>{post.readTime} de lectura</span>
           </div>
+
+          <h1 className="mt-6 font-serif text-4xl leading-[1.08] sm:text-5xl">{post.title}</h1>
+          <p className="mt-4 text-gris">Por {post.author}</p>
         </header>
 
         <div className="max-w-[680px] mx-auto px-6 py-16">
           <style dangerouslySetInnerHTML={{ __html: `
             .medium-content {
-              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+              font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 21px;
               line-height: 1.58;
               letter-spacing: -0.003em;
               color: #242424;
             }
             .medium-content h1 {
-              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+              font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 40px;
               font-weight: 800;
               line-height: 1.2;
@@ -125,7 +113,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               margin-top: 1.5em;
             }
             .medium-content h2 {
-              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+              font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 32px;
               font-weight: 800;
               line-height: 1.25;
@@ -135,7 +123,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               margin-bottom: 0.46em;
             }
             .medium-content h3 {
-              font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+              font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
               font-size: 26px;
               font-weight: 700;
               line-height: 1.3;
@@ -191,7 +179,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <article
             className="medium-content"
-            dangerouslySetInnerHTML={{ __html: formatMarkdown(post.content) }}
+            dangerouslySetInnerHTML={{ __html: formatMarkdown(post.content.replace(/^\s*# .*\n/, "")) }}
           />
 
           <div className="mt-16 pt-8 border-t border-gray-200">

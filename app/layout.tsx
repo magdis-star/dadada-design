@@ -46,10 +46,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Magdalena - dadada design" }],
   creator: "dadada design",
   publisher: "dadada design",
-  icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
-  },
+  // El icono sale de app/icon.png y app/apple-icon.png (el «da» lima del logo C)
   openGraph: {
     title: "dadada design · Primero escucho, después diseño",
     description: "Webs y herramientas a medida. Magdalena, diseñadora en Madrid.",

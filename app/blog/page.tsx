@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getBlogPosts } from "@/lib/data/blogPosts";
 
 export const metadata = {
-  title: "Blog - dadada design | Consejos de Diseño Web y Marketing",
+  title: "Notas · dadada design",
   description: "Aprende sobre diseño web, UX, y estrategias digitales para hacer crecer tu pequeño negocio.",
 };
 
@@ -11,24 +11,20 @@ export default function BlogPage() {
 
   return (
     <>
-      <div className="bg-primary-brand text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-heading">
-            Blog
-          </h1>
-          <p className="text-xl text-gray-100 font-body">
-            Consejos prácticos sobre diseño web, UX y estrategia digital para pequeños negocios
-          </p>
-        </div>
+      <div className="mx-auto max-w-[728px] px-6 pb-4 pt-16">
+        <h1 className="font-serif text-5xl sm:text-6xl">Notas</h1>
+        <p className="mt-4 text-lg leading-relaxed text-tinta/75">
+          Consejos prácticos sobre diseño web, UX y estrategia digital para pequeños negocios
+        </p>
       </div>
 
-      <section className="section-padding bg-white">
+      <section className="pb-20">
         <div className="max-w-[728px] mx-auto px-6">
           <div className="divide-y divide-gray-200">
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="py-12 hover:bg-gray-50 transition-colors duration-200"
+                className="py-12 transition-colors duration-200"
               >
                 <Link href={`/blog/${post.slug}`} className="block group">
                   <div className="flex items-center gap-3 text-sm text-gray-600 mb-3 font-body">
