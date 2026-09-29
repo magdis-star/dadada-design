@@ -15,8 +15,10 @@ export default function PrimeraCharla() {
             Pedir la charla <span aria-hidden="true">→</span>
           </a>
         </div>
-        <p className="rotate-[-3deg] font-mano text-3xl leading-snug md:text-4xl">
-          ¿Qué tiene que pasar para que esto haya valido la pena?
+        {/* Aquí iba «¿Qué tiene que pasar…?», que ahora está en la portada.
+            Hueco para una nota suya escrita a mano. */}
+        <p className="hueco rotate-[-3deg] !border-tinta/30 !bg-transparent py-10 !text-tinta/60">
+          [tu nota a mano]
         </p>
       </div>
     </section>

@@ -1,5 +1,5 @@
 const pasos = [
-  { nombre: "Escucho", texto: "¿Qué tiene que pasar para que esto haya valido la pena?" },
+  { nombre: "Escucho", texto: "A ti y a la gente que te compra." },
   { nombre: "Diseño", texto: "Pantallas que puedes ver y tocar antes de escribir código." },
   { nombre: "Construyo", texto: "Rápido en el móvil y editable por ti." },
   { nombre: "Lanzo", texto: "Te enseño a manejarlo y sigo ahí." },
@@ -34,10 +34,6 @@ export default function Process() {
           <h2 className="mt-4 font-serif text-4xl leading-[1.08] sm:text-5xl">
             Antes de diseñar nada, entiendo a quién lo va a usar.
           </h2>
-          <p className="mt-6 max-w-sm leading-relaxed text-tinta/80">
-            Por eso lo que sale no es sólo una web bonita, sino algo que resuelve
-            un problema real.
-          </p>
         </div>
 
         <ol className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-4">

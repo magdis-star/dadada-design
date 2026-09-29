@@ -20,9 +20,9 @@ export default function Hero() {
           </em>
         </h1>
         <p className="mt-8 max-w-md text-lg leading-relaxed text-tinta/80">
-          Mentoras, escritoras, celebrantes, el obrador de la esquina. Si hoy lo
-          llevas todo por WhatsApp e Instagram, una web te ahorra repetir veinte
-          veces lo mismo y se parece a ti, no a un perfil igual al de todos.
+          Nos sentamos a fondo con tu negocio y con tus clientes, y me pregunto:
+          ¿qué tiene que pasar para que esto haya valido la pena? Por eso lo que
+          sale no es sólo una web bonita, sino algo que resuelve un problema real.
         </p>
         <p className="etiqueta mt-8">Webs · Herramientas a medida · Design thinking</p>
         <div className="mt-10 flex flex-wrap items-center gap-8">
