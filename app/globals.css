@@ -28,6 +28,24 @@ body {
   @apply py-20;
 }
 
+/* Logo C: el último «da» está un poco más arriba y, cada 3,5 s, da un saltito */
+.logo-salto {
+  display: inline-block;
+  transform: translateY(-0.28em);
+  animation: salto 3.5s ease-in-out infinite;
+}
+
+@keyframes salto {
+  0%, 70%, 100% { transform: translateY(-0.28em) rotate(0deg); }
+  78% { transform: translateY(-0.5em) rotate(-4deg); }
+  86% { transform: translateY(-0.24em) rotate(1deg); }
+  92% { transform: translateY(-0.32em) rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-salto { animation: none; }
+}
+
 /* Etiqueta pequeña en mayúsculas: «DA / 01», los temas de un proyecto */
 .etiqueta {
   @apply text-xs uppercase text-gris;
