@@ -27,7 +27,7 @@ function LogoA({ className }: { className: string }) {
   );
 }
 
-function LogoC({ className }: { className: string }) {
+function LogoC({ className, quieto }: { className: string; quieto: boolean }) {
   return (
     <span
       className={`inline-flex items-baseline gap-[0.08em] pt-[0.3em] font-sans font-semibold leading-none tracking-[-0.03em] ${className}`}
@@ -35,11 +35,17 @@ function LogoC({ className }: { className: string }) {
     >
       <span aria-hidden="true">da</span>
       <span aria-hidden="true" className="-translate-y-[0.14em]">da</span>
-      <span aria-hidden="true" className="logo-salto rounded-[0.1em] bg-lima px-[0.08em]">da</span>
+      <span
+        aria-hidden="true"
+        className={`${quieto ? "inline-block -translate-y-[0.28em]" : "logo-salto"} rounded-[0.1em] bg-lima px-[0.08em]`}
+      >
+        da
+      </span>
     </span>
   );
 }
 
-export default function Logo({ className = "" }: { className?: string }) {
-  return LOGO === "A" ? <LogoA className={className} /> : <LogoC className={className} />;
+// `quieto`: sin el saltito (en el pie, por ejemplo)
+export default function Logo({ className = "", quieto = false }: { className?: string; quieto?: boolean }) {
+  return LOGO === "A" ? <LogoA className={className} /> : <LogoC className={className} quieto={quieto} />;
 }
