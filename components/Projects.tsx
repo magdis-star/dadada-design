@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Portatil from "@/components/Portatil";
 
 const trabajos = [
   {
@@ -37,15 +37,7 @@ export default function Projects() {
       <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-6">
         {trabajos.map((t) => (
           <a key={t.nombre} href={t.caso} className="group block">
-            <div className="relative aspect-[4/3] overflow-hidden bg-linea">
-              <Image
-                src={t.imagen}
-                alt={`La web de ${t.nombre}`}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                unoptimized
-              />
-            </div>
+            <Portatil src={t.imagen} alt={`La web de ${t.nombre}`} />
             <h3 className="mt-5 text-lg font-medium">{t.nombre}</h3>
             <p className="mt-1 text-sm leading-snug text-tinta/75">{t.que}</p>
             <p className="etiqueta mt-4 !normal-case !tracking-normal">{t.temas}</p>
