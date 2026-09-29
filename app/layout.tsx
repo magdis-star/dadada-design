@@ -41,7 +41,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: "dadada design · Productos digitales y webs que funcionan | Madrid",
-  description: "Diseñadora web freelance en Madrid. Diseño y construyo webs y herramientas interactivas —calculadoras, simuladores, configuradores— para negocios y creadoras que necesitan algo que funcione, no sólo una web bonita.",
+  description: "Diseñadora web freelance en Madrid. Diseño y construyo webs y herramientas interactivas —calculadoras, simuladores, configuradores— para negocios y creadoras que necesitan algo que funcione.",
   keywords: ["diseño web Madrid", "diseñadora web freelance Madrid", "producto digital", "herramientas interactivas", "calculadoras y simuladores web", "diseño UX Madrid", "desarrollo web freelance", "design thinking"],
   authors: [{ name: "Magdalena - dadada design" }],
   creator: "dadada design",
