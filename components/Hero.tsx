@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="relative mx-auto h-[420px] w-full max-w-[460px] sm:h-[480px]">
         <div className="absolute left-0 top-10 w-[58%] rotate-[-4deg] overflow-hidden border-[6px] border-blanco shadow-sm">
           <Image
-            src="/images/projects/gonzalo-morales.jpg"
+            src="/images/projects/gonzalo-morales-portatil.jpg"
             alt="La web de Gonzalo Morales"
             width={600}
             height={450}
