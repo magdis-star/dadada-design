@@ -5,8 +5,8 @@ export default function Hero() {
     <section className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-24 pt-12 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:px-8 lg:pt-20">
       <div>
         <h1 className="font-serif text-5xl leading-[1.02] tracking-[-0.01em] sm:text-6xl lg:text-7xl">
-          Soy Magdalena y hago webs para gente que vende{" "}
-          <em>lo que hace ella misma</em>
+          Soy Magdalena. Primero entiendo,{" "}
+          <em>después diseño.</em>
         </h1>
         <p className="mt-8 max-w-md text-lg leading-relaxed text-tinta/80">
           Mentoras, escritoras, celebrantes, el obrador de la esquina. Si hoy lo
