@@ -42,11 +42,20 @@ export default function Process() {
 
         <ol className="grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-4">
           {pasos.map((paso, i) => (
-            <li key={paso.nombre} className="flex flex-col items-center text-center">
+            <li key={paso.nombre} className="relative flex flex-col items-center text-center">
               <div className="relative grid h-28 w-28 place-items-center">
                 <Circulo giro={i * 37} />
-                <span className="text-xs font-semibold uppercase tracking-[0.14em]">{paso.nombre}</span>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.1em]">{paso.nombre}</span>
               </div>
+              {i < pasos.length - 1 && (
+                <svg
+                  className="absolute right-0 top-[50px] hidden h-3 w-6 translate-x-1/2 sm:block"
+                  viewBox="0 0 24 12"
+                  aria-hidden="true"
+                >
+                  <path d="M1 6h20M16 1l5 5-5 5" fill="none" stroke="#1C1B19" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
               <p className="mt-4 max-w-[11rem] text-sm leading-snug text-gris">{paso.texto}</p>
             </li>
           ))}

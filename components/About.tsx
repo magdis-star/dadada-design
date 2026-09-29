@@ -17,7 +17,7 @@ export default function About() {
         </div>
 
         <div>
-          <p className="etiqueta">da / 03</p>
+          <p className="etiqueta">da / 04</p>
           <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Hola, soy Magda.</h2>
           <div className="mt-6 max-w-md space-y-4 leading-relaxed text-tinta/80">
             <p>

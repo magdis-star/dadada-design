@@ -29,7 +29,7 @@ export default function Projects() {
     <section id="trabajos" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="etiqueta">da / 02</p>
+          <p className="etiqueta">da / 03</p>
           <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Trabajos</h2>
         </div>
       </div>

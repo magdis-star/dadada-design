@@ -5,10 +5,11 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 
 const enlaces = [
-  { href: "/#trabajos", texto: "Trabajos" },
   { href: "/#como-trabajo", texto: "Cómo trabajo" },
+  { href: "/#servicios", texto: "Servicios" },
+  { href: "/#trabajos", texto: "Trabajos" },
   { href: "/#sobre-mi", texto: "Sobre mí" },
-  { href: "/blog", texto: "Blog" },
+  { href: "/blog", texto: "Notas" },
 ];
 
 export default function Header() {
