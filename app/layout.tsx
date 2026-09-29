@@ -41,7 +41,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: "dadada design · Magdalena, diseñadora web en Madrid",
-  description: "Soy Magdalena. Primero entiendo, después diseño. Webs y herramientas a medida para quien tiene una idea, sabe lo que necesita o quiere mejorar lo que ya tiene. En Madrid y fuera.",
+  description: "Soy Magdalena. Primero escucho, después diseño. Webs y herramientas a medida para quien tiene una idea, sabe lo que necesita o quiere mejorar lo que ya tiene. En Madrid y fuera.",
   keywords: ["diseño web Madrid", "diseñadora web freelance Madrid", "design thinking", "diseño UX Madrid", "herramientas web a medida", "rediseño web"],
   authors: [{ name: "Magdalena - dadada design" }],
   creator: "dadada design",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: "dadada design · Primero entiendo, después diseño",
+    title: "dadada design · Primero escucho, después diseño",
     description: "Webs y herramientas a medida. Magdalena, diseñadora en Madrid.",
     url: "https://dadadadesign.com",
     siteName: "dadada design",
