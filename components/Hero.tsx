@@ -51,7 +51,8 @@ export default function Hero() {
           en blanco y negro, relajada
         </div>
         <div className="absolute bottom-6 left-[12%] w-40 rotate-[-6deg] bg-lima px-4 py-5 font-mano text-2xl leading-tight shadow-sm">
-          [tu nota a mano]
+          {/* De su «Sobre mí». Letra provisional hasta tener la suya */}
+          Más preguntas que suposiciones.
         </div>
         <svg className="absolute -right-2 bottom-2 h-14 w-14" viewBox="0 0 60 60" aria-hidden="true">
           <g stroke="#1C1B19" strokeWidth="2.5" strokeLinecap="round">
