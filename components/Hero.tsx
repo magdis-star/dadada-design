@@ -6,7 +6,18 @@ export default function Hero() {
       <div>
         <h1 className="font-serif text-5xl leading-[1.02] tracking-[-0.01em] sm:text-6xl lg:text-7xl">
           Soy Magdalena. Primero entiendo,{" "}
-          <em>después diseño.</em>
+          <em className="relative inline-block">
+            después diseño.
+            {/* El mismo trazo lima del logo */}
+            <svg
+              className="absolute -bottom-[0.06em] left-0 -z-10 h-[0.28em] w-[96%]"
+              viewBox="0 0 300 20"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path d="M3 13 C 60 5, 120 16, 180 9 S 270 6, 297 11" stroke="#DCF24B" strokeWidth="9" fill="none" strokeLinecap="round" />
+            </svg>
+          </em>
         </h1>
         <p className="mt-8 max-w-md text-lg leading-relaxed text-tinta/80">
           Mentoras, escritoras, celebrantes, el obrador de la esquina. Si hoy lo
