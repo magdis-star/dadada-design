@@ -1,5 +1,21 @@
+// Versión corta del caso (rediseño de sep 2026): es lo que enseña la página.
+// Lo de abajo (challenge, process…) se queda como archivo del texto largo.
+export interface Historia {
+  nombre: string;
+  pregunta: string;
+  problema: string;
+  hice: string[];
+  cambio: string;
+  // El proceso en una línea por paso, en llano
+  pasos?: { fase: string; texto: string }[];
+  // Etapas de un proyecto que ha crecido (Elemental: primero una landing, luego un hub)
+  etapas?: { cuando: string; titulo: string; imagen: string; entera?: boolean }[];
+}
+
 export interface CaseStudy {
   slug: string;
+  historia?: Historia;
+  captura?: string;
   title: string;
   client: string;
   industry: string;
@@ -44,6 +60,30 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "elemental-kids-club-landing-educativa",
+    captura: "/images/projects/elemental-kids-club-portatil.jpg",
+    historia: {
+      nombre: "Elemental Kids Club",
+      pregunta: "¿Cómo vendes un libro en Amazon y, a la vez, conoces a quien lo compra?",
+      problema: "Una autora de libros de actividades para niños quería vender su primer libro en Amazon y tener, además, una lista de correo propia, para no depender sólo de Amazon.",
+      hice: [
+        "Una landing para el primer libro, con el botón de compra siempre a la vista",
+        "Un bonus descargable a cambio del email, con doble confirmación",
+        "Opiniones, preguntas frecuentes y enlaces que ella edita sola",
+        "Cookies y privacidad en regla (RGPD)",
+      ],
+      cambio: "En enero de 2026 llegó el segundo libro y la landing se quedó pequeña. La convertí en un hub para toda la colección: cada libro tiene su página, su botón de Amazon y su bonus.",
+      pasos: [
+        { fase: "Empatizar", texto: "Miré qué buscan los padres que quieren actividades sin pantallas, y qué necesitaba ella de su negocio." },
+        { fase: "Definir", texto: "Dos objetivos a la vez: vender en Amazon y hacer una lista de correo propia." },
+        { fase: "Idear y prototipar", texto: "Una landing alegre, con los colores de los libros, y un bonus a cambio del email." },
+        { fase: "Implementar", texto: "La construí en WordPress, con el correo conectado y la privacidad en regla." },
+        { fase: "Iterar", texto: "Ajustes con ella después de lanzarla: menos adornos y un formulario más claro." },
+      ],
+      etapas: [
+        { cuando: "2025", titulo: "La landing del primer libro", imagen: "/images/projects/elemental-kids-club.jpg", entera: true },
+        { cuando: "2026", titulo: "Un hub para todos sus libros", imagen: "/images/projects/elemental-kids-club-portatil.jpg" },
+      ],
+    },
     title: "Elemental Kids Club - Landing Page Educativa",
     client: "Elemental Kids Club",
     industry: "Educación Infantil",
@@ -174,6 +214,26 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "tie-celtic-knot-wordpress-celebrant",
+    captura: "/images/projects/celtic-knot-portatil.jpg",
+    historia: {
+      nombre: "Tie the Celtic Knot",
+      pregunta: "¿Cómo consigue una celebrante de bodas que la encuentren en Google?",
+      problema: "Una celebrante de bodas celtas en Ontario (Canadá) se había hecho su propia web en WordPress. Nadie la encontraba en Google, y quien llegaba no sabía cómo pedirle fecha.",
+      hice: [
+        "Un rediseño en WordPress, que ella ya sabía usar",
+        "SEO local para búsquedas como «Celtic wedding celebrant Ontario»",
+        "Opiniones y fotos de ceremonias reales, bien a la vista",
+        "Un «Check availability» claro en cada parte de la web",
+      ],
+      cambio: "Ahora aparece en las búsquedas locales, le escriben parejas que la encuentran así, y actualiza opiniones y fotos ella sola después de cada boda.",
+      pasos: [
+        { fase: "Empatizar", texto: "Hablé con ella de lo que le frustraba y de lo que necesitaba su negocio." },
+        { fase: "Definir", texto: "Tres cosas: rediseño, SEO local y que pudiera actualizarla ella sola." },
+        { fase: "Idear", texto: "Una web que cuenta sus ceremonias y lleva, paso a paso, a pedir fecha." },
+        { fase: "Implementar", texto: "Rediseño completo en WordPress, pensado primero para el móvil." },
+        { fase: "Testear", texto: "Comprobé las búsquedas y el móvil, y le enseñé a añadir opiniones y fotos." },
+      ],
+    },
     title: "Tie the Celtic Knot - Rediseño Web para Celebrante de Bodas",
     client: "Celebrante de Bodas - Ontario, Canadá",
     industry: "Servicios de Bodas",
@@ -300,6 +360,25 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "gonzalo-morales-galeria-arte",
+    captura: "/images/projects/gonzalo-morales-portatil.jpg",
+    historia: {
+      nombre: "Gonzalo Morales",
+      pregunta: "¿Cómo se convierte el legado de un pintor en un museo que, además, vende?",
+      problema: "La familia del pintor costarricense Gonzalo Morales (1945–2017) quería conservar su obra, más de 90 cuadros, y llegar a coleccionistas de fuera de Costa Rica.",
+      hice: [
+        "Una galería sobria, en blanco y negro, para que manden los cuadros",
+        "Una ficha por obra: medidas, técnica e historia",
+        "Tienda online con pago internacional",
+        "Todo en español y en inglés",
+      ],
+      cambio: "La web es hoy la referencia online del artista, y la familia gestiona las obras y las ventas sin ayuda.",
+      pasos: [
+        { fase: "Empatizar", texto: "Hablé a fondo con la familia y miré cómo compran arte los coleccionistas online." },
+        { fase: "Definir", texto: "La web tenía que ser dos cosas a la vez: museo y tienda." },
+        { fase: "Idear y prototipar", texto: "Un diseño mínimo, para que el protagonismo sea de los cuadros." },
+        { fase: "Implementar", texto: "WordPress con tienda, en dos idiomas, y formación a la familia para gestionarla." },
+      ],
+    },
     title: "Gonzalo Morales - Galería de Arte Digital",
     client: "Familia Morales",
     industry: "Arte y Cultura",

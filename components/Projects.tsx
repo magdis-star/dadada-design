@@ -1,16 +1,10 @@
 import Portatil from "@/components/Portatil";
 
+// En el orden que pidió Magdalena (29 sep 2026): Elemental, la celebrante y el pintor, que es el último
 const trabajos = [
   {
-    nombre: "Gonzalo Morales",
-    que: "Museo digital y tienda online para el legado de un pintor",
-    temas: "Estrategia · UX · Tienda · Web",
-    imagen: "/images/projects/gonzalo-morales-portatil.jpg",
-    caso: "/casos/gonzalo-morales-galeria-arte",
-  },
-  {
     nombre: "Elemental Kids Club",
-    que: "Vender un libro en Amazon y, a la vez, hacer lista de correo",
+    que: "De la landing de un primer libro a un hub para toda la colección",
     temas: "Investigación · UX · Web",
     imagen: "/images/projects/elemental-kids-club-portatil.jpg",
     caso: "/casos/elemental-kids-club-landing-educativa",
@@ -21,6 +15,13 @@ const trabajos = [
     temas: "UX · Posicionamiento · Web",
     imagen: "/images/projects/celtic-knot-portatil.jpg",
     caso: "/casos/tie-celtic-knot-wordpress-celebrant",
+  },
+  {
+    nombre: "Gonzalo Morales",
+    que: "Museo digital y tienda online para el legado de un pintor",
+    temas: "Estrategia · UX · Tienda · Web",
+    imagen: "/images/projects/gonzalo-morales-portatil.jpg",
+    caso: "/casos/gonzalo-morales-galeria-arte",
   },
 ];
 
