@@ -220,12 +220,12 @@ export const caseStudies: CaseStudy[] = [
       pregunta: "¿Cómo consigue una celebrante de bodas que la encuentren en Google?",
       problema: "Una celebrante de bodas celtas en Ontario (Canadá) se había hecho su propia web en WordPress. Nadie la encontraba en Google, y quien llegaba no sabía cómo pedirle fecha.",
       hice: [
-        "Un rediseño en WordPress, que ella ya sabía usar",
+        "Un rediseño en WordPress, con acceso total para ella",
         "SEO local para búsquedas como «Celtic wedding celebrant Ontario»",
         "Opiniones y fotos de ceremonias reales, bien a la vista",
         "Un «Check availability» claro en cada parte de la web",
       ],
-      cambio: "Ahora aparece en las búsquedas locales, le escriben parejas que la encuentran así, y actualiza opiniones y fotos ella sola después de cada boda.",
+      cambio: "Ahora aparece en las búsquedas locales y le escriben parejas que la encuentran así. Y la web es suya: cambia textos, fotos y opiniones después de cada boda sin tener que llamarme.",
       pasos: [
         { fase: "Empatizar", texto: "Hablé con ella de lo que le frustraba y de lo que necesitaba su negocio." },
         { fase: "Definir", texto: "Tres cosas: rediseño, SEO local y que pudiera actualizarla ella sola." },
