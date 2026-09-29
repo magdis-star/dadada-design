@@ -34,7 +34,7 @@ export default function Hero() {
       </div>
 
       {/* Collage: su foto, una nota a mano y un trabajo de verdad */}
-      <div className="relative mx-auto h-[420px] w-full max-w-[460px] sm:h-[480px]">
+      <div className="relative mx-auto -mb-16 mt-4 h-[420px] w-full max-w-[460px] sm:mb-0 sm:mt-0 sm:h-[480px]">
         <div className="absolute left-0 top-10 w-[58%] rotate-[-4deg] overflow-hidden border-[6px] border-blanco shadow-sm">
           <Image
             src="/images/projects/gonzalo-morales-portatil.jpg"
@@ -66,7 +66,7 @@ export default function Hero() {
           />
         </div>
         {/* Frase suya (29 sep 2026), en la misma letra que «Hola, soy Magda» */}
-        <div className="absolute bottom-6 left-[10%] w-44 rotate-[-6deg] bg-lima px-4 py-5 font-mano text-2xl leading-tight shadow-sm">
+        <div className="absolute -top-4 left-[30%] z-10 w-44 rotate-[-6deg] bg-lima px-4 py-5 font-mano text-2xl leading-tight shadow-md">
           ¿Y si empezamos por ti?
         </div>
         {/* Rayitas saliendo de la esquina de su foto, como en la maqueta */}
