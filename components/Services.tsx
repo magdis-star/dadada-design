@@ -29,7 +29,7 @@ const puertas = [
 
 export default function Services() {
   return (
-    <section id="servicios" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="servicios" className="mx-auto max-w-6xl px-4 pb-10 pt-24 sm:px-6 lg:px-8">
       <p className="etiqueta">da / 02</p>
       <h2 className="mt-4 font-serif text-4xl sm:text-5xl">¿En qué podemos trabajar?</h2>
 

@@ -27,7 +27,7 @@ const trabajos = [
 
 export default function Projects() {
   return (
-    <section id="trabajos" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="trabajos" className="mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-6 lg:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="etiqueta">da / 03</p>
