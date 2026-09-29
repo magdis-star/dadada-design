@@ -40,9 +40,9 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "dadada design · Productos digitales y webs que funcionan | Madrid",
-  description: "Diseñadora web freelance en Madrid. Diseño y construyo webs y herramientas interactivas —calculadoras, simuladores, configuradores— para negocios y creadoras que necesitan algo que funcione.",
-  keywords: ["diseño web Madrid", "diseñadora web freelance Madrid", "producto digital", "herramientas interactivas", "calculadoras y simuladores web", "diseño UX Madrid", "desarrollo web freelance", "design thinking"],
+  title: "dadada design · Magdalena, diseñadora web en Madrid",
+  description: "Soy Magdalena. Primero entiendo, después diseño. Webs y herramientas a medida para quien tiene una idea, sabe lo que necesita o quiere mejorar lo que ya tiene. En Madrid y fuera.",
+  keywords: ["diseño web Madrid", "diseñadora web freelance Madrid", "design thinking", "diseño UX Madrid", "herramientas web a medida", "rediseño web"],
   authors: [{ name: "Magdalena - dadada design" }],
   creator: "dadada design",
   publisher: "dadada design",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: "dadada design · Productos digitales y webs que funcionan",
-    description: "Diseño y construyo webs y herramientas interactivas para negocios y creadoras. Madrid.",
+    title: "dadada design · Primero entiendo, después diseño",
+    description: "Webs y herramientas a medida. Magdalena, diseñadora en Madrid.",
     url: "https://dadadadesign.com",
     siteName: "dadada design",
     locale: "es_ES",
