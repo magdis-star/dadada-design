@@ -15,7 +15,7 @@ export default function PrimeraCharla() {
             Pedir la charla <span aria-hidden="true">→</span>
           </a>
         </div>
-        {/* «Desordenada» sale de su «Sobre mí». Letra provisional hasta tener la suya */}
+        {/* Frase suya (29 sep 2026), en la misma letra que «Hola, soy Magda» */}
         <p className="rotate-[-3deg] font-mano text-3xl leading-snug md:text-4xl">
           Trae tu idea, aunque esté desordenada.
         </p>

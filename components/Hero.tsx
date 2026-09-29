@@ -50,9 +50,9 @@ export default function Hero() {
           <br />
           en blanco y negro, relajada
         </div>
-        <div className="absolute bottom-6 left-[12%] w-40 rotate-[-6deg] bg-lima px-4 py-5 font-mano text-2xl leading-tight shadow-sm">
-          {/* De su «Sobre mí». Letra provisional hasta tener la suya */}
-          Más preguntas que suposiciones.
+        {/* Frase suya (29 sep 2026), en la misma letra que «Hola, soy Magda» */}
+        <div className="absolute bottom-6 left-[10%] w-44 rotate-[-6deg] bg-lima px-4 py-5 font-mano text-2xl leading-tight shadow-sm">
+          ¿Y si empezamos por ti?
         </div>
         <svg className="absolute -right-2 bottom-2 h-14 w-14" viewBox="0 0 60 60" aria-hidden="true">
           <g stroke="#1C1B19" strokeWidth="2.5" strokeLinecap="round">
