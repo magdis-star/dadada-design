@@ -54,7 +54,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <p className="etiqueta">
-              {h.nombre} · {caso.industry}
+              {h.nombre} · {caso.industry} · {caso.year}
             </p>
             <h1 className="mt-4 font-serif text-4xl leading-[1.05] sm:text-5xl">{h.pregunta}</h1>
             {caso.url && (

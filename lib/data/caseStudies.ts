@@ -87,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Elemental Kids Club - Landing Page Educativa",
     client: "Elemental Kids Club",
     industry: "Educación Infantil",
-    year: "2024",
+    year: "2025–2026",
     url: "https://elementalkidsclub.com",
     thumbnail: "/images/projects/elemental-kids-club.jpg",
     excerpt: "Landing page optimizada para vender libros de actividades educativas infantiles con sistema de lead generation mediante bonus descargable.",

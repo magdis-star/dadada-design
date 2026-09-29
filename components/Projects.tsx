@@ -1,6 +1,6 @@
 import Portatil from "@/components/Portatil";
 
-// En el orden que pidió Magdalena (29 sep 2026): Elemental, la celebrante y el pintor, que es el último
+// Del más reciente al más antiguo (29 sep 2026): Elemental 2025–26, la celebrante 2025, el pintor 2024
 const trabajos = [
   {
     nombre: "Elemental Kids Club",
