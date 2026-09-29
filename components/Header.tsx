@@ -19,7 +19,7 @@ export default function Header() {
     <header className="sticky top-0 z-20 bg-papel/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
         <Link href="/" aria-label="dadada design, inicio">
-          <Logo className="text-3xl" />
+          <Logo className="text-4xl" />
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm md:flex">

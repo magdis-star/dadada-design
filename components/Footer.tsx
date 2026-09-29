@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="border-t border-linea">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-14 sm:px-6 md:flex-row md:items-end md:justify-between lg:px-8">
         <div>
-          <Logo className="text-3xl" />
+          <Logo className="text-5xl" />
           <p className="mt-6 text-sm text-gris">Madrid · y fuera</p>
         </div>
 
