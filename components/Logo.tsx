@@ -1,7 +1,7 @@
-// Dos logos. Para volver al A, cambia `LOGO` a "A".
-// A (elegido el 28 sep 2026): «dadada» redondo, en tinta, con una raya hecha a mano en lima.
-// C (a prueba desde el 29 sep 2026): «da da da», cada uno un poco más arriba, y el último
-//   en lima dando un saltito cada pocos segundos, como quien dice su primera palabra.
+// El logo es el C (decidido el 29 sep 2026). El A se queda guardado: para volver, cambia `LOGO` a "A".
+// C: «da da da», cada uno un poco más arriba, y el último en lima dando un saltito cada
+//   pocos segundos, como quien dice su primera palabra.
+// A (28 sep 2026, descartado): «dadada» redondo, en tinta, con una raya hecha a mano en lima.
 // Los dos son bocetos con letras de Google hasta que se dibujen en vectores.
 const LOGO: "A" | "C" = "C";
 
