@@ -45,6 +45,16 @@ export default function Hero() {
             unoptimized
           />
         </div>
+        <div className="absolute left-[3%] top-[46%] w-[52%] rotate-[3deg] overflow-hidden border-[6px] border-blanco shadow-sm">
+          <Image
+            src="/images/projects/elemental-kids-club-portatil.jpg"
+            alt="La web de Elemental Kids Club"
+            width={600}
+            height={375}
+            className="h-auto w-full"
+            unoptimized
+          />
+        </div>
         <div className="absolute right-0 top-0 h-[78%] w-[56%] rotate-[2deg] overflow-hidden border-[6px] border-blanco shadow-sm">
           <Image
             src="/images/magda/magda-taza.jpg"
@@ -59,7 +69,8 @@ export default function Hero() {
         <div className="absolute bottom-6 left-[10%] w-44 rotate-[-6deg] bg-lima px-4 py-5 font-mano text-2xl leading-tight shadow-sm">
           ¿Y si empezamos por ti?
         </div>
-        <svg className="absolute -right-2 bottom-2 h-14 w-14" viewBox="0 0 60 60" aria-hidden="true">
+        {/* Rayitas saliendo de la esquina de su foto, como en la maqueta */}
+        <svg className="absolute right-0 top-[calc(78%-22px)] h-14 w-14 rotate-[135deg] sm:-right-7" viewBox="0 0 60 60" aria-hidden="true">
           <g stroke="#1C1B19" strokeWidth="2.5" strokeLinecap="round">
             <path d="M30 6v10M48 14l-7 7M54 32H44M12 14l7 7M6 32h10" />
           </g>

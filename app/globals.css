@@ -13,6 +13,8 @@ html {
 }
 
 body {
+  /* Las fotos giradas del collage asoman unos píxeles: que no hagan scroll lateral en el móvil */
+  overflow-x: clip;
   background-color: var(--papel);
   font-family: var(--font-sans), system-ui, sans-serif;
   color: var(--tinta);
