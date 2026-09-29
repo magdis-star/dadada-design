@@ -26,8 +26,7 @@ export default function About() {
         </div>
 
         <div>
-          <p className="etiqueta">da / 04</p>
-          <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Hola, soy Magda.</h2>
+          <h2 className="font-serif text-4xl sm:text-5xl">Hola, soy Magda.</h2>
           {/* Traducción de su texto en inglés del 29 sep 2026 («Hi, I'm Magda…») */}
           <div className="mt-6 max-w-md space-y-4 leading-relaxed text-tinta/80">
             <p>Soy diseñadora y vivo en Madrid.</p>

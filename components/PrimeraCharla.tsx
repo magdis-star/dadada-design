@@ -6,8 +6,7 @@ export default function PrimeraCharla() {
     <section className="bg-lima">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.3fr_1fr] lg:px-8">
         <div>
-          <p className="etiqueta !text-tinta/60">da / 05</p>
-          <h2 className="mt-4 font-serif text-4xl sm:text-5xl">Media hora para ver si encajamos</h2>
+          <h2 className="font-serif text-4xl sm:text-5xl">Media hora para ver si encajamos</h2>
           <p className="mt-4 max-w-md leading-relaxed">
             Me cuentas qué haces y cómo lo llevas hoy. Sin compromiso.
           </p>
