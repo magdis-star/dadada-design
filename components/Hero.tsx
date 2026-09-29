@@ -45,10 +45,15 @@ export default function Hero() {
             unoptimized
           />
         </div>
-        <div className="hueco absolute right-0 top-0 h-[78%] w-[56%] rotate-[2deg]">
-          [tu foto]
-          <br />
-          en blanco y negro, relajada
+        <div className="absolute right-0 top-0 h-[78%] w-[56%] rotate-[2deg] overflow-hidden border-[6px] border-blanco shadow-sm">
+          <Image
+            src="/images/magda/magda-taza.jpg"
+            alt="Magdalena tomando café, con la taza tapándole media cara"
+            fill
+            className="object-cover object-[50%_30%]"
+            unoptimized
+            priority
+          />
         </div>
         {/* Frase suya (29 sep 2026), en la misma letra que «Hola, soy Magda» */}
         <div className="absolute bottom-6 left-[10%] w-44 rotate-[-6deg] bg-lima px-4 py-5 font-mano text-2xl leading-tight shadow-sm">
