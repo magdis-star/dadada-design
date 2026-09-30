@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<base href="/comidas/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comidas de casa</title>
+<meta name="description" content="Menú semanal y lista de la compra con nuestras recetas.">
+<meta name="theme-color" content="#FFFCF9">
+<link rel="icon" href="logo.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icono.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Comidas de casa">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+  :root {
+    --fondo: #F9F4EF;
+    --tarjeta: #FFFCF9;
+    --marca: #C85D48;
+    --marca-suave: #F7E3DC;
+    --acento: #9C4B36;
+    --tinta: #463730;
+    --tinta-2: #7C6B61;
+    --linea: #EADFD6;
+    --display: "Fraunces", Georgia, serif;
+    --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  /* Lo oculto se oculta siempre, aunque otra regla le ponga display (la foto vacía del formulario) */
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--fondo); color: var(--tinta); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; padding-bottom: 88px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 700; margin: 0; }
+  p { margin: 0; }
+  button, input, select, textarea { font: inherit; }
+  :focus-visible { outline: 2px solid var(--marca); outline-offset: 2px; }
+  .envoltorio { max-width: 760px; margin-inline: auto; padding-inline: 16px; }
+
+  header { background: var(--tarjeta); color: var(--tinta); padding: 13px 0 12px; border-bottom: 1px solid var(--linea); }
+  .marca { display: flex; align-items: center; gap: 10px; min-width: 0; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; text-align: left; }
+  .marca img { display: block; width: 34px; height: 34px; flex: none; }
+  .cabecera { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .cabecera h1 { font-size: clamp(16.5px, 4.4vw, 22px); }
+  .personas { display: flex; align-items: center; gap: 8px; background: var(--fondo); border: 1px solid var(--linea); color: var(--tinta-2); border-radius: 999px; padding: 4px 7px 4px 12px; font-size: 13px; }
+  .personas button { width: 28px; height: 28px; border-radius: 50%; border: 0; background: var(--marca); color: #fff; font-weight: 700; cursor: pointer; }
+  .personas b { min-width: 14px; text-align: center; color: var(--tinta); }
+
+  nav.pestanas { position: fixed; inset: auto 0 0 0; background: var(--tarjeta); border-top: 1px solid var(--linea); display: flex; z-index: 10; padding-bottom: env(safe-area-inset-bottom); }
+  nav.pestanas button { flex: 1; background: none; border: 0; padding: 11px 4px 13px; color: var(--tinta-2); font-size: 12px; font-weight: 500; cursor: pointer; display: grid; gap: 3px; justify-items: center; }
+  nav.pestanas button[aria-selected="true"] { color: var(--marca); font-weight: 700; }
+  nav.pestanas svg { display: block; }
+  .pip { display: inline-block; min-width: 17px; padding: 0 5px; border-radius: 999px; background: var(--acento); color: #fff; font-size: 10px; font-weight: 700; line-height: 17px; }
+  .pip[hidden] { display: none; }
+
+  section.vista { display: none; padding-top: 18px; }
+  section.vista.activa { display: block; }
+  .titulo-vista { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  .titulo-vista h2 { font-size: 24px; }
+  .apunte { font-size: 13px; color: var(--tinta-2); }
+
+  .filtros { display: flex; gap: 7px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 4px; }
+  .filtro { border: 1px solid var(--linea); background: var(--tarjeta); border-radius: 999px; padding: 7px 13px; font-size: 13px; white-space: nowrap; cursor: pointer; color: var(--tinta-2); }
+  .filtro[aria-pressed="true"] { background: var(--marca); border-color: var(--marca); color: #fff; }
+
+  .recetas { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .receta { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: 16px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; text-align: left; cursor: pointer; padding: 0; }
+  .receta .foto { aspect-ratio: 16/9; background: var(--marca-suave); overflow: hidden; }
+  .receta .foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .foto-detalle { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 14px; display: block; background: var(--fondo); }
+  .receta .cuerpo { padding: 11px 13px 13px; display: grid; gap: 5px; }
+  .receta h3 { font-size: 17px; line-height: 1.2; }
+  .receta .meta { font-size: 12.5px; color: var(--tinta-2); }
+  .etiquetas { display: flex; flex-wrap: wrap; gap: 5px; }
+  .etiqueta { font-size: 11px; background: var(--marca-suave); color: var(--marca); border-radius: 999px; padding: 2px 8px; }
+
+  /* En el móvil la lista se lee de un vistazo: foto pequeña a la izquierda. */
+  @media (max-width: 559px) {
+    .recetas { grid-template-columns: 1fr; gap: 8px; }
+    .receta { grid-template-rows: none; grid-template-columns: 84px 1fr; align-items: stretch; border-radius: 13px; }
+    .receta .foto { aspect-ratio: auto; font-size: 21px; }
+    .receta .cuerpo { padding: 10px 12px; align-content: center; }
+    .receta h3 { font-size: 16px; }
+  }
+
+  .semana { display: grid; gap: 9px; }
+  .dia { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; }
+  .dia .nombre-dia { font-family: var(--display); font-weight: 700; font-size: 15px; width: 78px; flex: none; text-transform: capitalize; }
+  .dia .plato { flex: 1; min-width: 0; font-size: 15px; }
+  .dia .plato.enlace { background: none; border: 0; padding: 0; text-align: left; font: inherit; color: var(--tinta); cursor: pointer; text-decoration: underline; text-decoration-color: var(--linea); text-underline-offset: 3px; }
+  .dia .plato.enlace:hover { color: var(--marca); text-decoration-color: var(--marca); }
+  .dia .plato.vacio { color: var(--tinta-2); font-style: italic; }
+  .dia .acciones { display: flex; gap: 6px; flex: none; }
+  .mini { border: 1px solid var(--linea); background: var(--tarjeta); border-radius: 9px; min-width: 34px; height: 34px; cursor: pointer; color: var(--tinta-2); display: inline-flex; align-items: center; justify-content: center; }
+  .mini:hover { border-color: var(--marca); color: var(--marca); }
+
+  .boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; background: var(--marca); color: #fff; font-size: 15px; font-weight: 700; border: 0; cursor: pointer; text-decoration: none; }
+  .boton.claro { background: var(--tarjeta); color: var(--marca); border: 1.5px solid var(--marca); }
+  .boton.ancho { width: 100%; }
+  .boton:disabled { background: #D9CFC7; cursor: not-allowed; }
+
+  .compra { display: grid; gap: 16px; }
+  .foto-campo { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .foto-campo img { width: 96px; height: 72px; object-fit: cover; border-radius: 10px; display: block; border: 1px solid var(--linea); }
+  .foto-campo .boton { padding: 0 14px; }
+  .anadir { display: flex; gap: 8px; margin-top: 12px; }
+  .anadir input { flex: 1; min-width: 0; }
+  .quitar-extra { border: 0; background: none; color: var(--tinta-2); font-size: 15px; cursor: pointer; padding: 0 2px; flex: none; }
+  .quitar-extra:hover { color: var(--marca); }
+  .grupo { background: var(--tarjeta); border: 1px solid var(--linea); border-radius: 16px; padding: 12px 14px; }
+  .grupo h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--acento); font-family: var(--sans); font-weight: 700; margin-bottom: 6px; }
+  .articulo { display: flex; align-items: center; gap: 11px; padding: 7px 0; border-top: 1px solid #F3EAE3; }
+  .articulo:first-of-type { border-top: 0; }
+  .articulo input { width: 20px; height: 20px; accent-color: var(--marca); flex: none; }
+  .articulo span { flex: 1; }
+  .articulo.marcado span { text-decoration: line-through; color: var(--tinta-2); }
+  .articulo small { color: var(--tinta-2); font-size: 12px; }
+
+  dialog { border: 0; border-radius: 18px; padding: 0; max-width: 560px; width: calc(100% - 24px); max-height: 86dvh; background: var(--tarjeta); color: var(--tinta); }
+  dialog::backdrop { background: rgba(70, 55, 48, .45); }
+  .dialogo-cuerpo { padding: 18px; display: grid; gap: 14px; }
+  .dialogo-cab { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .cerrar { border: 0; background: var(--fondo); border-radius: 50%; width: 34px; height: 34px; cursor: pointer; font-size: 18px; line-height: 1; color: var(--tinta-2); flex: none; }
+  .lista-simple { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 15px; }
+  .campo { display: grid; gap: 5px; font-size: 13px; font-weight: 500; }
+  input[type="text"], input[type="number"], textarea, select { border: 1.5px solid var(--linea); border-radius: 11px; padding: 10px 12px; width: 100%; background: var(--tarjeta); color: var(--tinta); }
+  textarea { min-height: 96px; resize: vertical; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .aviso-vacio { background: var(--tarjeta); border: 1px dashed var(--linea); border-radius: 16px; padding: 22px; text-align: center; color: var(--tinta-2); }
+
+  /* Ayuda: el «?» de la cabecera vuelve a abrir la bienvenida */
+  .derecha { display: flex; align-items: center; gap: 8px; }
+  .ayuda { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--linea); background: var(--fondo); color: var(--tinta-2); font-family: var(--display); font-weight: 700; font-size: 16px; cursor: pointer; flex: none; }
+
+  /* Bienvenida (la primera vez) e instrucciones para instalar */
+  .bienvenida { text-align: center; padding: 26px 20px 22px; display: grid; gap: 16px; }
+  .bienvenida .logo-grande { width: 76px; height: 76px; margin: 0 auto; display: block; }
+  .bienvenida h2 { font-size: 26px; }
+  .bienvenida .lema { color: var(--tinta-2); font-size: 15px; max-width: 34ch; margin: 0 auto; }
+  .pasos { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; text-align: left; }
+  .pasos li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; background: var(--fondo); border-radius: 14px; padding: 11px 13px; }
+  .pasos .icono { width: 44px; height: 44px; border-radius: 50%; background: var(--marca-suave); color: var(--marca); display: grid; place-items: center; }
+  .pasos b { display: block; font-family: var(--display); font-size: 16px; }
+  .pasos span { font-size: 13.5px; color: var(--tinta-2); line-height: 1.35; }
+  .enlace-suave.codigo { color: var(--tinta-2); font-size: 12.5px; text-decoration: none; }
+  .instalar-fila { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 4px; }
+  .enlace-suave { background: none; border: 0; color: var(--marca); font-weight: 500; font-size: 14px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 6px; }
+  .paso-ios { display: grid; grid-template-columns: 30px 1fr 46px; gap: 12px; align-items: center; text-align: left; background: var(--fondo); border-radius: 14px; padding: 11px 13px; }
+  .paso-ios .n { width: 30px; height: 30px; border-radius: 50%; background: var(--marca); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+  .paso-ios .dibujo { width: 46px; height: 46px; border-radius: 12px; background: var(--tarjeta); border: 1px solid var(--linea); display: grid; place-items: center; color: #2F7BF6; }
+  .paso-ios p { font-size: 14px; line-height: 1.35; }
+
+  /* «¿Cómo quieres añadirla?»: tres tarjetas, con los tonos del logo */
+  .opcion-como { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: center; text-align: left; border: 0; border-radius: 16px; padding: 14px 16px; cursor: pointer; color: var(--tinta); font: inherit; }
+  .opcion-como[data-como="escribir"] { background: var(--marca-suave); }
+  .opcion-como[data-como="pegar"] { background: #EEF0E4; }
+  .opcion-como[data-como="foto"] { background: #F6EBD9; }
+  .opcion-como .icono { width: 46px; height: 46px; border-radius: 50%; background: var(--tarjeta); color: var(--marca); display: grid; place-items: center; }
+  .opcion-como b { display: block; font-family: var(--display); font-size: 16px; }
+  .opcion-como small { display: block; font-size: 13px; color: var(--tinta-2); margin-top: 2px; }
+  .lema-como { font-family: var(--display); font-style: italic; font-size: 15px; color: var(--tinta-2); text-align: center; margin-top: 4px; }
+
+  /* «Más detalles» del formulario */
+  .mas-detalles summary { cursor: pointer; font-size: 14px; font-weight: 500; color: var(--tinta-2); padding: 4px 0; }
+
+  /* Elegir el día desde una receta */
+  .dias-elegir { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 7px; }
+  .dia-chip { border: 1.5px solid var(--linea); background: var(--tarjeta); border-radius: 12px; padding: 8px 10px; text-align: left; cursor: pointer; font: inherit; color: var(--tinta); }
+  .dia-chip b { display: block; font-family: var(--display); font-size: 14px; text-transform: capitalize; }
+  .dia-chip small { display: block; font-size: 11.5px; color: var(--tinta-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dia-chip:hover { border-color: var(--marca); }
+
+  /* La compra de unos días */
+  .para-dias { display: grid; gap: 7px; margin-bottom: 14px; }
+  .dias-compra { display: flex; flex-wrap: wrap; gap: 6px; }
+  .dias-compra button { border: 1.5px solid var(--linea); background: var(--tarjeta); color: var(--tinta-2); border-radius: 999px; padding: 6px 12px; font-size: 13px; cursor: pointer; text-transform: capitalize; }
+  .dias-compra button[aria-pressed="true"] { background: var(--marca); border-color: var(--marca); color: #fff; }
+
+  /* La compra, cuando está todo marcado */
+  .listo { background: #EEF0E4; color: var(--tinta); border-radius: 14px; padding: 13px 15px; font-weight: 500; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="envoltorio cabecera">
+    <button type="button" class="marca" id="ir-inicio" aria-label="Comidas de casa, ir al inicio">
+      <img src="logo.png" alt="">
+      <h1>Comidas de casa</h1>
+    </button>
+    <div class="derecha">
+      <div class="personas">
+        <span>Personas</span>
+        <button type="button" id="menos" aria-label="Menos personas">−</button>
+        <b id="num-personas">4</b>
+        <button type="button" id="mas" aria-label="Más personas">+</button>
+      </div>
+      <button type="button" class="ayuda" id="abrir-ayuda" aria-label="Cómo funciona">?</button>
+    </div>
+  </div>
+</header>
+
+<main class="envoltorio">
+
+  <section class="vista activa" id="vista-recetas">
+    <div class="titulo-vista">
+      <h2>Recetas</h2>
+      <span class="apunte" id="cuenta-recetas"></span>
+    </div>
+    <div class="filtros" id="filtros"></div>
+    <div class="recetas" id="lista-recetas"></div>
+    <p style="margin-top: 16px;">
+      <button class="boton claro ancho" id="abrir-nueva">+ Añadir una receta</button>
+    </p>
+    <p style="margin-top: 8px;">
+      <button class="boton claro ancho" data-instalar hidden>📲 Poner la app en mi móvil</button>
+    </p>
+  </section>
+
+  <section class="vista" id="vista-semana">
+    <div class="titulo-vista">
+      <h2>Esta semana</h2>
+      <button class="mini" id="limpiar-semana" title="Vaciar la semana">↺</button>
+    </div>
+    <div class="semana" id="semana"></div>
+    <p style="margin-top: 16px; display: grid; gap: 8px;">
+      <button class="boton ancho" id="ir-compra">Ver la lista de la compra</button>
+      <button class="boton claro ancho" id="compartir-menu">Compartir con la familia</button>
+    </p>
+  </section>
+
+  <section class="vista" id="vista-compra">
+    <div class="titulo-vista">
+      <h2>La compra</h2>
+      <label class="apunte" style="display: flex; align-items: center; gap: 6px;">
+        <input type="checkbox" id="ver-basicos"> ver sal, aceite…
+      </label>
+    </div>
+    <div class="para-dias" id="para-dias" hidden>
+      <span class="apunte">¿Para qué días compras?</span>
+      <div class="dias-compra" id="dias-compra"></div>
+    </div>
+    <div class="compra" id="compra"></div>
+    <div class="anadir">
+      <input type="text" id="extra-nuevo" placeholder="pan, leche, papel de cocina…" autocomplete="off">
+      <button class="boton claro" id="extra-poner">Añadir</button>
+    </div>
+    <p style="margin-top: 16px; display: grid; gap: 8px;">
+      <button class="boton ancho" id="compartir">Compartir por WhatsApp</button>
+      <button class="boton claro ancho" id="copiar">Copiar la lista</button>
+      <span class="apunte" id="aviso-copia" hidden>Copiada. Pégala donde quieras.</span>
+    </p>
+  </section>
+
+</main>
+
+<nav class="pestanas" role="tablist">
+  <button role="tab" aria-selected="true" data-vista="recetas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z"/><path d="M12 13a4 4 0 0 0-4-4"/><path d="M6 21h12"/></svg>
+    Recetas
+  </button>
+  <button role="tab" aria-selected="false" data-vista="semana">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+    Semana
+  </button>
+  <button role="tab" aria-selected="false" data-vista="compra">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+    Compra <span class="pip" id="pip-compra" hidden>0</span>
+  </button>
+</nav>
+
+<!-- La primera vez que se abre la app. Luego, desde el «?» de la cabecera. -->
+<dialog id="dlg-bienvenida">
+  <div class="bienvenida">
+    <img class="logo-grande" src="logo.png" alt="">
+    <h2>Comidas de casa</h2>
+    <p class="lema">Las recetas de tu casa, el menú de la semana y la lista de la compra, en un mismo sitio.</p>
+    <ol class="pasos">
+      <li>
+        <span class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z"/><path d="M12 13a4 4 0 0 0-4-4"/><path d="M6 21h12"/></svg></span>
+        <div><b>1 · Tus recetas</b><span>Guarda lo que cocináis en casa. Escríbelo, pégalo de internet o hazle una foto.</span></div>
+      </li>
+      <li>
+        <span class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></span>
+        <div><b>2 · La semana</b><span>Elige qué coméis cada día. Un toque por día.</span></div>
+      </li>
+      <li>
+        <span class="icono"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg></span>
+        <div><b>3 · La compra</b><span>La lista sale sola, ordenada por secciones del súper. Mándala por WhatsApp a quien vaya a comprar.</span></div>
+      </li>
+    </ol>
+    <button class="boton ancho" id="bienvenida-receta">Añadir mi primera receta</button>
+    <button class="boton claro ancho" data-cerrar>Ver la app</button>
+    <div class="instalar-fila"><button class="enlace-suave" data-instalar hidden>📲 Poner la app en mi móvil</button></div>
+    <button class="enlace-suave codigo" id="tengo-codigo">Tengo un código</button>
+  </div>
+</dialog>
+
+<!-- Antes del formulario: tres maneras de traer una receta que ya existe -->
+<dialog id="dlg-como">
+  <div class="dialogo-cuerpo">
+    <div class="dialogo-cab">
+      <h2 style="font-size: 20px;">¿Cómo quieres añadirla?</h2>
+      <button class="cerrar" data-cerrar>✕</button>
+    </div>
+    <p class="apunte">Escríbela tú, pégala de internet o de un libro, o empieza por una foto.</p>
+    <button class="opcion-como" data-como="escribir">
+      <span class="icono"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4Z"/><path d="M14 6l3 3"/></svg></span>
+      <span><b>Escribirla yo</b><small>Los ingredientes y los pasos</small></span>
+    </button>
+    <button class="opcion-como" data-como="pegar">
+      <span class="icono"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="4" rx="1.5"/><path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><path d="M8 12h8M8 16h5"/></svg></span>
+      <span><b>Pegarla de internet o de un libro</b><small>Pegas el texto y separo los ingredientes</small></span>
+    </button>
+    <button class="opcion-como" data-como="foto">
+      <span class="icono"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4Z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
+      <span><b>Empezar por una foto</b><small>Del plato, de un libro o de un cuaderno</small></span>
+    </button>
+    <p class="lema-como">No importa de dónde venga: lo importante es que sea una receta de tu casa.</p>
+  </div>
+</dialog>
+
+<!-- En el iPhone no se puede instalar con un botón: Apple obliga a hacerlo a mano. -->
+<dialog id="dlg-instalar">
+  <div class="dialogo-cuerpo">
+    <div class="dialogo-cab">
+      <h2 style="font-size: 20px;">Ponla en tu móvil</h2>
+      <button class="cerrar" data-cerrar>✕</button>
+    </div>
+    <p class="apunte" id="instalar-intro">En el iPhone se hace en tres toques, desde Safari:</p>
+    <div class="paso-ios">
+      <span class="n">1</span>
+      <p>Toca el botón <b>Compartir</b>, abajo en el centro.</p>
+      <span class="dibujo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/></svg></span>
+    </div>
+    <div class="paso-ios">
+      <span class="n">2</span>
+      <p>Baja un poco y toca <b>Añadir a pantalla de inicio</b>.</p>
+      <span class="dibujo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>
+    </div>
+    <div class="paso-ios">
+      <span class="n">3</span>
+      <p>Toca <b>Añadir</b>, arriba a la derecha. Ya tienes el icono con tus apps.</p>
+      <span class="dibujo"><img src="icono.png" alt="" width="34" height="34" style="border-radius: 8px;"></span>
+    </div>
+    <p class="apunte" id="instalar-otro" hidden>Abre el menú del navegador (⋮ o ⋯) y busca <b>Instalar app</b> o <b>Añadir a pantalla de inicio</b>.</p>
+    <button class="boton ancho" data-cerrar>Entendido</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-receta"><div class="dialogo-cuerpo" id="detalle"></div></dialog>
+
+<dialog id="dlg-elegir">
+  <div class="dialogo-cuerpo">
+    <div class="dialogo-cab">
+      <h2 style="font-size: 20px;" id="elegir-titulo">Elegir plato</h2>
+      <button class="cerrar" data-cerrar>✕</button>
+    </div>
+    <div class="recetas" id="elegir-lista" style="grid-template-columns: 1fr;"></div>
+  </div>
+</dialog>
+
+<dialog id="dlg-nueva">
+  <div class="dialogo-cuerpo">
+    <div class="dialogo-cab">
+      <h2 style="font-size: 20px;" id="titulo-formulario">Añadir una receta</h2>
+      <button class="cerrar" data-cerrar>✕</button>
+    </div>
+
+    <details id="bloque-pegar">
+      <summary style="cursor: pointer; font-size: 14px; color: var(--marca); font-weight: 500;">Pegar una receta de internet o de un libro</summary>
+      <p class="apunte" style="margin: 8px 0;">Pega el texto tal cual. Separo los ingredientes y tú corriges lo que haga falta.</p>
+      <textarea id="pegado" placeholder="300 g lentejas&#10;1 cebolla&#10;2 zanahorias…"></textarea>
+      <button class="boton claro ancho" id="procesar-pegado" style="margin-top: 8px;">Separar ingredientes</button>
+    </details>
+
+    <!-- Lo básico arriba: con esto se guarda una receta en dos minutos. -->
+    <label class="campo">¿Cómo se llama el plato?<input type="text" id="n-nombre" placeholder="Pierogi de patata" autocomplete="off"></label>
+
+    <div class="campo">
+      Foto del plato
+      <div class="foto-campo">
+        <img id="n-foto-vista" alt="" hidden>
+        <label class="boton claro" style="min-height: 44px; font-size: 14px;">
+          <input type="file" id="n-foto" accept="image/*" hidden>
+          📷 Hacer o elegir foto
+        </label>
+        <button type="button" class="boton claro" id="n-foto-quitar" style="min-height: 44px; font-size: 14px;" hidden>Quitar</button>
+      </div>
+      <span class="apunte" id="n-foto-aviso"></span>
+    </div>
+
+    <div class="dos">
+      <label class="campo">Personas<input type="number" id="n-personas" value="4" min="1" max="12"></label>
+      <label class="campo">Tiempo<input type="text" id="n-tiempo" placeholder="45 min" autocomplete="off"></label>
+    </div>
+    <label class="campo">Ingredientes, uno por línea
+      <textarea id="n-ingredientes" placeholder="300 g lentejas&#10;1 cebolla&#10;2 cda aceite de oliva"></textarea>
+    </label>
+    <label class="campo">¿Cómo se hace? Un paso por línea<textarea id="n-pasos" placeholder="Sofreír la cebolla.&#10;Añadir las lentejas."></textarea></label>
+
+    <details id="mas-detalles" class="mas-detalles">
+      <summary>Más detalles</summary>
+      <div style="display: grid; gap: 14px; margin-top: 12px;">
+        <label class="campo">Etiquetas, separadas por comas<input type="text" id="n-etiquetas" placeholder="rápido, olla, favorita de los niños" autocomplete="off"></label>
+        <label class="campo">Notas<input type="text" id="n-notas" placeholder="De dónde viene, trucos, quién la pidió" autocomplete="off"></label>
+      </div>
+    </details>
+
+    <button class="boton ancho" id="guardar-receta">Guardar receta</button>
+    <button class="boton claro ancho" id="borrar-receta" hidden>Quitar esta receta de la lista</button>
+  </div>
+</dialog>
+
+<script src="recetas.js"></script>
+<script>
+(function () {
+  var DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
+  var ORDEN_CATEGORIAS = ["verdura", "carne", "pescado", "lacteos", "panaderia", "congelados", "despensa", "especias"];
+  var NOMBRE_CATEGORIA = {
+    verdura: "Frutas y verduras", carne: "Carnicería", pescado: "Pescadería", lacteos: "Lácteos y huevos",
+    panaderia: "Panadería", congelados: "Congelados", despensa: "Despensa", especias: "Especias y otros",
+  };
+  var PISTAS = {
+    verdura: ["cebolla", "ajo", "zanahoria", "patata", "pimiento", "tomate fresco", "calabacín", "puerro", "apio", "pepino", "limón", "perejil", "champiñon", "champiñones", "lechuga", "espinaca"],
+    carne: ["pollo", "cerdo", "ternera", "carne", "alitas", "muslos", "pechuga", "bacon", "jamón", "chorizo", "lomo"],
+    pescado: ["salmón", "merluza", "atún fresco", "bacalao", "gambas", "pescado"],
+    lacteos: ["leche", "yogur", "queso", "nata", "mantequilla", "huevo", "huevos", "requesón"],
+    panaderia: ["pan", "tortilla de trigo", "tortillas", "baguette"],
+    congelados: ["guisantes", "congelado", "helado"],
+    especias: ["sal", "pimienta", "pimentón", "orégano", "laurel", "eneldo", "comino", "canela", "curry"],
+  };
+  var BASICOS = ["sal", "pimienta", "aceite de oliva", "aceite", "agua"];
+
+  /* ── Almacén: todo se guarda en el móvil de cada una (sin sincronizar, decidido el 30 sep 2026) ── */
+  var almacen = {
+    leer: function (clave, porDefecto) {
+      try { var v = localStorage.getItem("comidas:" + clave); return v ? JSON.parse(v) : porDefecto; }
+      catch (e) { return porDefecto; }
+    },
+    guardar: function (clave, valor) {
+      /* Devuelve si ha podido: con fotos, el móvil se puede quedar sin sitio. */
+      var bien = true;
+      try { localStorage.setItem("comidas:" + clave, JSON.stringify(valor)); }
+      catch (e) { bien = false; }
+      return bien;
+    },
+  };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var estado = {
+    personas: almacen.leer("personas", 4),
+    plan: almacen.leer("plan", {}),
+    propias: almacen.leer("propias", []),
+    marcados: almacen.leer("marcados", {}),
+    extras: almacen.leer("extras", []),
+    cambios: almacen.leer("cambios", {}),   /* ediciones de las recetas del archivo */
+    ocultas: almacen.leer("ocultas", []),   /* recetas quitadas de la lista */
+    filtro: "",
+    verBasicos: almacen.leer("verBasicos", false),
+    diasCompra: almacen.leer("diasCompra", null),
+  };
+
+  /* Los días que entran en la compra: los elegidos que tienen plato, o todos los que tienen plato. */
+  function diasDeCompra() {
+    var conPlato = DIAS.filter(function (d) { return estado.plan[d] && receta(estado.plan[d]); });
+    if (!estado.diasCompra) return conPlato;
+    var elegidos = conPlato.filter(function (d) { return estado.diasCompra.indexOf(d) >= 0; });
+    return elegidos.length ? elegidos : conPlato;
+  }
+
+  /* Las del archivo, con los cambios hechos desde el móvil encima, más las nuestras. */
+  /* Las recetas de recetas.js son las de casa de Magdalena: la app publicada empieza vacía para
+     todo el mundo, y sólo en su móvil se cargan, con el enlace #mis-recetas o con su código
+     desde la bienvenida (en el iPhone, la app instalada no ve lo que se abrió en Safari). */
+  var CODIGO_RECETAS_DE_CASA = "dadada";
+  if (location.hash === "#mis-recetas") {
+    almacen.guardar("recetasDeCasa", true);
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+  function conRecetasDeCasa() { return almacen.leer("recetasDeCasa", false) === true; }
+
+  function recetas() {
+    var visible = function (r) { return estado.ocultas.indexOf(r.id) < 0; };
+    var base = (conRecetasDeCasa() ? window.RECETAS || [] : []).filter(visible).map(function (r) {
+      return estado.cambios[r.id] || r;
+    });
+    return base.concat(estado.propias.filter(visible));
+  }
+  function receta(id) { return recetas().find(function (r) { return r.id === id; }); }
+
+  /* ── Recetas ── */
+  function pintarFiltros() {
+    var todas = {};
+    recetas().forEach(function (r) { (r.etiquetas || []).forEach(function (e) { todas[e] = (todas[e] || 0) + 1; }); });
+    var cont = $("filtros");
+    cont.textContent = "";
+    cont.hidden = !recetas().length;   /* sin recetas, un «Todas» solo no dice nada */
+    var claves = [""].concat(Object.keys(todas).sort());
+    claves.forEach(function (clave) {
+      var b = document.createElement("button");
+      b.className = "filtro";
+      b.type = "button";
+      b.textContent = clave === "" ? "Todas" : clave;
+      b.setAttribute("aria-pressed", String(estado.filtro === clave));
+      b.addEventListener("click", function () { estado.filtro = clave; pintarFiltros(); pintarRecetas(); });
+      cont.appendChild(b);
+    });
+  }
+
+  /* Qué acuarela le toca a una receta sin foto, según su tipo de plato.
+     Se mira primero el nombre y las etiquetas; si no dicen nada, los ingredientes.
+     El orden importa: «lasaña» es horno antes que pasta, «tortilla de trigo» no es tortilla.
+     Van también palabras en inglés (recetas pegadas de internet) y en polaco (las de casa). */
+  var TIPOS_DE_PLATO = [
+    ["postre", ["tarta", "bizcocho", "galleta", "flan", "natillas", "postre", "dulce", "chocolate", "helado", "magdalena", "brownie", "arroz con leche", "cake", "cookie", "brownie", "muffin", "dessert", "pudding", "ciasto", "sernik", "szarlotka", "deser"]],
+    ["tortitas", ["crepe", "crêpe", "tortita", "pancake", "naleśnik", "pancake", "crepe", "waffle", "naleśnik", "racuch"]],
+    ["pizza", ["pizza"]],
+    ["tortilla", ["tortilla de patata", "tortilla española", "tortilla francesa", "tortilla catalana", "revuelto", "huevos", "omelette", "omelet", "frittata", "scrambled eggs", "eggs", "jajecznica", "omlet"]],
+    ["pescado", ["salmón", "merluza", "bacalao", "atún", "gamba", "pescado", "lubina", "dorada", "sardina", "calamar", "mejillón", "rape", "fish", "salmon", "cod", "tuna", "prawn", "shrimp", "hake", "łosoś", "ryba", "dorsz", "krewetk"]],
+    ["sopa", ["sopa", "crema de", "caldo", "puré", "gazpacho", "salmorejo", "soup", "broth", "chowder", "zupa", "rosół", "barszcz", "żurek", "krem z"]],
+    ["legumbres", ["lenteja", "garbanzo", "alubia", "judías blancas", "fabada", "cocido", "lentil", "chickpea", "bean", "soczewic", "ciecierzyc", "fasol"]],
+    ["arroz", ["arroz", "paella", "risotto", "rice", "risotto", "paella", "ryż"]],
+    ["horno", ["lasaña", "gratinad", "empanada", "al horno", "canelones", "musaka", "lasagna", "lasagne", "gratin", "casserole", " pie", "shepherd", "zapiekank"]],
+    ["pasta", ["pasta", "espaguetis", "macarrones", "orzo", "fideos", "tallarines", "ñoquis", "raviolis", "tortellini", "pasta", "spaghetti", "noodle", "penne", "macaroni", "gnocchi", "makaron", "pierogi", "kluski", "kopytka"]],
+    ["ensalada", ["ensalada", "salad", "sałatk", "surówk"]],
+    ["pollo", ["pollo", "alitas", "muslos", "pechuga", "chicken", "wings", "drumstick", "thigh", "kurczak", "skrzydełk", "udko"]],
+    ["carne", ["carne", "ternera", "cerdo", "cordero", "filete", "hamburguesa", "albóndigas", "chuleta", "lomo", "estofado", "salchicha", "beef", "pork", "lamb", "steak", "burger", "meatball", "sausage", "mince", "wołowin", "wieprzow", "schab", "kotlet", "klopsik", "gulasz", "kiełbas"]],
+    ["verdura", ["verdura", "calabacín", "espinaca", "brócoli", "berenjena", "coliflor", "pisto", "calabaza", "setas", "vegetable", "veggie", "courgette", "zucchini", "spinach", "broccoli", "aubergine", "eggplant", "cauliflower", "squash", "mushroom", "warzyw", "cukini", "szpinak", "brokuł", "kalafior", "grzyb"]],
+  ];
+  function tipoDePlato(r) {
+    var buscar = function (texto) {
+      texto = texto.toLowerCase();
+      var t = TIPOS_DE_PLATO.find(function (tipo) {
+        return tipo[1].some(function (palabra) { return texto.indexOf(palabra) >= 0; });
+      });
+      return t ? t[0] : null;
+    };
+    return buscar((r.nombre || "") + " " + (r.etiquetas || []).join(" "))
+      || buscar((r.ingredientes || []).map(function (i) { return i.nombre; }).join(" | ").replace(/tortillas? de trigo/g, ""));
+  }
+  var DEL_ARCHIVO = {};   /* las recetas de recetas.js tienen su propia acuarela, dibujada para ellas */
+  (window.RECETAS || []).forEach(function (r) { DEL_ARCHIVO[r.id] = true; });
+
+  /* La foto de verdad si la hay. Si no: las de recetas.js, su acuarela; las nuevas, el icono de su
+     tipo de plato (ico-<tipo>.svg, de figma/generar-iconos.mjs); y si no se sabe, ico-generico. */
+  function imagenDe(r) {
+    var img = document.createElement("img");
+    img.alt = "";
+    img.loading = "lazy";
+    var tipo = tipoDePlato(r);
+    img.src = r.foto || (DEL_ARCHIVO[r.id] ? "fotos/ph-" + r.id + ".svg"
+      : "fotos/ico-" + (tipo || "generico") + ".svg");
+    img.addEventListener("error", function () {
+      if (img.getAttribute("src").indexOf("ph-generico") < 0) img.src = "fotos/ph-generico.svg";
+    });
+    return img;
+  }
+
+  function tarjeta(r, alElegir) {
+    var b = document.createElement("button");
+    b.className = "receta";
+    b.type = "button";
+    var foto = document.createElement("div");
+    foto.className = "foto";
+    foto.appendChild(imagenDe(r));
+    var cuerpo = document.createElement("div");
+    cuerpo.className = "cuerpo";
+    var h = document.createElement("h3");
+    h.textContent = r.nombre;
+    var meta = document.createElement("p");
+    meta.className = "meta";
+    meta.textContent = [r.tiempo, r.personas + " pers."].filter(Boolean).join(" · ");
+    var tags = document.createElement("div");
+    tags.className = "etiquetas";
+    (r.etiquetas || []).slice(0, 3).forEach(function (e) {
+      var s = document.createElement("span");
+      s.className = "etiqueta";
+      s.textContent = e;
+      tags.appendChild(s);
+    });
+    cuerpo.appendChild(h); cuerpo.appendChild(meta); cuerpo.appendChild(tags);
+    b.appendChild(foto); b.appendChild(cuerpo);
+    b.addEventListener("click", function () { alElegir(r); });
+    return b;
+  }
+
+  function pintarRecetas() {
+    var lista = $("lista-recetas");
+    lista.textContent = "";
+    var visibles = recetas().filter(function (r) { return !estado.filtro || (r.etiquetas || []).indexOf(estado.filtro) >= 0; });
+    visibles.forEach(function (r) { lista.appendChild(tarjeta(r, verReceta)); });
+    $("cuenta-recetas").textContent = recetas().length ? visibles.length + " de " + recetas().length : "";
+    if (!recetas().length) {
+      var vacio = document.createElement("div");
+      vacio.className = "aviso-vacio";
+      vacio.textContent = "Todavía no hay recetas. Añade la primera: escríbela, pégala de internet o empieza por una foto.";
+      lista.appendChild(vacio);
+    }
+  }
+
+  function escala(cantidad, r) {
+    if (!cantidad) return 0;
+    var f = estado.personas / (r.personas || 4);
+    var v = cantidad * f;
+    return Math.round(v * 100) / 100;
+  }
+
+  /* "300 g lentejas", pero "3 × cebolla" cuando la unidad es sólo una cuenta. */
+  function cantidadTexto(cantidad, unidad) {
+    if (!cantidad) return "";
+    if (!unidad || unidad === "ud") return cantidad + " × ";
+    return cantidad + " " + unidad + " ";
+  }
+
+  function textoIngrediente(ing, r) {
+    return cantidadTexto(escala(ing.cantidad, r), ing.unidad) + ing.nombre;
+  }
+
+  /* «Compartir receta»: el texto está pensado para que, si la otra persona también tiene la app,
+     lo pegue en «Pegar una receta» y se rellene todo solo (ver procesar-pegado). Las notas no van:
+     suelen ser dudas o apuntes de casa. */
+  function textoReceta(r) {
+    var lineas = ["*" + r.nombre + "*"];
+    lineas.push([r.tiempo, "para " + estado.personas + " personas"].filter(Boolean).join(" · "));
+    lineas.push("", "Ingredientes");
+    r.ingredientes.forEach(function (ing) { lineas.push("• " + textoIngrediente(ing, r)); });
+    if (r.pasos && r.pasos.length) {
+      lineas.push("", "Cómo se hace");
+      r.pasos.forEach(function (paso, i) { lineas.push((i + 1) + ". " + paso); });
+    }
+    lineas.push("", "Hecha con Comidas de casa 🍲" + (location.protocol.indexOf("http") === 0 ? " " + location.origin + location.pathname : ""));
+    return lineas.join("\n");
+  }
+
+  function compartirReceta(r) {
+    var texto = textoReceta(r);
+    var soloTexto = function () {
+      if (navigator.share) return navigator.share({ title: r.nombre, text: texto }).catch(function () {});
+      window.open("https://wa.me/?text=" + encodeURIComponent(texto), "_blank");
+    };
+    /* Si la receta tiene su propia foto y el móvil deja mandar archivos, la foto va con ella */
+    if (r.foto && r.foto.indexOf("data:") === 0 && navigator.canShare) {
+      fetch(r.foto).then(function (res) { return res.blob(); }).then(function (blob) {
+        var archivo = new File([blob], "receta.jpg", { type: blob.type || "image/jpeg" });
+        if (navigator.canShare({ files: [archivo] })) {
+          navigator.share({ title: r.nombre, text: texto, files: [archivo] }).catch(function () {});
+        } else soloTexto();
+      }).catch(soloTexto);
+      return;
+    }
+    soloTexto();
+  }
+
+  function verReceta(r) {
+    var d = $("detalle");
+    d.textContent = "";
+    var cab = document.createElement("div");
+    cab.className = "dialogo-cab";
+    var h = document.createElement("h2");
+    h.style.fontSize = "22px";
+    h.textContent = r.nombre;
+    var x = document.createElement("button");
+    x.className = "cerrar"; x.textContent = "✕";
+    x.addEventListener("click", function () { $("dlg-receta").close(); });
+    cab.appendChild(h); cab.appendChild(x);
+    d.appendChild(cab);
+
+    var meta = document.createElement("p");
+    meta.className = "apunte";
+    meta.textContent = [r.tiempo, "para " + estado.personas + " personas"].filter(Boolean).join(" · ");
+    d.appendChild(meta);
+
+    var grande = imagenDe(r);
+    grande.className = "foto-detalle";
+    d.appendChild(grande);
+
+    var t1 = document.createElement("h3"); t1.style.fontSize = "16px"; t1.textContent = "Ingredientes";
+    d.appendChild(t1);
+    var ul = document.createElement("ul");
+    ul.className = "lista-simple";
+    r.ingredientes.forEach(function (ing) {
+      var li = document.createElement("li");
+      li.textContent = textoIngrediente(ing, r);
+      ul.appendChild(li);
+    });
+    d.appendChild(ul);
+
+    if (r.pasos && r.pasos.length) {
+      var t2 = document.createElement("h3"); t2.style.fontSize = "16px"; t2.textContent = "Cómo se hace";
+      d.appendChild(t2);
+      var ol = document.createElement("ol");
+      ol.className = "lista-simple";
+      r.pasos.forEach(function (p) { var li = document.createElement("li"); li.textContent = p; ol.appendChild(li); });
+      d.appendChild(ol);
+    }
+    if (r.notas) {
+      var n = document.createElement("p");
+      n.className = "apunte";
+      n.textContent = "Nota: " + r.notas;
+      d.appendChild(n);
+    }
+
+    /* «Añadir a la semana» pregunta qué día; los días ocupados enseñan lo que ya hay */
+    var añadir = document.createElement("button");
+    añadir.className = "boton ancho";
+    añadir.textContent = "Añadir a la semana";
+    añadir.addEventListener("click", function () {
+      var dias = document.createElement("div");
+      dias.className = "dias-elegir";
+      DIAS.forEach(function (dia) {
+        var ya = estado.plan[dia] ? receta(estado.plan[dia]) : null;
+        var chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "dia-chip";
+        var b = document.createElement("b"); b.textContent = dia;
+        var s = document.createElement("small"); s.textContent = ya ? ya.nombre : "libre";
+        chip.appendChild(b); chip.appendChild(s);
+        chip.addEventListener("click", function () {
+          estado.plan[dia] = r.id;
+          almacen.guardar("plan", estado.plan);
+          $("dlg-receta").close();
+          pintarSemana(); pintarCompra();
+          irA("semana");
+        });
+        dias.appendChild(chip);
+      });
+      var pregunta = document.createElement("h3");
+      pregunta.style.fontSize = "16px";
+      pregunta.textContent = "¿Qué día?";
+      añadir.replaceWith(pregunta);
+      pregunta.after(dias);
+    });
+    d.appendChild(añadir);
+
+    var compartir = document.createElement("button");
+    compartir.className = "boton claro ancho";
+    compartir.textContent = "Compartir receta";
+    compartir.addEventListener("click", function () { compartirReceta(r); });
+    d.appendChild(compartir);
+
+    var editar = document.createElement("button");
+    editar.className = "boton claro ancho";
+    editar.textContent = "Editar esta receta";
+    editar.addEventListener("click", function () {
+      $("dlg-receta").close();
+      abrirFormulario(r);
+    });
+    d.appendChild(editar);
+
+    $("dlg-receta").showModal();
+  }
+
+  /* ── Semana ── */
+  function pintarSemana() {
+    var cont = $("semana");
+    cont.textContent = "";
+    DIAS.forEach(function (dia) {
+      var fila = document.createElement("div");
+      fila.className = "dia";
+      var nombre = document.createElement("span");
+      nombre.className = "nombre-dia";
+      nombre.textContent = dia;
+      var r = estado.plan[dia] ? receta(estado.plan[dia]) : null;
+      var plato;
+      if (r) {
+        /* Tocar el plato abre su receta: es lo que se quiere el día que toca cocinarlo. */
+        plato = document.createElement("button");
+        plato.type = "button";
+        plato.className = "plato enlace";
+        plato.title = "Ver la receta";
+        plato.textContent = r.nombre;
+        plato.addEventListener("click", function () { verReceta(r); });
+      } else {
+        plato = document.createElement("span");
+        plato.className = "plato vacio";
+        plato.textContent = "sin plato";
+      }
+      var acciones = document.createElement("span");
+      acciones.className = "acciones";
+
+      var elegir = document.createElement("button");
+      elegir.className = "mini";
+      elegir.title = r ? "Cambiar" : "Elegir plato";
+      elegir.textContent = r ? "↻" : "+";
+      elegir.addEventListener("click", function () { abrirElegir(dia); });
+      acciones.appendChild(elegir);
+
+      if (r) {
+        var quitar = document.createElement("button");
+        quitar.className = "mini";
+        quitar.title = "Quitar";
+        quitar.textContent = "✕";
+        quitar.addEventListener("click", function () {
+          delete estado.plan[dia];
+          almacen.guardar("plan", estado.plan);
+          pintarSemana(); pintarCompra();
+        });
+        acciones.appendChild(quitar);
+      }
+
+      fila.appendChild(nombre); fila.appendChild(plato); fila.appendChild(acciones);
+      cont.appendChild(fila);
+    });
+    $("compartir-menu").disabled = !DIAS.some(function (d) { return estado.plan[d] && receta(estado.plan[d]); });
+  }
+
+  function abrirElegir(dia) {
+    $("elegir-titulo").textContent = "¿Qué comemos el " + dia + "?";
+    var lista = $("elegir-lista");
+    lista.textContent = "";
+    recetas().forEach(function (r) {
+      lista.appendChild(tarjeta(r, function () {
+        estado.plan[dia] = r.id;
+        almacen.guardar("plan", estado.plan);
+        $("dlg-elegir").close();
+        pintarSemana(); pintarCompra();
+      }));
+    });
+    $("dlg-elegir").showModal();
+  }
+
+  /* ── Compra ── */
+  function juntarCompra() {
+    var mapa = {};
+    diasDeCompra().forEach(function (dia) {
+      var r = estado.plan[dia] ? receta(estado.plan[dia]) : null;
+      if (!r) return;
+      r.ingredientes.forEach(function (ing) {
+        var esBasico = ing.basico || BASICOS.indexOf(ing.nombre.toLowerCase()) >= 0;
+        if (esBasico && !estado.verBasicos) return;
+        var clave = (ing.nombre + "|" + (ing.unidad || "")).toLowerCase();
+        if (!mapa[clave]) {
+          mapa[clave] = { nombre: ing.nombre, unidad: ing.unidad || "", categoria: ing.categoria || "despensa", cantidad: 0, platos: [] };
+        }
+        mapa[clave].cantidad += escala(ing.cantidad, r);
+        if (mapa[clave].platos.indexOf(r.nombre) < 0) mapa[clave].platos.push(r.nombre);
+      });
+    });
+    return Object.keys(mapa).map(function (k) {
+      var a = mapa[k];
+      /* En la lista no vale "1,5 cebolla": se compran enteras. En la receta sí se ve exacto. */
+      if (!a.unidad || a.unidad === "ud") a.cantidad = Math.ceil(a.cantidad);
+      return a;
+    });
+  }
+
+  function pintarDiasCompra() {
+    var conPlato = DIAS.filter(function (d) { return estado.plan[d] && receta(estado.plan[d]); });
+    $("para-dias").hidden = conPlato.length < 2;   /* con un solo día no hay nada que elegir */
+    var dentro = diasDeCompra();
+    var cont = $("dias-compra");
+    cont.textContent = "";
+    conPlato.forEach(function (d) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = d;
+      b.setAttribute("aria-pressed", dentro.indexOf(d) >= 0 ? "true" : "false");
+      b.addEventListener("click", function () {
+        var nuevos = dentro.indexOf(d) >= 0 ? dentro.filter(function (x) { return x !== d; }) : dentro.concat([d]);
+        if (!nuevos.length) return;   /* siempre queda al menos un día */
+        estado.diasCompra = nuevos.length === conPlato.length ? null : nuevos;
+        almacen.guardar("diasCompra", estado.diasCompra);
+        pintarCompra();
+      });
+      cont.appendChild(b);
+    });
+  }
+
+  function pintarCompra() {
+    pintarDiasCompra();
+    var cont = $("compra");
+    cont.textContent = "";
+    var articulos = juntarCompra();
+    var total = articulos.length + estado.extras.length;
+    var pip = $("pip-compra");
+    pip.hidden = total === 0;
+    pip.textContent = total;
+
+    if (!total) {
+      var vacio = document.createElement("div");
+      vacio.className = "aviso-vacio";
+      vacio.textContent = "Elige los platos de la semana y aquí aparecerá la compra.";
+      cont.appendChild(vacio);
+      $("compartir").disabled = true;
+      $("copiar").disabled = true;
+      return;
+    }
+    $("compartir").disabled = false;
+    $("copiar").disabled = false;
+    var claves = [];  /* todo lo que hay en la lista, para saber cuándo está todo comprado */
+    var listo = document.createElement("div");
+    listo.className = "listo";
+    listo.textContent = "✓ ¡Listo! Tienes todo lo necesario.";
+    function actualizarListo() {
+      listo.hidden = !claves.every(function (c) { return estado.marcados[c]; });
+    }
+
+    ORDEN_CATEGORIAS.forEach(function (cat) {
+      var delGrupo = articulos.filter(function (a) { return a.categoria === cat; });
+      if (!delGrupo.length) return;
+      var caja = document.createElement("div");
+      caja.className = "grupo";
+      var h = document.createElement("h3");
+      h.textContent = NOMBRE_CATEGORIA[cat] || cat;
+      caja.appendChild(h);
+      delGrupo.sort(function (a, b) { return a.nombre.localeCompare(b.nombre); });
+      delGrupo.forEach(function (a) {
+        var clave = (a.nombre + "|" + a.unidad).toLowerCase();
+        claves.push(clave);
+        var fila = document.createElement("label");
+        fila.className = "articulo" + (estado.marcados[clave] ? " marcado" : "");
+        var check = document.createElement("input");
+        check.type = "checkbox";
+        check.checked = !!estado.marcados[clave];
+        check.addEventListener("change", function () {
+          estado.marcados[clave] = check.checked;
+          almacen.guardar("marcados", estado.marcados);
+          fila.classList.toggle("marcado", check.checked);
+          actualizarListo();
+        });
+        var txt = document.createElement("span");
+        txt.textContent = cantidadTexto(a.cantidad, a.unidad) + a.nombre;
+        var para = document.createElement("small");
+        para.textContent = a.platos.join(", ");
+        fila.appendChild(check); fila.appendChild(txt); fila.appendChild(para);
+        caja.appendChild(fila);
+      });
+      cont.appendChild(caja);
+    });
+
+    /* Lo que se añade a mano: no viene de ninguna receta. */
+    if (estado.extras.length) {
+      var suelto = document.createElement("div");
+      suelto.className = "grupo";
+      var titulo = document.createElement("h3");
+      titulo.textContent = "A mano";
+      suelto.appendChild(titulo);
+      estado.extras.forEach(function (texto, i) {
+        var clave = "extra|" + texto.toLowerCase();
+        claves.push(clave);
+        var fila = document.createElement("label");
+        fila.className = "articulo" + (estado.marcados[clave] ? " marcado" : "");
+        var check = document.createElement("input");
+        check.type = "checkbox";
+        check.checked = !!estado.marcados[clave];
+        check.addEventListener("change", function () {
+          estado.marcados[clave] = check.checked;
+          almacen.guardar("marcados", estado.marcados);
+          fila.classList.toggle("marcado", check.checked);
+          actualizarListo();
+        });
+        var txt = document.createElement("span");
+        txt.textContent = texto;
+        var quitar = document.createElement("button");
+        quitar.type = "button";
+        quitar.className = "quitar-extra";
+        quitar.title = "Quitar de la lista";
+        quitar.textContent = "✕";
+        quitar.addEventListener("click", function (e) {
+          e.preventDefault();
+          estado.extras.splice(i, 1);
+          almacen.guardar("extras", estado.extras);
+          pintarCompra();
+        });
+        fila.appendChild(check); fila.appendChild(txt); fila.appendChild(quitar);
+        suelto.appendChild(fila);
+      });
+      cont.appendChild(suelto);
+    }
+    cont.appendChild(listo);
+    actualizarListo();
+  }
+
+  function textoCompra() {
+    var dias = diasDeCompra();
+    var todos = DIAS.filter(function (d) { return estado.plan[d] && receta(estado.plan[d]); });
+    var lineas = [dias.length < todos.length ? "🛒 La compra para " + dias.join(", ") : "🛒 La compra de esta semana", ""];
+    var articulos = juntarCompra();
+    ORDEN_CATEGORIAS.forEach(function (cat) {
+      var delGrupo = articulos.filter(function (a) { return a.categoria === cat; });
+      if (!delGrupo.length) return;
+      lineas.push("*" + (NOMBRE_CATEGORIA[cat] || cat) + "*");
+      delGrupo.sort(function (a, b) { return a.nombre.localeCompare(b.nombre); });
+      delGrupo.forEach(function (a) {
+        lineas.push("• " + cantidadTexto(a.cantidad, a.unidad) + a.nombre);
+      });
+      lineas.push("");
+    });
+    if (estado.extras.length) {
+      lineas.push("*A mano*");
+      estado.extras.forEach(function (t) { lineas.push("• " + t); });
+      lineas.push("");
+    }
+    var platos = dias.map(function (d) { return d + ": " + receta(estado.plan[d]).nombre; });
+    if (platos.length) { lineas.push("Menú: " + platos.join(" · ")); }
+    return lineas.join("\n");
+  }
+
+  /* ── Añadir receta ── */
+  var UNIDADES = ["g", "kg", "ml", "l", "ud", "lata", "latas", "cda", "cdta", "diente", "dientes", "paquete", "rama", "hoja", "pizca"];
+
+  function categoriaDe(nombre) {
+    var n = nombre.toLowerCase();
+    var encontrada = "despensa";
+    Object.keys(PISTAS).forEach(function (cat) {
+      PISTAS[cat].forEach(function (pista) {
+        if (n.indexOf(pista) >= 0) encontrada = cat;
+      });
+    });
+    return encontrada;
+  }
+
+  function parsearIngrediente(linea) {
+    var texto = linea.replace(/^[-*•\s]+/, "").replace(/^(\d+[.,]?\d*)\s*×\s*/, "$1 ").trim();
+    if (!texto) return null;
+    var m = texto.match(/^(\d+[.,]?\d*)\s*([a-zA-Zñáéíóú]+)?\s+(.*)$/);
+    var cantidad = 0, unidad = "", nombre = texto;
+    if (m) {
+      cantidad = parseFloat(m[1].replace(",", "."));
+      var posible = (m[2] || "").toLowerCase();
+      if (UNIDADES.indexOf(posible) >= 0) { unidad = posible; nombre = m[3]; }
+      else { unidad = "ud"; nombre = ((m[2] || "") + " " + m[3]).trim(); }
+    }
+    return { cantidad: cantidad, unidad: unidad, nombre: nombre.trim(), categoria: categoriaDe(nombre) };
+  }
+
+  $("procesar-pegado").addEventListener("click", function () {
+    var lineas = $("pegado").value.split("\n").map(function (l) { return l.trim(); }).filter(Boolean);
+    var ingredientes = [], pasos = [], nombre = "";
+    lineas = lineas.filter(function (l) {
+      /* Lo que añade «Compartir receta»: títulos, la línea de tiempo y personas, y la firma */
+      if (/^(ingredientes|cómo se hace|preparación|pasos)\s*:?$/i.test(l)) return false;
+      if (/^hecha con comidas de casa/i.test(l)) return false;
+      var meta = l.match(/para (\d+) personas?/i);
+      if (meta) {
+        $("n-personas").value = meta[1];
+        var tiempo = l.split("·")[0].trim();
+        if (tiempo && !/personas?/i.test(tiempo) && !$("n-tiempo").value) $("n-tiempo").value = tiempo;
+        return false;
+      }
+      return true;
+    });
+    lineas.forEach(function (l, i) {
+      l = l.replace(/^\*(.+)\*$/, "$1");   /* la negrita de WhatsApp en el nombre */
+      if (i === 0 && !/\d/.test(l) && l.length < 60) { nombre = l; return; }
+      if (/^\d+[.)]\s/.test(l) || l.split(" ").length > 9) pasos.push(l.replace(/^\d+[.)]\s*/, ""));
+      else ingredientes.push(l.replace(/^[-*•\s]+/, "").replace(/^(\d+[.,]?\d*)\s*×\s*/, "$1 "));
+    });
+    if (nombre && !$("n-nombre").value) $("n-nombre").value = nombre;
+    $("n-ingredientes").value = ingredientes.join("\n");
+    if (pasos.length) $("n-pasos").value = pasos.join("\n");
+  });
+
+  /* ── El mismo formulario sirve para añadir y para editar ── */
+  var editando = null;   /* id de la receta que se está editando, o null */
+  var fotoNueva = null;  /* la foto elegida, ya achicada */
+
+  function abrirFormulario(r) {
+    editando = r ? r.id : null;
+    fotoNueva = r ? r.foto || null : null;
+    $("titulo-formulario").textContent = r ? "Editar receta" : "Añadir una receta";
+    $("n-nombre").value = r ? r.nombre : "";
+    $("n-personas").value = r ? r.personas || 4 : 4;
+    $("n-tiempo").value = r ? r.tiempo || "" : "";
+    $("n-etiquetas").value = r ? (r.etiquetas || []).join(", ") : "";
+    $("n-ingredientes").value = r
+      ? r.ingredientes.map(function (i) {
+          return (i.cantidad ? i.cantidad + " " + (i.unidad || "") + " " : "") + i.nombre;
+        }).join("\n")
+      : "";
+    $("n-pasos").value = r ? (r.pasos || []).join("\n") : "";
+    $("n-notas").value = r ? r.notas || "" : "";
+    $("pegado").value = "";
+    $("n-foto-aviso").textContent = "";
+    $("borrar-receta").hidden = !r;
+    /* «Pegar» sólo al añadir; «Más detalles» abierto si la receta ya tiene etiquetas o notas */
+    $("bloque-pegar").hidden = !!r;
+    $("bloque-pegar").open = false;
+    $("mas-detalles").open = !!(r && ((r.etiquetas && r.etiquetas.length) || r.notas));
+    pintarFotoFormulario();
+    $("dlg-nueva").showModal();
+  }
+
+  /* ── «¿Cómo quieres añadirla?» ── */
+  function abrirComo() { $("dlg-como").showModal(); }
+  document.querySelectorAll("[data-como]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var como = b.dataset.como;
+      $("dlg-como").close();
+      abrirFormulario(null);
+      if (como === "pegar") {
+        $("bloque-pegar").open = true;
+        $("pegado").focus();
+      } else if (como === "foto") {
+        $("n-foto").click();   /* abre la cámara o la galería */
+      } else {
+        $("n-nombre").focus();
+      }
+    });
+  });
+
+  function pintarFotoFormulario() {
+    var vista = $("n-foto-vista");
+    vista.hidden = !fotoNueva;
+    if (fotoNueva) vista.src = fotoNueva;
+    $("n-foto-quitar").hidden = !fotoNueva;
+  }
+
+  /* Una foto de móvil son 4 MB: aquí no cabe, así que se achica antes de guardarla. */
+  function encogerFoto(archivo, listo) {
+    var lector = new FileReader();
+    lector.onerror = function () { listo(null); };
+    lector.onload = function () {
+      var img = new Image();
+      img.onerror = function () { listo(null); };
+      img.onload = function () {
+        var escala = Math.min(1, 900 / Math.max(img.width, img.height));
+        var lienzo = document.createElement("canvas");
+        lienzo.width = Math.round(img.width * escala);
+        lienzo.height = Math.round(img.height * escala);
+        lienzo.getContext("2d").drawImage(img, 0, 0, lienzo.width, lienzo.height);
+        listo(lienzo.toDataURL("image/jpeg", 0.62));
+      };
+      img.src = lector.result;
+    };
+    lector.readAsDataURL(archivo);
+  }
+
+  $("n-foto").addEventListener("change", function () {
+    var archivo = this.files && this.files[0];
+    this.value = "";
+    if (!archivo) return;
+    $("n-foto-aviso").textContent = "Preparando la foto…";
+    encogerFoto(archivo, function (dato) {
+      fotoNueva = dato;
+      $("n-foto-aviso").textContent = dato ? "" : "No he podido leer esa foto.";
+      pintarFotoFormulario();
+    });
+  });
+
+  $("n-foto-quitar").addEventListener("click", function () {
+    fotoNueva = null;
+    pintarFotoFormulario();
+  });
+
+  $("guardar-receta").addEventListener("click", function () {
+    var nombre = $("n-nombre").value.trim();
+    var lineas = $("n-ingredientes").value.split("\n").map(parsearIngrediente).filter(Boolean);
+    if (!nombre || !lineas.length) {
+      alert("Hace falta al menos el nombre y un ingrediente.");
+      return;
+    }
+    var receta = {
+      id: editando || "propia-" + Date.now(),
+      nombre: nombre,
+      personas: parseInt($("n-personas").value, 10) || 4,
+      tiempo: $("n-tiempo").value.trim(),
+      etiquetas: $("n-etiquetas").value.split(",").map(function (e) { return e.trim(); }).filter(Boolean),
+      ingredientes: lineas,
+      pasos: $("n-pasos").value.split("\n").map(function (p) { return p.trim(); }).filter(Boolean),
+      notas: $("n-notas").value.trim(),
+    };
+    if (fotoNueva) receta.foto = fotoNueva;
+
+    var esPropia = estado.propias.some(function (p) { return p.id === receta.id; });
+    var guardado;
+    if (!editando) {
+      estado.propias.push(receta);
+      guardado = almacen.guardar("propias", estado.propias);
+      if (!guardado) estado.propias.pop();
+    } else if (esPropia) {
+      estado.propias = estado.propias.map(function (p) { return p.id === receta.id ? receta : p; });
+      guardado = almacen.guardar("propias", estado.propias);
+    } else {
+      estado.cambios[receta.id] = receta;
+      guardado = almacen.guardar("cambios", estado.cambios);
+      if (!guardado) delete estado.cambios[receta.id];
+    }
+    if (!guardado) {
+      alert("No he podido guardarlo: este móvil se ha quedado sin sitio. Quita alguna foto y vuelve a probar.");
+      return;
+    }
+
+
+    editando = null;
+    fotoNueva = null;
+    $("dlg-nueva").close();
+    pintarFiltros(); pintarRecetas(); pintarSemana(); pintarCompra();
+  });
+
+  $("borrar-receta").addEventListener("click", function () {
+    if (!editando) return;
+    if (!confirm("¿Quitar esta receta de la lista?")) return;
+    if (estado.propias.some(function (p) { return p.id === editando; })) {
+      estado.propias = estado.propias.filter(function (p) { return p.id !== editando; });
+      almacen.guardar("propias", estado.propias);
+    } else {
+      estado.ocultas.push(editando);
+      almacen.guardar("ocultas", estado.ocultas);
+    }
+    delete estado.cambios[editando];
+    almacen.guardar("cambios", estado.cambios);
+    DIAS.forEach(function (d) { if (estado.plan[d] === editando) delete estado.plan[d]; });
+    almacen.guardar("plan", estado.plan);
+    editando = null;
+    $("dlg-nueva").close();
+    pintarFiltros(); pintarRecetas(); pintarSemana(); pintarCompra();
+  });
+
+  /* ── Navegación y ajustes ── */
+  function irA(vista) {
+    document.querySelectorAll(".vista").forEach(function (s) { s.classList.toggle("activa", s.id === "vista-" + vista); });
+    document.querySelectorAll("nav.pestanas button").forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.vista === vista)); });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  document.querySelectorAll("nav.pestanas button").forEach(function (b) {
+    b.addEventListener("click", function () { irA(b.dataset.vista); });
+  });
+  $("ir-compra").addEventListener("click", function () { irA("compra"); });
+  /* El logo y el nombre llevan al inicio: la lista de recetas, arriba */
+  $("ir-inicio").addEventListener("click", function () { irA("recetas"); });
+  $("abrir-nueva").addEventListener("click", abrirComo);
+  document.querySelectorAll("[data-cerrar]").forEach(function (b) {
+    b.addEventListener("click", function () { b.closest("dialog").close(); });
+  });
+
+  function cambiarPersonas(delta) {
+    estado.personas = Math.min(12, Math.max(1, estado.personas + delta));
+    almacen.guardar("personas", estado.personas);
+    $("num-personas").textContent = estado.personas;
+    pintarCompra();
+  }
+  $("mas").addEventListener("click", function () { cambiarPersonas(1); });
+  $("menos").addEventListener("click", function () { cambiarPersonas(-1); });
+
+  function ponerExtra() {
+    var texto = $("extra-nuevo").value.trim();
+    if (!texto) return;
+    estado.extras.push(texto);
+    almacen.guardar("extras", estado.extras);
+    $("extra-nuevo").value = "";
+    pintarCompra();
+  }
+  $("extra-poner").addEventListener("click", ponerExtra);
+  $("extra-nuevo").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") ponerExtra();
+  });
+
+  $("ver-basicos").checked = estado.verBasicos;
+  $("ver-basicos").addEventListener("change", function () {
+    estado.verBasicos = this.checked;
+    almacen.guardar("verBasicos", estado.verBasicos);
+    pintarCompra();
+  });
+
+  $("limpiar-semana").addEventListener("click", function () {
+    if (!confirm("¿Vaciar la semana entera?")) return;
+    estado.plan = {};
+    estado.marcados = {};
+    almacen.guardar("plan", estado.plan);
+    almacen.guardar("marcados", estado.marcados);
+    pintarSemana(); pintarCompra();
+  });
+
+  /* «Compartir con la familia»: el menú de la semana, para que todos sepan qué se come */
+  function textoMenu() {
+    var lineas = ["🍽️ Esta semana en casa", ""];
+    DIAS.forEach(function (d) {
+      var r = estado.plan[d] ? receta(estado.plan[d]) : null;
+      if (r) lineas.push(d.charAt(0).toUpperCase() + d.slice(1) + " · " + r.nombre);
+    });
+    return lineas.join("\n");
+  }
+  $("compartir-menu").addEventListener("click", function () {
+    var texto = textoMenu();
+    /* En el móvil se elige a quién (WhatsApp, mensajes, correo…); si no, WhatsApp */
+    if (navigator.share) navigator.share({ title: "Esta semana en casa", text: texto }).catch(function () {});
+    else window.open("https://wa.me/?text=" + encodeURIComponent(texto), "_blank");
+  });
+
+  $("compartir").addEventListener("click", function () {
+    window.open("https://wa.me/?text=" + encodeURIComponent(textoCompra()), "_blank");
+  });
+  $("copiar").addEventListener("click", function () {
+    var texto = textoCompra();
+    var avisar = function () {
+      $("aviso-copia").hidden = false;
+      setTimeout(function () { $("aviso-copia").hidden = true; }, 2500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(texto).then(avisar, avisar);
+    else avisar();
+  });
+
+  $("num-personas").textContent = estado.personas;
+  pintarFiltros();
+  pintarRecetas();
+  pintarSemana();
+  pintarCompra();
+
+  /* ── Bienvenida: sale sola la primera vez; luego, desde el «?» ── */
+  function abrirBienvenida() { $("dlg-bienvenida").showModal(); }
+  $("abrir-ayuda").addEventListener("click", abrirBienvenida);
+  $("bienvenida-receta").addEventListener("click", function () {
+    $("dlg-bienvenida").close();
+    abrirComo();
+  });
+  if (!almacen.leer("bienvenidaVista", false)) {
+    almacen.guardar("bienvenidaVista", true);
+    abrirBienvenida();
+  }
+
+  $("tengo-codigo").addEventListener("click", function () {
+    var codigo = prompt("Escribe tu código:");
+    if (!codigo) return;
+    if (codigo.trim().toLowerCase() !== CODIGO_RECETAS_DE_CASA) { alert("Ese código no es."); return; }
+    almacen.guardar("recetasDeCasa", true);
+    $("dlg-bienvenida").close();
+    pintarFiltros(); pintarRecetas(); pintarSemana(); pintarCompra();
+  });
+
+  /* ── Instalar en el móvil ──
+     Android (Chrome): el navegador avisa con «beforeinstallprompt» y el botón instala de verdad.
+     iPhone: Apple no deja instalar desde un botón, así que el botón enseña los tres pasos a mano.
+     Si ya está instalada (abierta desde el icono), el botón no sale. */
+  var avisoInstalar = null;
+  var instalada = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  var esIphone = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var botonesInstalar = document.querySelectorAll("[data-instalar]");
+  function mostrarInstalar(si) { botonesInstalar.forEach(function (b) { b.hidden = !si || instalada; }); }
+
+  window.addEventListener("beforeinstallprompt", function (e) {
+    e.preventDefault();
+    avisoInstalar = e;
+    mostrarInstalar(true);
+  });
+  window.addEventListener("appinstalled", function () { instalada = true; mostrarInstalar(false); });
+  /* En el iPhone el navegador no avisa: el botón sale siempre que no esté instalada. */
+  if (esIphone) mostrarInstalar(true);
+
+  botonesInstalar.forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (avisoInstalar) {
+        avisoInstalar.prompt();
+        avisoInstalar.userChoice.finally(function () { avisoInstalar = null; });
+        return;
+      }
+      /* iPhone, o un navegador que no deja instalar con un botón */
+      $("instalar-intro").hidden = !esIphone;
+      document.querySelectorAll("#dlg-instalar .paso-ios").forEach(function (p) { p.hidden = !esIphone; });
+      $("instalar-otro").hidden = esIphone;
+      var abierto = b.closest("dialog");
+      if (abierto) abierto.close();
+      $("dlg-instalar").showModal();
+    });
+  });
+
+  /* Sólo cuando está publicada: abriéndola desde el archivo no hace falta (ni funciona). */
+  if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
+})();
+</script>
+</body>
+</html>

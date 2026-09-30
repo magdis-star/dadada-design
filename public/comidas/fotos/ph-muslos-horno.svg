@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <filter id="agua1" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="4" seed="75" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="17" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="0.9"/>
+    </filter>
+    <filter id="agua2" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="67" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="1.3"/>
+    </filter>
+    <filter id="pluma" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="82" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="grano" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="400" height="300" fill="#FDF8F2"/>
+  <!-- El dibujo va agrandado: en el móvil la tarjeta recorta un cuadrado pequeño. -->
+  <g transform="translate(200 150) scale(1.3) translate(-200 -150)">
+  <ellipse cx="200.0" cy="178.0" rx="112.0" ry="46.0" fill="#F0E0CB" opacity="0.45" filter="url(#agua2)"/>
+  <ellipse cx="146.3" cy="170.2" rx="30.0" ry="20.0" fill="#D9A441" opacity="0.6" filter="url(#agua2)"/>
+  <ellipse cx="140.3" cy="166.2" rx="16.0" ry="10.0" fill="#E8C57E" opacity="0.5" filter="url(#agua2)"/>
+  <path d="M 118.27705357410014 174.18011156842113 q 28 -26 56 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" filter="url(#pluma)"/>
+  <ellipse cx="203.4" cy="174.6" rx="30.0" ry="20.0" fill="#D9A441" opacity="0.6" filter="url(#agua1)"/>
+  <ellipse cx="197.4" cy="170.6" rx="16.0" ry="10.0" fill="#E8C57E" opacity="0.5" filter="url(#agua2)"/>
+  <path d="M 175.4256251230836 178.6188225261867 q 28 -26 56 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" filter="url(#pluma)"/>
+  <ellipse cx="257.9" cy="178.9" rx="30.0" ry="20.0" fill="#D9A441" opacity="0.6" filter="url(#agua2)"/>
+  <ellipse cx="251.9" cy="174.9" rx="16.0" ry="10.0" fill="#E8C57E" opacity="0.5" filter="url(#agua2)"/>
+  <path d="M 229.9354306422174 182.9391226246953 q 28 -26 56 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" filter="url(#pluma)"/>
+  <ellipse cx="258.0" cy="208.0" rx="14.0" ry="7.0" fill="#8CA07A" opacity="0.55" filter="url(#agua2)"/>
+  <ellipse cx="150.0" cy="206.0" rx="11.0" ry="6.0" fill="#B6C49B" opacity="0.55" filter="url(#agua1)"/>
+  <path d="M 88 190 q 112 46 224 0" fill="none" stroke="#5A4A42" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" filter="url(#pluma)"/>
+  </g>
+  <rect width="400" height="300" filter="url(#grano)" opacity="0.07" style="mix-blend-mode: multiply"/>
+</svg>

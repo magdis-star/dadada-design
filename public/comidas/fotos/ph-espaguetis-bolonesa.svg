@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <filter id="agua1" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="4" seed="41" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="17" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="0.9"/>
+    </filter>
+    <filter id="agua2" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="43" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="1.3"/>
+    </filter>
+    <filter id="pluma" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="48" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="grano" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="400" height="300" fill="#FDF8F2"/>
+  <!-- El dibujo va agrandado: en el móvil la tarjeta recorta un cuadrado pequeño. -->
+  <g transform="translate(200 150) scale(1.3) translate(-200 -150)">
+  <ellipse cx="200.0" cy="170.0" rx="104.0" ry="40.0" fill="#F0E0CB" opacity="0.5" filter="url(#agua2)"/>
+  <path d="M 137.5879118675366 150.02832519309595 q 62.412088132463396 -14.508975801058114 124.82417626492679 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 124.46889303810894 156.10947199445218 q 75.53110696189106 -23.63370793266222 151.0622139237821 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 136.97679958166555 161.7874435794074 q 63.023200418334454 -20.633593328297138 126.04640083666891 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 122.99154971260577 163.5181041592732 q 77.00845028739423 -23.52266759937629 154.01690057478845 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 139.91362088173628 168.93558475119062 q 60.08637911826372 -19.879581915214658 120.17275823652744 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 106.71056533884257 173.06472343672067 q 93.28943466115743 -23.977557726670057 186.57886932231486 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 111.28398975776508 177.30836284370162 q 88.71601024223492 -17.772792445961386 177.43202048446983 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 132.79829500149935 182.43159798905253 q 67.20170499850065 -20.164503877516836 134.4034099970013 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <path d="M 107.30750920623541 187.33688093419187 q 92.69249079376459 -18.95009551756084 185.38498158752918 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.42" filter="url(#pluma)"/>
+  <ellipse cx="206.0" cy="152.0" rx="46.0" ry="22.0" fill="#C85D48" opacity="0.55" filter="url(#agua1)"/>
+  <ellipse cx="190.0" cy="146.0" rx="24.0" ry="12.0" fill="#A8492F" opacity="0.45" filter="url(#agua2)"/>
+  <ellipse cx="236.0" cy="168.0" rx="10.0" ry="6.0" fill="#8CA07A" opacity="0.55" filter="url(#agua2)"/>
+  </g>
+  <rect width="400" height="300" filter="url(#grano)" opacity="0.07" style="mix-blend-mode: multiply"/>
+</svg>

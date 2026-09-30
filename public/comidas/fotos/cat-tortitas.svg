@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <filter id="agua1" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="4" seed="43" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="17" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="0.9"/>
+    </filter>
+    <filter id="agua2" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="87" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="1.3"/>
+    </filter>
+    <filter id="pluma" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="50" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="grano" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="400" height="300" fill="#FDF8F2"/>
+  <!-- El dibujo va agrandado: en el móvil la tarjeta recorta un cuadrado pequeño. -->
+  <g transform="translate(200 150) scale(1.3) translate(-200 -150)">
+  <ellipse cx="200.2" cy="196.0" rx="86.0" ry="26.0" fill="#E8C57E" opacity="0.5" filter="url(#agua1)"/>
+  <ellipse cx="201.4" cy="174.0" rx="82.0" ry="26.0" fill="#E8C57E" opacity="0.5" filter="url(#agua2)"/>
+  <ellipse cx="203.7" cy="152.0" rx="78.0" ry="26.0" fill="#E8C57E" opacity="0.5" filter="url(#agua1)"/>
+  <path d="M 114 196 q 86 22.952314529567957 172 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.35" filter="url(#pluma)"/>
+  <path d="M 114 174 q 86 21.735921355895698 172 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.35" filter="url(#pluma)"/>
+  <path d="M 114 152 q 86 19.460063556209207 172 0" fill="none" stroke="#5A4A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.35" filter="url(#pluma)"/>
+  <path d="M 168 140 q 26 -22 52 -4 q 18 14 -4 22 q -30 8 -48 -18 Z" fill="#8E4B52" opacity="0.5" filter="url(#agua2)"/>
+  </g>
+  <rect width="400" height="300" filter="url(#grano)" opacity="0.07" style="mix-blend-mode: multiply"/>
+</svg>
