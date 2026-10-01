@@ -5,7 +5,7 @@
  * y mientras tanto se baja la versión nueva en segundo plano. O sea: los cambios que
  * hagas en `recetas.js` se ven la siguiente vez que abras la app, no al momento.
  */
-var CACHE = "comidas-v12";
+var CACHE = "comidas-v13";
 var ARCHIVOS = ["./", "./index.html", "./recetas.js", "./logo.png", "./icono.png", "./manifest.json"];
 
 self.addEventListener("install", function (e) {
